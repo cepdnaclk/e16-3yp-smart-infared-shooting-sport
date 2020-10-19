@@ -15,12 +15,14 @@ Not enough game modes/options.
 Not smart enough.
 Not updatable
 
-So we planned develop a new system which is,
+So we planned develop a new system which is
+
 Shoot father up to 100ft
 And make cheaper to produce 
 And most importantly we want to make our system smart.
 
-Target audiences 
+Target audiences
+
 Both,
 Companies  for Commercial laser tag systems ,
 and any other user who like to buy a pair of guns or more.
