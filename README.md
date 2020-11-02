@@ -13,7 +13,7 @@ Infrared games are originated in the united states as a replicate of star wars l
 which is a popular movie hit.Now laser/IR shooting sports are popular in all over the world.
 There are many Commercial laser tag and Toy class guns are available in the market now.
  
- 
+ ![](images/blog.png)
 ### But why we need X-TAG which is our new smart infrared shooting sport system:
 
 * current related product are,
