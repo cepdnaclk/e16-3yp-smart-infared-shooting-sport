@@ -30,7 +30,9 @@ There are many Commercial laser tag and Toy class guns are available in the mark
 * Shoot father up to 100ft
 * And make cheaper to produce 
 * And most importantly we want to make our system smart.
+
 Hardware list
+
 IR emitter
 This is the heart of the this project and it is very challenging when we use IR communication for this kind of purpose. To shoot further we Planned used high power IR
 IR emitter - TSUS5202 power= 170mW , 150mA Since Atmega IC cant give 100 mA for the transistor is used BD139 and a lens is used to focus - Diameter about 38mm (1.5″)
