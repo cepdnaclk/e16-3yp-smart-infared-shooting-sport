@@ -1,4 +1,5 @@
 
+
 # e16-3yp-smart-infared-shooting-sport
 
 This is the 3rd year embedded system project 
@@ -14,7 +15,7 @@ Infrared games are originated in the united states as a replicate of star wars l
 which is a popular movie hit.Now laser/IR shooting sports are popular in all over the world.
 There are many Commercial laser tag and Toy class guns are available in the market now.
  
-![](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/images/blog.png)
+ ![](images/blog.png)
 ### But why we need X-TAG which is our new smart infrared shooting sport system:
 
 * current related product are,
@@ -71,10 +72,113 @@ purpose.
 
 And also push button and RGB LED are used.
 
+## Circuit Block of the gun and headband
+
+ ![](images/blog.png)
+
+### IR circuit
+ ![](images/IR emitter.jpg)
+### IR lens
+ ![](images/ir lens.jpg)
+
+### **IR Receiver**
+
+ ![](images/TSOP1738-Pin-Configuration.png)
+SM0038 - TSOP1738 IR Receiver
 
 
-### Target audiences:
+3 pin
+ 2.   38KHz
+ 3.   -40 to +80C
+ 4.   2.5 V to 5.5 V
+ 5.   binary (data) 
+ ![](images/TSOP1738-Block-Diagram.png)
 
-* Companies  for Commercial laser tag systems ,
-* and any other user who like to buy a pair of guns or more.
+## **Budget**
+
+Microcontroller-ATMega328 =  LKR 350
+
+Infrared Emitter with lens  =  LKR 200
+
+Piezo Sounder  =  LKR 100
+
+16*2 LCD with I2C  =  LKR 450
+
+RGB light *5  =  LKR 100
+
+Vibration motor  *2  =  LKR 400
+
+HC-05 Bluetooth module  =  LKR 400
+
+Trigger and Reload buttons+wire  =  LKR 100
+
+3000mAh rechargeable 5v  =  LKR 1000
+#### Direct Material Cost  LKR 3100 Per unit
+
+## CONTROLLER PLATFORMS
+
+-   AtMega328 is programming using C language
+### IR Library
+-   Currently it is NEC IR protocol
+-   38 KHz
+- 8  bit is used
+ ![](images/shot.jpg)
+
+# Network technologies and protocols
+
+Server
+
+-   Amazon Elastic Compute Cloud web service (AWS - EC2)
+    
+-   Linux computer instance
+    
+-   Maximum bandwidth 25 Gbps
+    
+
+Security
+
+-   Keep user passwords and usernames in the database using hashing technique
+    
+-   In a new logging, compare both password and username with the database
+    
+-   Server verifies and issues custom tokens identifying the user
+    
+
+Availability
+
+to achieve high availability,
+
+-   Elastic Load Balancing— can launch several EC2 instances and distribute traffic between them
+    
+-   Auto Scaling— detect when loads increase, and dynamically add more instances.
+ 
+
+Scaling
+
+-   AWS EC2 auto scaling (1 - 4 instances)
+# Back-end technologies
+
+
+ ## Language
+Python - With structures
+ ## Storage
+mySQL database
+
+the instance could disappear due to hardware failure or whatever reason
+transfer mysql database directly from EC2 machine to S3bucket ?
+consume more cost for bandwidth and storage
+
+  
+
+ ## third party application
+
+'StoreGrid' backup software
+backup your mysql
+safer
+compress your data & encrypt and then save in S3 storage
+for less than $1.8 per month
+
+# Main Database - Physical model
+UserID 	|	UserName |	Password	 |HighScore	|  NoOfMatches |	TotalKills
+
 
