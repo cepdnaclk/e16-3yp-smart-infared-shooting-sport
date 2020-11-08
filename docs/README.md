@@ -74,7 +74,7 @@ And also push button and RGB LED are used.
 
 ## Circuit Block of the gun and headband
 
- ![](images/blog.png)
+ ![](images/circuit blog.jpg)
 
 ### IR circuit
  ![](images/IR emitter.jpg)
