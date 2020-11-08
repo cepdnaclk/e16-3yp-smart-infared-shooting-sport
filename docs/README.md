@@ -73,17 +73,17 @@ purpose.
 And also push button and RGB LED are used.
 
 ## Circuit Block of the gun and headband
-
  ![](images/circuit blog.jpg)
 
 ### IR circuit
- ![](images/IR emitter.jpg)
+
+![](images/IR emitter.jpg)
 ### IR lens
- ![](images/ir lens.jpg)
+![](images/ir lens.jpg)
 
 ### **IR Receiver**
 
- ![](images/TSOP1738-Pin-Configuration.png)
+![](images/TSOP1738-Pin-Configuration.png)
 SM0038 - TSOP1738 IR Receiver
 
 
