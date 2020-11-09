@@ -185,4 +185,4 @@ UserID 	|	UserName |	Password	 |HighScore	|  NoOfMatches |	TotalKills
 # User Interface - Mobile Application
 Develop using Futter 1.17 
 
-<img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/UI_HomePage1.png" width="100" height="100"/>    	
+<img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/UI_HomePage1.png" width="100" height="250"/>    	
