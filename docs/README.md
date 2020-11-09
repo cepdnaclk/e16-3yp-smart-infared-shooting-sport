@@ -185,4 +185,4 @@ UserID 	|	UserName |	Password	 |HighScore	|  NoOfMatches |	TotalKills
 # User Interface - Mobile Application
 Develop using Futter 1.17 
 
-![](images/UI_HomePage1.png)      		![](images/UI_SigninPage.png) 			![](images/UI_SignupPage.png) 
+![](images/UI_HomePage1.png = 200x)      	
