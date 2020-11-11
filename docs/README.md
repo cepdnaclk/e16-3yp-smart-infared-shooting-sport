@@ -118,61 +118,56 @@ Trigger and Reload buttons+wire  =  LKR 20
 
 # Network technologies and protocols
 
-Server
 
--   Amazon Elastic Compute Cloud web service (AWS - EC2)
-    
--   Linux computer instance
-    
--   Maximum bandwidth 25 Gbps
-    
-
-Security
-
--   Keep user passwords and usernames in the database using hashing technique
-    
--   In a new logging, compare both password and username with the database
-    
--   Server verifies and issues custom tokens identifying the user
-    
-
-Availability
-
-to achieve high availability,
-
--   Elastic Load Balancing— can launch several EC2 instances and distribute traffic between them
-    
--   Auto Scaling— detect when loads increase, and dynamically add more instances.
- 
-
-Scaling
-
--   AWS EC2 auto scaling (1 - 4 instances)
-# Back-end technologies
-
-
- ## Language
-Python - With structures
- ## Storage
-mySQL database
-
-the instance could disappear due to hardware failure or whatever reason
-transfer mysql database directly from EC2 machine to S3bucket ?
-consume more cost for bandwidth and storage
+Access and authentication
 
   
 
- ## third party application
+-   put username/password in the post body and send it over HTTPS
+    
 
-'StoreGrid' backup software
-backup your mysql
-safer
-compress your data & encrypt and then save in S3 storage
-for less than $1.8 per month
+  
 
-# Main Database - Physical model
-UserID 	|	UserName |	Password	 |HighScore	|  NoOfMatches |	TotalKills
+-   Identify the user & issue an access token and a refresh token by the server
+    
 
+  
+
+-   Server verifies the user by the validity of the token
+    
+
+  
+
+-   We can keep the players logged in the game app for long using refresh tokens
+
+# [](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/tree/main/docs#back-end-technologies)Back-end technologies
+AWS -  EC2 Server
+
+-   Elastic load balancing and Auto scaling facility
+    
+-   Easy when handling large datasets
+    
+-   Provides Amazon Relational Database service
+    
+
+  
+
+Language
+
+-   Python
+    
+
+Storage
+
+-   Cloud storage
+    
+-   MySQL Amazon RDS
+    
+
+Fast performance, high availability, and security
+
+# Database
+ ![](images/blog.png)
 
 # User Interface - Mobile Application
 Develop using Futter 1.17 
