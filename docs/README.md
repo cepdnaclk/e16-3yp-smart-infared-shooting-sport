@@ -97,23 +97,15 @@ SM0038 - TSOP1738 IR Receiver
 ## **Budget**
 
 Microcontroller-ATMega328 =  LKR 350
-
-Infrared Emitter with lens  =  LKR 200
-
-Piezo Sounder  =  LKR 100
-
+Infrared Emitter with lens  =  LKR 180
+Piezo Sounder  =  LKR 110
 16*2 LCD with I2C  =  LKR 450
-
 RGB light *5  =  LKR 100
-
 Vibration motor  *2  =  LKR 400
-
-HC-05 Bluetooth module  =  LKR 400
-
-Trigger and Reload buttons+wire  =  LKR 100
-
-3000mAh rechargeable 5v  =  LKR 1000
-#### Direct Material Cost  LKR 3100 Per unit
+HC-05 Bluetooth module  =  LKR 500
+Trigger and Reload buttons+wire  =  LKR 20
+3000mAh rechargeable 5v  =  LKR 1100
+#### Direct Material Cost  LKR 3185   Per unit
 
 ## CONTROLLER PLATFORMS
 
