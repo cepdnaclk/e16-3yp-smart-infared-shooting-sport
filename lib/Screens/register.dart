@@ -56,7 +56,7 @@ class _RegisterState extends State<Register> {
             key: _formKey,
             child: Column(
               children: <Widget>[
-                SizedBox(height: 60.0),
+                SizedBox(height: 20.0),
                 TextFormField(
                   style: TextStyle(
                     color: Colors.white,
@@ -67,6 +67,19 @@ class _RegisterState extends State<Register> {
                       val.isEmpty ? 'Please enter Valid Email' : null,
                   onChanged: (val) {
                     setState(() => email = val);
+                  },
+                ),
+                SizedBox(height: 10.0),
+                TextFormField(
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0,
+                  ),
+                  decoration: InputDecoration(hintText: 'User Name'),
+                  validator: (val) =>
+                      val.isEmpty ? 'Please enter  User Name' : null,
+                  onChanged: (val) {
+                    setState(() => userName = val);
                   },
                 ),
                 SizedBox(height: 10.0),
