@@ -15,4 +15,9 @@ class DatabaseServices {
       'Battles Played': battlesplayed,
     });
   }
+
+  //Get players Stream
+  Stream<QuerySnapshot> get players {
+    return playerCollection.snapshots();
+  }
 }
