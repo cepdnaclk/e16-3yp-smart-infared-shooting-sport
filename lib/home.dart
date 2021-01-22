@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Services/auth.dart';
+import 'Model/player.dart';
+import 'PlayModes/gun_connect.dart';
 import 'Services/database.dart';
 import 'package:provider/provider.dart';
 import 'Developers/about_us.dart';
@@ -14,7 +16,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<QuerySnapshot>.value(
+    return StreamProvider<List<Player>>.value(
       value: DatabaseServices().players,
       child: Scaffold(
         appBar: AppBar(
@@ -46,9 +48,6 @@ class Home extends StatelessWidget {
           child: Drawer(
             child: Column(
               children: <Widget>[
-                Container(
-                  child: PlayerList(),
-                ),
                 Container(
                   child: UserAccountsDrawerHeader(
                     accountName: Text(
@@ -177,28 +176,37 @@ class Home extends StatelessWidget {
                 height: 180.0,
               ),
               SizedBox(
-                height: 30.0,
+                height: 20.0,
               ),
-              RawMaterialButton(
-                fillColor: Colors.lightBlueAccent,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 8.0,
-                    horizontal: 17.0,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      const Text(
-                        'Play Now',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                    ],
-                  ),
-                ),
-                onPressed: () {},
-              ),
+              Container(
+                  margin:
+                      const EdgeInsets.only(top: 5.0, right: 80.0, left: 80.0),
+                  child: RaisedButton(
+                    elevation: 10.0,
+                    color: Colors.black54,
+                    shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: Colors.blue,
+                        ),
+                        borderRadius: BorderRadius.circular(30.0)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        const Icon(Icons.add, size: 20.0, color: Colors.white),
+                        const Text(
+                          'Connect Gun',
+                          style: TextStyle(fontSize: 15, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                    onPressed: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (_) {
+                        return BluetoothApp();
+                      }));
+                    },
+                  )),
             ],
           ),
         ),

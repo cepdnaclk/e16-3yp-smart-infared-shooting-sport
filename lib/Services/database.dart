@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:xtag_demo/Model/player.dart';
 
 class DatabaseServices {
   final String uid;
@@ -16,8 +17,18 @@ class DatabaseServices {
     });
   }
 
+  //players list
+  List<Player> _playerListFromSnampshot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return Player(
+          name: doc.data()['name'] ?? '',
+          email: doc.data()['email'],
+          battles: doc.data()['Battles Played']);
+    }).toList();
+  }
+
   //Get players Stream
-  Stream<QuerySnapshot> get players {
-    return playerCollection.snapshots();
+  Stream<List<Player>> get players {
+    return playerCollection.snapshots().map(_playerListFromSnampshot);
   }
 }
