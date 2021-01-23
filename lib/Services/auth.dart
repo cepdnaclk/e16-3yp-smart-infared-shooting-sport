@@ -50,7 +50,8 @@ class AuthService {
       User user = result.user;
 
       //create new document for the user with the user ID
-      await DatabaseServices(uid: user.uid).updateUserData(email, userName, 0);
+      await DatabaseServices(uid: user.uid)
+          .updateUserData(email, userName, 'null', 0);
       return _userFromUser(user);
     } catch (e) {
       print(e.toString());
