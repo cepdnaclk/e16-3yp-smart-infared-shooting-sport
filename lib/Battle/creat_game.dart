@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/waiting_normal_2teams.dart';
+import 'package:xtag_demo/Battle/waiting_normal_3teams.dart';
+import 'package:xtag_demo/Battle/waiting_normal_free4all.dart';
 
 class CreateGame extends StatefulWidget {
   @override
@@ -303,26 +305,63 @@ class _CreateGameState extends State<CreateGame> {
                       }
                       if (_threeteam) {
                         print('Normal Three teams');
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) {
+                          return Normal3Teams();
+                        }));
                       }
                       if (_free4all) {
                         print('Normal Free 4 all');
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) {
+                          return NormalFree4All();
+                        }));
                       }
                     }
                     if (_rescue) {
                       if (_twoteam) {
                         print('rescue Two teams');
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) {
+                          return Normal2Teams();
+                        }));
                       }
                       if (_threeteam) {
                         print('rescuel Three teams');
+                        print('Normal Three teams');
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) {
+                          return Normal3Teams();
+                        }));
                       }
                       if (_free4all) {
                         print('rescue free for all');
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) {
+                          return NormalFree4All();
+                        }));
                       }
                     }
                     if (_survival) {
-                      if (_twoteam) {}
-                      if (_threeteam) {}
-                      if (_free4all) {}
+                      if (_twoteam) {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) {
+                          return Normal2Teams();
+                        }));
+                      }
+                      if (_threeteam) {
+                        print('Normal Three teams');
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) {
+                          return Normal3Teams();
+                        }));
+                      }
+                      if (_free4all) {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) {
+                          return NormalFree4All();
+                        }));
+                      }
                     }
                   }),
             ),
