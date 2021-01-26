@@ -34,6 +34,7 @@ class AuthService {
       UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       User user = result.user;
+      print(result);
       return _userFromUser(user);
     } catch (e) {
       print(e.toString());
@@ -51,7 +52,7 @@ class AuthService {
 
       //create new document for the user with the user ID
       await DatabaseServices(uid: user.uid)
-          .updateUserData(email, userName, 'null', 0);
+          .updateUserData(email, userName, 0, 0, 0, 0);
       return _userFromUser(user);
     } catch (e) {
       print(e.toString());

@@ -9,13 +9,21 @@ class DatabaseServices {
       FirebaseFirestore.instance.collection("player");
 
   Future updateUserData(
-      String email, String name, String gunid, int battlesplayed) async {
+    String email,
+    String name,
+    int battleswon,
+    int battlesplayed,
+    int kills,
+    int deaths,
+  ) async {
     print(uid);
     return await playerCollection.doc(uid).set({
       'email': email,
       'name': name,
-      'gunId': gunid,
+      'Battles Won': battleswon,
       'Battles Played': battlesplayed,
+      'Total Kills': kills,
+      'Total Deaths': deaths
     });
   }
 

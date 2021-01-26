@@ -1,5 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:xtag_demo/Screens/sign_in.dart';
+import 'package:xtag_demo/Screens/verify.dart';
 import 'package:xtag_demo/Services/auth.dart';
+
+import '../home.dart';
 
 class Register extends StatefulWidget {
   final Function toggleView;
@@ -10,6 +15,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final FirebaseAuth auth = FirebaseAuth.instance;
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
 
@@ -119,6 +125,7 @@ class _RegisterState extends State<Register> {
                     if (_formKey.currentState.validate()) {
                       dynamic result = await _auth.regWithEmailAndPassword(
                           email, password, userName);
+                      print(result);
                       if (result == null) {
                         setState(() => error = 'Please supply a Valid Email');
                       }
@@ -127,6 +134,28 @@ class _RegisterState extends State<Register> {
                     }
                   },
                 ),
+                /*RaisedButton(
+                  color: Colors.blue[500],
+                  elevation: 10.0,
+                  shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                        color: Colors.blue[800],
+                      ),
+                      borderRadius: BorderRadius.circular(20.0)),
+                  child: Text(
+                    '  RegisterV  ',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  onPressed: () {
+                    auth
+                        .createUserWithEmailAndPassword(
+                            email: email, password: password)
+                        .then((_) {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => VerifyScreen()));
+                    });
+                  },
+                ),*/
                 SizedBox(height: 12.0),
                 Text(
                   error,

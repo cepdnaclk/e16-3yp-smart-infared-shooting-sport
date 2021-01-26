@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:xtag_demo/Screens/register.dart';
 import 'package:xtag_demo/Services/auth.dart';
 import 'package:xtag_demo/Shared/loading.dart';
+import 'package:xtag_demo/authenticate.dart';
+
+import '../home.dart';
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -31,7 +35,11 @@ class _SignInState extends State<SignIn> {
               backgroundColor: Colors.black,
               leading: IconButton(
                 icon: Icon(Icons.home),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                    return Home();
+                  }));
+                },
               ),
               actions: <Widget>[
                 FlatButton.icon(

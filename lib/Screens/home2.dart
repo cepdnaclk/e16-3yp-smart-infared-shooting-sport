@@ -1,35 +1,20 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:xtag_demo/Services/auth.dart';
-import 'Model/player.dart';
-import 'Model/user.dart';
-import 'PlayModes/gun_connect.dart';
-import 'Screens/register.dart';
-import 'Screens/sign_in.dart';
-import 'Services/database.dart';
 import 'package:provider/provider.dart';
-import 'Developers/about_us.dart';
-import 'Developers/contact_us.dart';
-import 'Developers/offers_page.dar.dart';
-import 'Player/player_details.dart';
+import 'package:xtag_demo/Developers/about_us.dart';
+import 'package:xtag_demo/Developers/contact_us.dart';
+import 'package:xtag_demo/Developers/offers_page.dar.dart';
+import 'package:xtag_demo/Model/player.dart';
+import 'package:xtag_demo/PlayModes/gun_connect.dart';
+import 'package:xtag_demo/Screens/sign_in.dart';
+import 'package:xtag_demo/Services/auth.dart';
+import 'package:xtag_demo/Services/database.dart';
 
 class Home extends StatelessWidget {
   final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
-    //final user = Provider.of<UserN>(context);
-    final auth = FirebaseAuth.instance;
-    User user;
-    user = auth.currentUser;
-    String emailC = 'No User';
-    if (user != null) {
-      emailC = user.email;
-    }
-    print(emailC);
-    print(emailC);
     return StreamProvider<List<Player>>.value(
       value: DatabaseServices().players,
       child: Scaffold(
@@ -65,7 +50,7 @@ class Home extends StatelessWidget {
                 Container(
                   child: UserAccountsDrawerHeader(
                     accountName: Text(
-                      emailC,
+                      '   User',
                       style: TextStyle(fontSize: 20.0),
                     ),
                     currentAccountPicture: CircleAvatar(
@@ -215,8 +200,6 @@ class Home extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                      //user = auth.currentUser;
-                      //print(user.email);
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (_) {
                         return BluetoothApp();
@@ -228,7 +211,7 @@ class Home extends StatelessWidget {
                       const EdgeInsets.only(top: 5.0, right: 80.0, left: 80.0),
                   child: RaisedButton(
                     elevation: 10.0,
-                    color: Colors.green,
+                    color: Colors.black54,
                     shape: RoundedRectangleBorder(
                         side: BorderSide(
                           color: Colors.blue,
@@ -238,10 +221,9 @@ class Home extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        const Icon(Icons.person,
-                            size: 20.0, color: Colors.white),
+                        const Icon(Icons.add, size: 20.0, color: Colors.white),
                         const Text(
-                          'Log In here',
+                          'Connect Gun',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         ),
                       ],
@@ -249,7 +231,7 @@ class Home extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (_) {
-                        return Register();
+                        return SignIn();
                       }));
                     },
                   )),

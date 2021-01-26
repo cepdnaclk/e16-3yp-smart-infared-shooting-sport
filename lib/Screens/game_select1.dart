@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/PlayModes/gun_connect.dart';
 
+import '../home.dart';
+
 class GameSelect1 extends StatefulWidget {
   @override
   _GameSelect1State createState() => _GameSelect1State();
@@ -20,7 +22,7 @@ class _GameSelect1State extends State<GameSelect1> {
               icon: Icon(Icons.arrow_back),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-                  return BluetoothApp();
+                  return Home();
                 }));
               },
             ),
@@ -71,7 +73,7 @@ class _GameSelect1State extends State<GameSelect1> {
                           onPressed: () async {
                             Navigator.of(context)
                                 .push(MaterialPageRoute(builder: (_) {
-                              return GameSelect1();
+                              return Home();
                             }));
                           },
                         ),

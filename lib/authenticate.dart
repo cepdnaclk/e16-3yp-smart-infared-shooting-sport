@@ -2,29 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:xtag_demo/Screens/register.dart';
 import 'package:xtag_demo/Screens/sign_in.dart';
 
-class Authenticate extends StatefulWidget{
+class Authenticate extends StatefulWidget {
   @override
-  _AuthenticateState createState()=> _AuthenticateState();
+  _AuthenticateState createState() => _AuthenticateState();
 }
 
-class _AuthenticateState extends State<Authenticate>{
-
+class _AuthenticateState extends State<Authenticate> {
   bool showSignIn = true;
 
-  void toggleView(){
+  void toggleView() {
     setState(() => showSignIn = !showSignIn);
   }
 
   @override
   Widget build(BuildContext context) {
-    if (showSignIn){
-      return Container(
-        child: SignIn(toggleView: toggleView),
-      );
-    }else{
-      return Container(
-        child: Register(toggleView: toggleView),
-      );
+    if (showSignIn) {
+      return SignIn(toggleView: toggleView);
+    } else {
+      return Register(toggleView: toggleView);
     }
   }
 }
