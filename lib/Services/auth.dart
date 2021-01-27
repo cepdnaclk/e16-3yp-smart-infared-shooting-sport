@@ -49,10 +49,14 @@ class AuthService {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      User userv = result.user;
+      await userv.sendEmailVerification();
+
+      /*while ((!userv.emailVerified)) {
+        User userv = result.user;
+        print(userv.emailVerified);
+      }*/
       User user = result.user;
-      if (!user.emailVerified) {
-        await user.sendEmailVerification();
-      }
       //create new document for the user with the user ID
       await DatabaseServices(uid: user.uid)
           .updateUserData(email, userName, 0, 0, 0, 0);

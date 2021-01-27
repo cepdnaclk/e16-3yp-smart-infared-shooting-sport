@@ -11,6 +11,9 @@ class _Normal2TeamsState extends State<Normal2Teams> {
   bool _fives = false;
   bool _tens = false;
   bool _twentys = false;
+  int _gunNumber = 0;
+  int _teamNumber = 0;
+  String _gameid = 'hhd63shd8438';
   @override
   Widget build(BuildContext context) {
     String matchid = null;
@@ -41,15 +44,44 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                 ),
               ),
               child: Column(
-                //mainAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(right: 40.0, left: 40.0),
+                    color: Colors.white,
+                    height: 30.0,
+                    child: Row(
+                      children: [
+                        Text(
+                          '  Game ID  :   ',
+                          style: TextStyle(fontSize: 15, color: Colors.black),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          _gameid,
+                          style: TextStyle(fontSize: 15, color: Colors.black),
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Text(
+                    'Select Battle duration',
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    textAlign: TextAlign.left,
+                  ),
                   Container(
                     margin: const EdgeInsets.only(right: 20.0, left: 20.0),
                     child: Row(
                       children: [
                         Container(
                             margin: const EdgeInsets.only(
-                                top: 25.0, right: 5.0, left: 10.0),
+                                top: 5.0, right: 5.0, left: 10.0),
                             child: RaisedButton(
                                 elevation: 50.0,
                                 color:
@@ -80,7 +112,7 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                                 })),
                         Container(
                             margin: const EdgeInsets.only(
-                                top: 25.0, right: 5.0, left: 10.0),
+                                top: 5.0, right: 5.0, left: 10.0),
                             child: RaisedButton(
                                 elevation: 50.0,
                                 color:
@@ -111,7 +143,7 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                                 })),
                         Container(
                             margin: const EdgeInsets.only(
-                                top: 25.0, right: 5.0, left: 10.0),
+                                top: 5.0, right: 5.0, left: 10.0),
                             child: RaisedButton(
                                 elevation: 50.0,
                                 color: _twentys
@@ -144,9 +176,220 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                       ],
                     ),
                   ),
+                  SizedBox(
+                    height: 40.0,
+                  ),
+                  Text(
+                    'Select a Gun ',
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    textAlign: TextAlign.left,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(right: 20.0, left: 20.0),
+                    child: Row(
+                      children: [
+                        Container(
+                            margin: const EdgeInsets.only(
+                                top: 5.0, right: 5.0, left: 10.0),
+                            child: RaisedButton(
+                                elevation: 50.0,
+                                color: (_gunNumber == 1)
+                                    ? Colors.blue[900]
+                                    : Colors.black54,
+                                shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                    color: Colors.blue,
+                                  ),
+                                  //borderRadius: BorderRadius.circular(30.0)
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    const Text(
+                                      'Gun 1',
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _gunNumber = 1;
+                                  });
+                                })),
+                        Container(
+                            margin: const EdgeInsets.only(
+                                top: 5.0, right: 5.0, left: 10.0),
+                            child: RaisedButton(
+                                elevation: 50.0,
+                                color: (_gunNumber == 2)
+                                    ? Colors.blue[900]
+                                    : Colors.black54,
+                                shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                    color: Colors.blue,
+                                  ),
+                                  //borderRadius: BorderRadius.circular(30.0)
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    const Text(
+                                      'Gun 2',
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _gunNumber = 2;
+                                  });
+                                })),
+                        Container(
+                            margin: const EdgeInsets.only(
+                                top: 5.0, right: 5.0, left: 10.0),
+                            child: RaisedButton(
+                                elevation: 50.0,
+                                color: _gunNumber == 3
+                                    ? Colors.blue[900]
+                                    : Colors.black54,
+                                shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                    color: Colors.blue,
+                                  ),
+                                  //borderRadius: BorderRadius.circular(30.0)
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    const Text(
+                                      'Gun 3',
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _gunNumber = 3;
+                                  });
+                                })),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40.0,
+                  ),
+                  Text(
+                    'Select a Team ',
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    textAlign: TextAlign.left,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(right: 20.0, left: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                            margin: const EdgeInsets.only(
+                                top: 5.0, right: 5.0, left: 10.0),
+                            child: RaisedButton(
+                                elevation: 50.0,
+                                color: (_teamNumber == 1)
+                                    ? Colors.green[900]
+                                    : Colors.black54,
+                                shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                    color: Colors.black,
+                                  ),
+                                  //borderRadius: BorderRadius.circular(30.0)
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    const Text(
+                                      'Team 1',
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _teamNumber = 1;
+                                  });
+                                })),
+                        Container(
+                            margin: const EdgeInsets.only(
+                                top: 5.0, right: 5.0, left: 10.0),
+                            child: RaisedButton(
+                                elevation: 50.0,
+                                color: (_teamNumber == 2)
+                                    ? Colors.blue[900]
+                                    : Colors.black54,
+                                shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                    color: Colors.black,
+                                  ),
+                                  //borderRadius: BorderRadius.circular(30.0)
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    const Text(
+                                      'Team 2',
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _teamNumber = 2;
+                                  });
+                                })),
+                        /* Container(
+                            margin: const EdgeInsets.only(
+                                top: 5.0, right: 5.0, left: 10.0),
+                            child: RaisedButton(
+                                elevation: 50.0,
+                                color: _teamNumber == 3
+                                    ? Colors.yellow[900]
+                                    : Colors.black54,
+                                shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                    color: Colors.black,
+                                  ),
+                                  //borderRadius: BorderRadius.circular(30.0)
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    const Text(
+                                      'Team 3',
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _teamNumber = 3;
+                                  });
+                                })),*/
+                      ],
+                    ),
+                  ),
                   Container(
                       margin: const EdgeInsets.only(
-                          top: 25.0, right: 80.0, left: 80.0),
+                          top: 45.0, right: 80.0, left: 80.0),
                       child: RaisedButton(
                           elevation: 10.0,
                           color: Colors.lightBlueAccent,
@@ -162,13 +405,15 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                               const Icon(Icons.play_arrow_rounded,
                                   size: 30.0, color: Colors.white),
                               const Text(
-                                'Battle Begin',
+                                'Ready To Battle',
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white),
                               ),
                             ],
                           ),
-                          onPressed: () {})),
+                          onPressed: () {
+                            print(_gunNumber);
+                          })),
                 ],
               ),
             ),

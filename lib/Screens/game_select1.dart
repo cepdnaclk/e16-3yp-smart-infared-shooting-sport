@@ -4,7 +4,6 @@ import 'package:xtag_demo/PlayModes/gun_connect.dart';
 import 'package:xtag_demo/Player/player_details.dart';
 
 import '../home.dart';
-import 'home2.dart';
 
 class GameSelect1 extends StatefulWidget {
   @override
@@ -107,7 +106,7 @@ class _GameSelect1State extends State<GameSelect1> {
                           onPressed: () async {
                             Navigator.of(context)
                                 .push(MaterialPageRoute(builder: (_) {
-                              return Home2();
+                              return CreateGame();
                             }));
                           },
                         ),

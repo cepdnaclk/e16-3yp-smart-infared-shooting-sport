@@ -52,7 +52,8 @@ class Home extends StatelessWidget {
               ),
               onPressed: () async {
                 await _auth.signOut();
-                print(emailC);
+                user = auth.currentUser;
+                print(user);
               },
             )
           ],
