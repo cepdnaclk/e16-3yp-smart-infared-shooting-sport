@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/creat_game.dart';
+import 'package:xtag_demo/Battle/join_game.dart';
 import 'package:xtag_demo/PlayModes/gun_connect.dart';
 import 'package:xtag_demo/Player/player_details.dart';
 
@@ -106,7 +107,7 @@ class _GameSelect1State extends State<GameSelect1> {
                           onPressed: () async {
                             Navigator.of(context)
                                 .push(MaterialPageRoute(builder: (_) {
-                              return CreateGame();
+                              return JoinGame();
                             }));
                           },
                         ),
