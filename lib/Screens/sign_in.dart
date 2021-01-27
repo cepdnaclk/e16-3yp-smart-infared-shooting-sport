@@ -33,14 +33,6 @@ class _SignInState extends State<SignIn> {
             appBar: AppBar(
               title: Text("Login Page"),
               backgroundColor: Colors.black,
-              leading: IconButton(
-                icon: Icon(Icons.home),
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-                    return Home();
-                  }));
-                },
-              ),
               actions: <Widget>[
                 FlatButton.icon(
                   icon: Icon(

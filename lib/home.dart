@@ -224,7 +224,7 @@ class Home extends StatelessWidget {
                       }));
                     },
                   )),
-              Container(
+              /*Container(
                   margin:
                       const EdgeInsets.only(top: 5.0, right: 80.0, left: 80.0),
                   child: RaisedButton(
@@ -250,10 +250,10 @@ class Home extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (_) {
-                        return Register();
+                        return SignIn();
                       }));
                     },
-                  )),
+                  )),*/
             ],
           ),
         ),

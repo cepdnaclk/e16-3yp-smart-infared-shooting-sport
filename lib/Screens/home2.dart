@@ -26,21 +26,7 @@ class Home2 extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23.0),
             ),
             elevation: 0.0,
-            actions: <Widget>[
-              FlatButton.icon(
-                icon: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                ),
-                label: Text(
-                  'Logout',
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () async {
-                  await _auth.signOut();
-                },
-              )
-            ],
+            
           ),
           drawer: Theme(
             data: Theme.of(context)
