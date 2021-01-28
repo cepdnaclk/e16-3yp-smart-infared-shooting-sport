@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
-
+import 'package:xtag_demo/Battle/creat_game.dart';
+import 'package:xtag_demo/Battle/creat_game.dart';
+import 'package:xtag_demo/Services/database.dart';
 import 'creat_game.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:xtag_demo/Model/match.dart';
 
 class Normal2Teams extends StatefulWidget {
   @override
   _Normal2TeamsState createState() => _Normal2TeamsState();
 }
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class _Normal2TeamsState extends State<Normal2Teams> {
   bool _fives = false;
@@ -13,10 +19,10 @@ class _Normal2TeamsState extends State<Normal2Teams> {
   bool _twentys = false;
   int _gunNumber = 0;
   int _teamNumber = 0;
-  String _gameid = 'hhd63shd8438';
+  String _gameid = Match.mid;
   @override
   Widget build(BuildContext context) {
-    String matchid = null;
+    //String _gameid = CreateGame.matchid;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
@@ -354,7 +360,36 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                                     _teamNumber = 2;
                                   });
                                 })),
-                        
+                        /* Container(
+                            margin: const EdgeInsets.only(
+                                top: 5.0, right: 5.0, left: 10.0),
+                            child: RaisedButton(
+                                elevation: 50.0,
+                                color: _teamNumber == 3
+                                    ? Colors.yellow[900]
+                                    : Colors.black54,
+                                shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                    color: Colors.black,
+                                  ),
+                                  //borderRadius: BorderRadius.circular(30.0)
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    const Text(
+                                      'Team 3',
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _teamNumber = 3;
+                                  });
+                                })),*/
                       ],
                     ),
                   ),
@@ -382,8 +417,55 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                               ),
                             ],
                           ),
-                          onPressed: () {
-                            print(_gunNumber);
+                          onPressed: () async {
+                            //print(_gunNumber);
+                            if (_fives) {
+                              try {
+                                User user = _auth.currentUser;
+                                await DatabaseServices(uid: user.uid)
+                                    .updateMatchduration(_gameid, 180);
+                                print(mid);
+                              } catch (e) {
+                                print(e.toString());
+                              }
+                            } else if (_tens) {
+                              try {
+                                User user = _auth.currentUser;
+                                await DatabaseServices(uid: user.uid)
+                                    .updateMatchduration(_gameid, 300);
+                                print(mid);
+                              } catch (e) {
+                                print(e.toString());
+                              }
+                            } else if (_twentys) {
+                              try {
+                                User user = _auth.currentUser;
+                                await DatabaseServices(uid: user.uid)
+                                    .updateMatchduration(_gameid, 600);
+                                print(mid);
+                              } catch (e) {
+                                print(e.toString());
+                              }
+                            }
+                            //set the gun
+                            try {
+                              User user = _auth.currentUser;
+                              await DatabaseServices(uid: user.uid)
+                                  .upadtenestedplayersdata(
+                                      _gameid, 'gun', _gunNumber);
+                            } catch (e) {
+                              print(e.toString());
+                            }
+
+                            //set the team
+                            try {
+                              User user = _auth.currentUser;
+                              await DatabaseServices(uid: user.uid)
+                                  .upadtenestedplayersdata(
+                                      _gameid, 'team', _teamNumber);
+                            } catch (e) {
+                              print(e.toString());
+                            }
                           })),
                 ],
               ),

@@ -1,11 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:xtag_demo/Battle/creat_game.dart';
+import 'package:xtag_demo/Services/database.dart';
 import 'creat_game.dart';
+import 'package:xtag_demo/Model/match.dart';
 
 class NormalFree4All extends StatefulWidget {
   @override
   _NormalFree4AllState createState() => _NormalFree4AllState();
 }
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class _NormalFree4AllState extends State<NormalFree4All> {
   bool _fives = false;
@@ -13,7 +18,7 @@ class _NormalFree4AllState extends State<NormalFree4All> {
   bool _twentys = false;
   int _gunNumber = 0;
   int _teamNumber = 0;
-  String _gameid = 'hhd63shd8438';
+  String _gameid = Match.mid;
   @override
   Widget build(BuildContext context) {
     String matchid = null;
@@ -97,7 +102,7 @@ class _NormalFree4AllState extends State<NormalFree4All> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     const Text(
-                                      '5s',
+                                      '3m',
                                       style: TextStyle(
                                           fontSize: 15, color: Colors.white),
                                     ),
@@ -128,7 +133,7 @@ class _NormalFree4AllState extends State<NormalFree4All> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     const Text(
-                                      '10s',
+                                      '5m',
                                       style: TextStyle(
                                           fontSize: 15, color: Colors.white),
                                     ),
@@ -160,7 +165,7 @@ class _NormalFree4AllState extends State<NormalFree4All> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     const Text(
-                                      '20s',
+                                      '10m',
                                       style: TextStyle(
                                           fontSize: 15, color: Colors.white),
                                     ),
@@ -308,8 +313,54 @@ class _NormalFree4AllState extends State<NormalFree4All> {
                               ),
                             ],
                           ),
-                          onPressed: () {
-                            print(_gunNumber);
+                          onPressed: () async {
+                            if (_fives) {
+                              try {
+                                User user = _auth.currentUser;
+                                await DatabaseServices(uid: user.uid)
+                                    .updateMatchduration(_gameid, 180);
+                                print(mid);
+                              } catch (e) {
+                                print(e.toString());
+                              }
+                            } else if (_tens) {
+                              try {
+                                User user = _auth.currentUser;
+                                await DatabaseServices(uid: user.uid)
+                                    .updateMatchduration(_gameid, 300);
+                                print(mid);
+                              } catch (e) {
+                                print(e.toString());
+                              }
+                            } else if (_twentys) {
+                              try {
+                                User user = _auth.currentUser;
+                                await DatabaseServices(uid: user.uid)
+                                    .updateMatchduration(_gameid, 600);
+                                print(mid);
+                              } catch (e) {
+                                print(e.toString());
+                              }
+                            }
+                            //set the gun
+                            try {
+                              User user = _auth.currentUser;
+                              await DatabaseServices(uid: user.uid)
+                                  .upadtenestedplayersdata(
+                                      _gameid, 'gun', _gunNumber);
+                            } catch (e) {
+                              print(e.toString());
+                            }
+
+                            //set the team
+                            try {
+                              User user = _auth.currentUser;
+                              await DatabaseServices(uid: user.uid)
+                                  .upadtenestedplayersdata(
+                                      _gameid, 'team', _teamNumber);
+                            } catch (e) {
+                              print(e.toString());
+                            }
                           })),
                 ],
               ),

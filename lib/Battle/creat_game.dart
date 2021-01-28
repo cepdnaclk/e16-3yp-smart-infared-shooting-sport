@@ -5,14 +5,16 @@ import 'package:xtag_demo/Battle/waiting_normal_2teams.dart';
 import 'package:xtag_demo/Battle/waiting_normal_3teams.dart';
 import 'package:xtag_demo/Battle/waiting_normal_free4all.dart';
 import 'package:xtag_demo/Services/database.dart';
-import 'package:xtag_demo/Model/user.dart';
+import 'package:xtag_demo/Model/match.dart';
 
 class CreateGame extends StatefulWidget {
+  static String matchid = mid;
   @override
   _CreateGameState createState() => _CreateGameState();
 }
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
+String mid;
 
 class _CreateGameState extends State<CreateGame> {
   bool _normal = false;
@@ -21,6 +23,7 @@ class _CreateGameState extends State<CreateGame> {
   bool _twoteam = false;
   bool _free4all = false;
   bool _threeteam = false;
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -313,14 +316,13 @@ class _CreateGameState extends State<CreateGame> {
                         print('Normal Two Twams');
                         try {
                           User user = _auth.currentUser;
-                          String mid;
-                          mid = await DatabaseServices(uid: user.uid)
+                          Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('n2', true, true, false, 180);
-                          print(mid);
+                          print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(mid, null, true, 5, 0, 0,
-                                  360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(Match.mid, null, true, 5, 0,
+                                  0, 360, 0, null, null, null, 0, null, false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -333,14 +335,14 @@ class _CreateGameState extends State<CreateGame> {
                         print('Normal Three teams');
                         try {
                           User user = _auth.currentUser;
-                          String mid;
-                          mid = await DatabaseServices(uid: user.uid)
+
+                          Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('n3', true, true, false, 180);
-                          print(mid);
+                          print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(mid, null, true, 5, 0, 0,
-                                  360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(Match.mid, null, true, 5, 0,
+                                  0, 360, 0, null, null, null, 0, null, false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -353,14 +355,14 @@ class _CreateGameState extends State<CreateGame> {
                         print('Normal Free 4 all');
                         try {
                           User user = _auth.currentUser;
-                          String mid;
-                          mid = await DatabaseServices(uid: user.uid)
+
+                          Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('4', true, true, false, 180);
-                          print(mid);
+                          print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(mid, null, true, 5, 0, 0,
-                                  360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(Match.mid, null, true, 5, 0,
+                                  0, 360, 0, null, null, null, 0, null, false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -375,14 +377,14 @@ class _CreateGameState extends State<CreateGame> {
                         print('rescue Two teams');
                         try {
                           User user = _auth.currentUser;
-                          String mid;
-                          mid = await DatabaseServices(uid: user.uid)
+
+                          Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('r2', true, true, false, 180);
-                          print(mid);
+                          print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(mid, null, true, 5, 0, 0,
-                                  360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(Match.mid, null, true, 5, 0,
+                                  0, 360, 0, null, null, null, 0, null, false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -395,14 +397,14 @@ class _CreateGameState extends State<CreateGame> {
                         print('rescuel Three teams');
                         try {
                           User user = _auth.currentUser;
-                          String mid;
-                          mid = await DatabaseServices(uid: user.uid)
+
+                          Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('r3', true, true, false, 180);
-                          print(mid);
+                          print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(mid, null, true, 5, 0, 0,
-                                  360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(Match.mid, null, true, 5, 0,
+                                  0, 360, 0, null, null, null, 0, null, false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -415,14 +417,14 @@ class _CreateGameState extends State<CreateGame> {
                         print('rescue free for all');
                         try {
                           User user = _auth.currentUser;
-                          String mid;
-                          mid = await DatabaseServices(uid: user.uid)
+
+                          Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('4', true, true, false, 180);
-                          print(mid);
+                          print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(mid, null, true, 5, 0, 0,
-                                  360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(Match.mid, null, true, 5, 0,
+                                  0, 360, 0, null, null, null, 0, null, false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -436,14 +438,14 @@ class _CreateGameState extends State<CreateGame> {
                       if (_twoteam) {
                         try {
                           User user = _auth.currentUser;
-                          String mid;
-                          mid = await DatabaseServices(uid: user.uid)
+
+                          Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('s2', true, true, false, 180);
-                          print(mid);
+                          print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(mid, null, true, 5, 0, 0,
-                                  360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(Match.mid, null, true, 5, 0,
+                                  0, 360, 0, null, null, null, 0, null, false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -456,14 +458,14 @@ class _CreateGameState extends State<CreateGame> {
                         print('Normal Three teams');
                         try {
                           User user = _auth.currentUser;
-                          String mid;
-                          mid = await DatabaseServices(uid: user.uid)
+
+                          Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('s3', true, true, false, 180);
                           print(mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(mid, null, true, 5, 0, 0,
-                                  360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(Match.mid, null, true, 5, 0,
+                                  0, 360, 0, null, null, null, 0, null, false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -475,14 +477,15 @@ class _CreateGameState extends State<CreateGame> {
                       if (_free4all) {
                         try {
                           User user = _auth.currentUser;
-                          String mid;
-                          mid = await DatabaseServices(uid: user.uid)
+
+                          Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('4', true, true, false, 180);
+
                           print(mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(mid, null, true, 5, 0, 0,
-                                  360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(Match.mid, null, true, 5, 0,
+                                  0, 360, 0, null, null, null, 0, null, false);
                         } catch (e) {
                           print(e.toString());
                         }
