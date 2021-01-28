@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:xtag_demo/Model/match.dart';
+import 'package:xtag_demo/Services/database.dart';
 import 'join_game.dart';
 
 class Join3Teams extends StatefulWidget {
@@ -7,10 +9,12 @@ class Join3Teams extends StatefulWidget {
   _Join3TeamsState createState() => _Join3TeamsState();
 }
 
+final FirebaseAuth _auth = FirebaseAuth.instance;
+
 class _Join3TeamsState extends State<Join3Teams> {
   int _gunNumber = 0;
   int _teamNumber = 0;
-  String _gameid = 'hhd63shd8438';
+  String _gameid = Match.mid;
   @override
   Widget build(BuildContext context) {
     String matchid = null;
@@ -298,7 +302,27 @@ class _Join3TeamsState extends State<Join3Teams> {
                               ),
                             ],
                           ),
-                          onPressed: () {
+                          onPressed: () async {
+                            //set the gun
+                            try {
+                              User user = _auth.currentUser;
+                              await DatabaseServices(uid: user.uid)
+                                  .upadtenestedplayersdata(
+                                      _gameid, 'gun', _gunNumber);
+                            } catch (e) {
+                              print(e.toString());
+                            }
+
+                            //set the team
+                            try {
+                              User user = _auth.currentUser;
+                              await DatabaseServices(uid: user.uid)
+                                  .upadtenestedplayersdata(
+                                      _gameid, 'team', _teamNumber);
+                            } catch (e) {
+                              print(e.toString());
+                            }
+
                             print(_gunNumber);
                           })),
                 ],
