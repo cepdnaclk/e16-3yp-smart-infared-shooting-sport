@@ -61,10 +61,29 @@ class DatabaseServices {
     return mid;
   }
 
+  //set match time
+  Future updateMatchduration(
+    String mid,
+    int duration,
+  ) async {
+    await matchCollection.doc(mid).update({'duration': duration});
+    print(duration);
+    return duration;
+  }
+
+//update match status
+  Future updateMatchstatus(
+    String mid,
+    bool status,
+  ) async {
+    await matchCollection.doc(mid).update({'status': status});
+    return status;
+  }
+
   //update nested players data
   Future updateNestedplayers(
     String mid,
-    String team,
+    int team,
     bool status,
     int health,
     int kills,
@@ -94,6 +113,43 @@ class DatabaseServices {
       'tempid': tempid,
       'isready': isready
     });
+  }
+
+  //update nested player data
+  Future upadtenestedplayersdata(
+    String mid,
+    String field,
+    int value,
+  ) async {
+    return await matchCollection
+        .doc(mid)
+        .collection('players')
+        .doc(uid)
+        .update({field: value});
+  }
+
+  //update is ready
+  Future upadtenestedplayerisready(
+    String mid,
+    bool value,
+  ) async {
+    return await matchCollection
+        .doc(mid)
+        .collection('players')
+        .doc(uid)
+        .update({'isready': value});
+  }
+
+  //update player status
+  Future upadtenestedplayerstatus(
+    String mid,
+    bool value,
+  ) async {
+    return await matchCollection
+        .doc(mid)
+        .collection('players')
+        .doc(uid)
+        .update({'status': value});
   }
 
   //players list
