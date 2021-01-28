@@ -1,12 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/waiting_normal_2teams.dart';
 import 'package:xtag_demo/Battle/waiting_normal_3teams.dart';
 import 'package:xtag_demo/Battle/waiting_normal_free4all.dart';
+import 'package:xtag_demo/Services/database.dart';
+import 'package:xtag_demo/Model/user.dart';
 
 class CreateGame extends StatefulWidget {
   @override
   _CreateGameState createState() => _CreateGameState();
 }
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class _CreateGameState extends State<CreateGame> {
   bool _normal = false;
@@ -78,7 +84,12 @@ class _CreateGameState extends State<CreateGame> {
                         ),
                       ],
                     ),
-                    onPressed: () {
+                    onPressed: () async {
+                      print('normal mode selected');
+                      //set the database
+                      /*User user = _auth.currentUser;
+                      await DatabaseServices(uid: user.uid)
+                          .updateMatchMode('normal);*/
                       setState(() {
                         _normal = true;
                         _rescue = false;
@@ -110,6 +121,7 @@ class _CreateGameState extends State<CreateGame> {
                     ),
                     onPressed: () {
                       setState(() {
+                        print('survival selected');
                         _normal = false;
                         _rescue = false;
                         _survival = true;
@@ -139,6 +151,7 @@ class _CreateGameState extends State<CreateGame> {
                       ],
                     ),
                     onPressed: () {
+                      print('rescue mode selected');
                       setState(() {
                         _normal = false;
                         _rescue = true;
@@ -294,10 +307,23 @@ class _CreateGameState extends State<CreateGame> {
                       ),
                     ],
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     if (_normal) {
                       if (_twoteam) {
                         print('Normal Two Twams');
+                        try {
+                          User user = _auth.currentUser;
+                          String mid;
+                          mid = await DatabaseServices(uid: user.uid)
+                              .updateMatchMode('n2', true, true, false, 180);
+                          print(mid);
+                          //update the nested collection
+                          await DatabaseServices(uid: user.uid)
+                              .updateNestedplayers(mid, null, true, 5, 0, 0,
+                                  360, 0, null, null, null, 0, null, false);
+                        } catch (e) {
+                          print(e.toString());
+                        }
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (_) {
                           return Normal2Teams();
@@ -305,6 +331,19 @@ class _CreateGameState extends State<CreateGame> {
                       }
                       if (_threeteam) {
                         print('Normal Three teams');
+                        try {
+                          User user = _auth.currentUser;
+                          String mid;
+                          mid = await DatabaseServices(uid: user.uid)
+                              .updateMatchMode('n3', true, true, false, 180);
+                          print(mid);
+                          //update the nested collection
+                          await DatabaseServices(uid: user.uid)
+                              .updateNestedplayers(mid, null, true, 5, 0, 0,
+                                  360, 0, null, null, null, 0, null, false);
+                        } catch (e) {
+                          print(e.toString());
+                        }
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (_) {
                           return Normal3Teams();
@@ -312,6 +351,19 @@ class _CreateGameState extends State<CreateGame> {
                       }
                       if (_free4all) {
                         print('Normal Free 4 all');
+                        try {
+                          User user = _auth.currentUser;
+                          String mid;
+                          mid = await DatabaseServices(uid: user.uid)
+                              .updateMatchMode('4', true, true, false, 180);
+                          print(mid);
+                          //update the nested collection
+                          await DatabaseServices(uid: user.uid)
+                              .updateNestedplayers(mid, null, true, 5, 0, 0,
+                                  360, 0, null, null, null, 0, null, false);
+                        } catch (e) {
+                          print(e.toString());
+                        }
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (_) {
                           return NormalFree4All();
@@ -321,6 +373,19 @@ class _CreateGameState extends State<CreateGame> {
                     if (_rescue) {
                       if (_twoteam) {
                         print('rescue Two teams');
+                        try {
+                          User user = _auth.currentUser;
+                          String mid;
+                          mid = await DatabaseServices(uid: user.uid)
+                              .updateMatchMode('r2', true, true, false, 180);
+                          print(mid);
+                          //update the nested collection
+                          await DatabaseServices(uid: user.uid)
+                              .updateNestedplayers(mid, null, true, 5, 0, 0,
+                                  360, 0, null, null, null, 0, null, false);
+                        } catch (e) {
+                          print(e.toString());
+                        }
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (_) {
                           return Normal2Teams();
@@ -328,7 +393,19 @@ class _CreateGameState extends State<CreateGame> {
                       }
                       if (_threeteam) {
                         print('rescuel Three teams');
-                        print('Normal Three teams');
+                        try {
+                          User user = _auth.currentUser;
+                          String mid;
+                          mid = await DatabaseServices(uid: user.uid)
+                              .updateMatchMode('r3', true, true, false, 180);
+                          print(mid);
+                          //update the nested collection
+                          await DatabaseServices(uid: user.uid)
+                              .updateNestedplayers(mid, null, true, 5, 0, 0,
+                                  360, 0, null, null, null, 0, null, false);
+                        } catch (e) {
+                          print(e.toString());
+                        }
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (_) {
                           return Normal3Teams();
@@ -336,6 +413,19 @@ class _CreateGameState extends State<CreateGame> {
                       }
                       if (_free4all) {
                         print('rescue free for all');
+                        try {
+                          User user = _auth.currentUser;
+                          String mid;
+                          mid = await DatabaseServices(uid: user.uid)
+                              .updateMatchMode('4', true, true, false, 180);
+                          print(mid);
+                          //update the nested collection
+                          await DatabaseServices(uid: user.uid)
+                              .updateNestedplayers(mid, null, true, 5, 0, 0,
+                                  360, 0, null, null, null, 0, null, false);
+                        } catch (e) {
+                          print(e.toString());
+                        }
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (_) {
                           return NormalFree4All();
@@ -344,6 +434,19 @@ class _CreateGameState extends State<CreateGame> {
                     }
                     if (_survival) {
                       if (_twoteam) {
+                        try {
+                          User user = _auth.currentUser;
+                          String mid;
+                          mid = await DatabaseServices(uid: user.uid)
+                              .updateMatchMode('s2', true, true, false, 180);
+                          print(mid);
+                          //update the nested collection
+                          await DatabaseServices(uid: user.uid)
+                              .updateNestedplayers(mid, null, true, 5, 0, 0,
+                                  360, 0, null, null, null, 0, null, false);
+                        } catch (e) {
+                          print(e.toString());
+                        }
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (_) {
                           return Normal2Teams();
@@ -351,12 +454,38 @@ class _CreateGameState extends State<CreateGame> {
                       }
                       if (_threeteam) {
                         print('Normal Three teams');
+                        try {
+                          User user = _auth.currentUser;
+                          String mid;
+                          mid = await DatabaseServices(uid: user.uid)
+                              .updateMatchMode('s3', true, true, false, 180);
+                          print(mid);
+                          //update the nested collection
+                          await DatabaseServices(uid: user.uid)
+                              .updateNestedplayers(mid, null, true, 5, 0, 0,
+                                  360, 0, null, null, null, 0, null, false);
+                        } catch (e) {
+                          print(e.toString());
+                        }
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (_) {
                           return Normal3Teams();
                         }));
                       }
                       if (_free4all) {
+                        try {
+                          User user = _auth.currentUser;
+                          String mid;
+                          mid = await DatabaseServices(uid: user.uid)
+                              .updateMatchMode('4', true, true, false, 180);
+                          print(mid);
+                          //update the nested collection
+                          await DatabaseServices(uid: user.uid)
+                              .updateNestedplayers(mid, null, true, 5, 0, 0,
+                                  360, 0, null, null, null, 0, null, false);
+                        } catch (e) {
+                          print(e.toString());
+                        }
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (_) {
                           return NormalFree4All();

@@ -354,36 +354,7 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                                     _teamNumber = 2;
                                   });
                                 })),
-                        /* Container(
-                            margin: const EdgeInsets.only(
-                                top: 5.0, right: 5.0, left: 10.0),
-                            child: RaisedButton(
-                                elevation: 50.0,
-                                color: _teamNumber == 3
-                                    ? Colors.yellow[900]
-                                    : Colors.black54,
-                                shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                    color: Colors.black,
-                                  ),
-                                  //borderRadius: BorderRadius.circular(30.0)
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                                    const Text(
-                                      'Team 3',
-                                      style: TextStyle(
-                                          fontSize: 15, color: Colors.white),
-                                    ),
-                                  ],
-                                ),
-                                onPressed: () {
-                                  setState(() {
-                                    _teamNumber = 3;
-                                  });
-                                })),*/
+                        
                       ],
                     ),
                   ),
