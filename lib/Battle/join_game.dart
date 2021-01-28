@@ -1,12 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/waiting_join_2teams.dart';
 import 'package:xtag_demo/Battle/waiting_join_3teams.dart';
 import 'package:xtag_demo/Screens/game_select1.dart';
+import 'package:xtag_demo/Services/database.dart';
+import 'package:xtag_demo/Model/match.dart';
 
 class JoinGame extends StatefulWidget {
   @override
   _JoinGameState createState() => _JoinGameState();
 }
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class _JoinGameState extends State<JoinGame> {
   String _matchid;
@@ -68,6 +73,31 @@ class _JoinGameState extends State<JoinGame> {
                 style: TextStyle(fontSize: 20.0),
               ),
               onPressed: () async {
+                //add data to the game
+                Match.mid = _matchid;
+                try {
+                  User user = _auth.currentUser;
+                  print(_matchid);
+                  //update the nested collection
+                  await DatabaseServices(uid: user.uid).updateNestedplayers(
+                      _matchid,
+                      null,
+                      true,
+                      5,
+                      0,
+                      0,
+                      360,
+                      0,
+                      null,
+                      null,
+                      null,
+                      0,
+                      null,
+                      false);
+                } catch (e) {
+                  print(e.toString());
+                }
+
                 Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                   return Join2Teams();
                 }));
