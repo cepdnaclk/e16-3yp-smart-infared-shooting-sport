@@ -67,6 +67,19 @@ class AuthService {
     }
   }
 
+  Future regToDatabase(String email, String userName) async {
+    try {
+      final auth = FirebaseAuth.instance;
+      User user;
+      user = auth.currentUser;
+      await DatabaseServices(uid: user.uid)
+          .updateUserData(email, userName, 0, 0, 0, 0, 'Beginer');
+    } catch (e) {
+      print(e.toString());
+      return (null);
+    }
+  }
+
   //sign out
   Future signOut() async {
     try {
