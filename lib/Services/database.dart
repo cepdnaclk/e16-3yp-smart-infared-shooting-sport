@@ -47,6 +47,7 @@ class DatabaseServices {
     bool host,
     bool isStart,
     int duration,
+    String msg,
   ) async {
     print(uid);
     String mid = matchCollection.doc().id;
@@ -56,7 +57,8 @@ class DatabaseServices {
       'status': status,
       'host': host,
       'isStart': isStart,
-      'duration': duration
+      'duration': duration,
+      'msg': msg
     });
     return mid;
   }
@@ -82,22 +84,25 @@ class DatabaseServices {
 
   //update nested players data
   Future updateNestedplayers(
-    String mid,
-    String name,
-    int team,
-    bool status,
-    int health,
-    int kills,
-    int deaths,
-    int ammocount,
-    int gun,
-    String rescurcode,
-    int lastKill,
-    int lastshotby,
-    int score,
-    int tempid,
-    bool isready,
-  ) async {
+      String mid,
+      String name,
+      int team,
+      bool status,
+      int health,
+      int kills,
+      int deaths,
+      int ammocount,
+      int gun,
+      String rescurcode,
+      int lastKill,
+      int lastshotby,
+      int score,
+      int tempid,
+      bool isready,
+      int lastkillTeam,
+      String lastkillName,
+      int lastshotbyTeam,
+      String lastshotbyName) async {
     print(uid);
     return await matchCollection.doc(mid).collection('players').doc(uid).set({
       'team': team,
@@ -113,7 +118,11 @@ class DatabaseServices {
       'lastshotby': lastshotby,
       'score': score,
       'tempid': tempid,
-      'isready': isready
+      'isready': isready,
+      'lastkillTeam': lastkillTeam,
+      'lastkillName': lastkillName,
+      'lastshotbyTeam': lastshotbyTeam,
+      'lstshotbyName': lastshotbyName,
     });
   }
 
