@@ -158,7 +158,7 @@ Storage
 Fast performance, high availability, and security
 
 # Database
- ![](images/database.png)
+![](images/database.png)
 
 # User Interface - Mobile Application
 Develop using Futter 1.17 
