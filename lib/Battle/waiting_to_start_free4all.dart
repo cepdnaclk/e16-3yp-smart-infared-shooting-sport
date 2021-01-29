@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:xtag_demo/Battle/joined_players_3team.dart';
-
-import 'joined_players_2team.dart';
 import 'joined_players_free4all.dart';
 
 class WaitingToStartfree4all extends StatelessWidget {
