@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Model/match.dart';
-import 'creat_game.dart';
 
 class JoinedPlayersfree4all extends StatelessWidget {
   int count1 = 1;
