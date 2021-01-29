@@ -140,28 +140,19 @@ Access and authentication
 
 -   We can keep the players logged in the game app for long using refresh tokens
 
-# [](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/tree/main/docs#back-end-technologies)Back-end technologies
-AWS -  EC2 Server
+# [](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/tree/main/docs#back-end-technologies) Back-end technologies
+Firebase
 
--   Elastic load balancing and Auto scaling facility
+-   Realtime database
     
--   Easy when handling large datasets
+-   Easy authentication
     
--   Provides Amazon Relational Database service
-    
-
-  
-
-Language
-
--   Python
+-   Provides Firestore storage service
     
 
 Storage
 
 -   Cloud storage
-    
--   MySQL Amazon RDS
     
 
 Fast performance, high availability, and security
