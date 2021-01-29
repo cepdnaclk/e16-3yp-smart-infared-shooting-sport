@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'join_game.dart';
 
-class Join2Teams extends StatefulWidget {
+class Joinfre4all extends StatefulWidget {
   @override
-  _Join2TeamsState createState() => _Join2TeamsState();
+  _Joinfre4allState createState() => _Joinfre4allState();
 }
 
-class _Join2TeamsState extends State<Join2Teams> {
+class _Joinfre4allState extends State<Joinfre4all> {
   int _gunNumber = 0;
   String _gameid = 'hhd63shd8438';
   @override

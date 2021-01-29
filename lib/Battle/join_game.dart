@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:xtag_demo/Battle/waiting_join_%20free4all.dart';
 import 'package:xtag_demo/Battle/waiting_join_2teams.dart';
 import 'package:xtag_demo/Battle/waiting_join_3teams.dart';
 import 'package:xtag_demo/Model/player1.dart';
@@ -17,6 +19,7 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
 class _JoinGameState extends State<JoinGame> {
   String _matchid;
   String name = Player1.name;
+  String mode;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,10 +107,37 @@ class _JoinGameState extends State<JoinGame> {
                 } catch (e) {
                   print(e.toString());
                 }
-
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                FirebaseFirestore.instance
+                    .collection('match')
+                    .doc(_matchid)
+                    .get()
+                    .then((DocumentSnapshot documentSnapshot) {
+                  print("Vira0");
+                  print(documentSnapshot['mode']);
+                  mode = documentSnapshot['mode'];
+                });
+                try {
+                  if (mode == 'n3' || mode == 'r3' || mode == 's3') {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      return Join3Teams();
+                    }));
+                  }
+                  if (mode == 'n2' || mode == 'r2' || mode == 's2') {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      return Join2Teams();
+                    }));
+                  }
+                  if (mode == 'n4' || mode == 'r4' || mode == 's4') {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      return Joinfre4all();
+                    }));
+                  }
+                } catch (e) {
+                  print(e.toString());
+                }
+                /*Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                   return Join2Teams();
-                }));
+                }));*/
               },
             ),
           ]),
