@@ -363,11 +363,14 @@ class _NormalFree4AllState extends State<NormalFree4All> {
                             } catch (e) {
                               print(e.toString());
                             }
-                            Navigator.of(context)
-                                .push(MaterialPageRoute(builder: (_) {
-                              print('sdds');
-                              return WaitingToStartfree4all();
-                            }));
+                            if ((_gunNumber != 0) &&
+                                (_tens || _twentys || _fives)) {
+                              Navigator.of(context)
+                                  .push(MaterialPageRoute(builder: (_) {
+                                print('sdds');
+                                return WaitingToStartfree4all();
+                              }));
+                            }
                           })),
                 ],
               ),

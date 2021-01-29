@@ -467,11 +467,14 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                             } catch (e) {
                               print(e.toString());
                             }
-                            Navigator.of(context)
-                                .push(MaterialPageRoute(builder: (_) {
-                              print('sdds');
-                              return WaitingToStart2teams();
-                            }));
+                            if ((_gunNumber != 0 && _teamNumber != 0) &&
+                                (_tens || _twentys || _fives)) {
+                              Navigator.of(context)
+                                  .push(MaterialPageRoute(builder: (_) {
+                                print('sdds');
+                                return WaitingToStart2teams();
+                              }));
+                            }
                           })),
                 ],
               ),
