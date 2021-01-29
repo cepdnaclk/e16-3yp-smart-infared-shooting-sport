@@ -96,7 +96,11 @@ class _JoinGameState extends State<JoinGame> {
                       null,
                       0,
                       null,
-                      false);
+                      false,
+                      null,
+                      null,
+                      null,
+                      null);
                 } catch (e) {
                   print(e.toString());
                 }
