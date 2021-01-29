@@ -83,6 +83,7 @@ class DatabaseServices {
   //update nested players data
   Future updateNestedplayers(
     String mid,
+    String name,
     int team,
     bool status,
     int health,
@@ -100,6 +101,7 @@ class DatabaseServices {
     print(uid);
     return await matchCollection.doc(mid).collection('players').doc(uid).set({
       'team': team,
+      'name': name,
       'status': status,
       'health': health,
       'kills': kills,
@@ -156,9 +158,8 @@ class DatabaseServices {
   List<Player> _playerListFromSnampshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return Player(
-          name: doc.data()['name'] ?? '',
-          email: doc.data()['email'],
-          battles: doc.data()['Battles Played']);
+        name: doc.data()['name'] ?? '',
+      );
     }).toList();
   }
 

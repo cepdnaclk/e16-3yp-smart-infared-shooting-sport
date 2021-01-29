@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/creat_game.dart';
 import 'package:xtag_demo/Battle/creat_game.dart';
+import 'package:xtag_demo/Battle/waiting_to_start2team.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'creat_game.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -466,6 +467,11 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                             } catch (e) {
                               print(e.toString());
                             }
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (_) {
+                              print('sdds');
+                              return WaitingToStart2teams();
+                            }));
                           })),
                 ],
               ),

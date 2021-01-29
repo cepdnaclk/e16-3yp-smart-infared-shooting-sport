@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/joined_players_3team.dart';
 
-class WaitingToStart3teams extends StatelessWidget {
+import 'joined_players_2team.dart';
+import 'joined_players_free4all.dart';
+
+class WaitingToStartfree4all extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +51,7 @@ class WaitingToStart3teams extends StatelessWidget {
               ),
             ),
             Flexible(
-              child: JoinedPlayers3teams(),
+              child: JoinedPlayersfree4all(),
             ),
           ],
         ),

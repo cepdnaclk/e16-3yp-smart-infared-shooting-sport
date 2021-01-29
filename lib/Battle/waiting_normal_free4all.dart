@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/creat_game.dart';
+import 'package:xtag_demo/Battle/waiting_to_start_3team.dart';
+import 'package:xtag_demo/Battle/waiting_to_start_free4all.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'creat_game.dart';
 import 'package:xtag_demo/Model/match.dart';
@@ -361,6 +363,11 @@ class _NormalFree4AllState extends State<NormalFree4All> {
                             } catch (e) {
                               print(e.toString());
                             }
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (_) {
+                              print('sdds');
+                              return WaitingToStartfree4all();
+                            }));
                           })),
                 ],
               ),

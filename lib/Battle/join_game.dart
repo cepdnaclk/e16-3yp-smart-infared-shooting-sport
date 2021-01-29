@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/waiting_join_2teams.dart';
 import 'package:xtag_demo/Battle/waiting_join_3teams.dart';
+import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Screens/game_select1.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'package:xtag_demo/Model/match.dart';
@@ -15,6 +16,7 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class _JoinGameState extends State<JoinGame> {
   String _matchid;
+  String name = Player1.name;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,6 +83,7 @@ class _JoinGameState extends State<JoinGame> {
                   //update the nested collection
                   await DatabaseServices(uid: user.uid).updateNestedplayers(
                       _matchid,
+                      name,
                       null,
                       true,
                       5,

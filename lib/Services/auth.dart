@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Model/user.dart';
 import 'package:xtag_demo/Services/database.dart';
 
@@ -58,6 +59,7 @@ class AuthService {
       }*/
       User user = result.user;
       //create new document for the user with the user ID
+      //Player1.name = userName;
       await DatabaseServices(uid: user.uid)
           .updateUserData(email, userName, 0, 0, 0, 0, 'Beginer');
       return _userFromUser(user);

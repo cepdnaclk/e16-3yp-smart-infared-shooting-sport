@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/waiting_normal_2teams.dart';
 import 'package:xtag_demo/Battle/waiting_normal_3teams.dart';
 import 'package:xtag_demo/Battle/waiting_normal_free4all.dart';
+import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'package:xtag_demo/Model/match.dart';
 
@@ -23,7 +24,7 @@ class _CreateGameState extends State<CreateGame> {
   bool _twoteam = false;
   bool _free4all = false;
   bool _threeteam = false;
-
+  String name = Player1.name;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -316,13 +317,28 @@ class _CreateGameState extends State<CreateGame> {
                         print('Normal Two Twams');
                         try {
                           User user = _auth.currentUser;
+                          //String name = user.name;
                           Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('n2', true, true, false, 180);
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(Match.mid, null, true, 5, 0,
-                                  0, 360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(
+                                  Match.mid,
+                                  name,
+                                  null,
+                                  true,
+                                  5,
+                                  0,
+                                  0,
+                                  360,
+                                  0,
+                                  null,
+                                  null,
+                                  null,
+                                  0,
+                                  null,
+                                  false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -341,8 +357,22 @@ class _CreateGameState extends State<CreateGame> {
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(Match.mid, null, true, 5, 0,
-                                  0, 360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(
+                                  Match.mid,
+                                  name,
+                                  null,
+                                  true,
+                                  5,
+                                  0,
+                                  0,
+                                  360,
+                                  0,
+                                  null,
+                                  null,
+                                  null,
+                                  0,
+                                  null,
+                                  false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -361,8 +391,22 @@ class _CreateGameState extends State<CreateGame> {
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(Match.mid, null, true, 5, 0,
-                                  0, 360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(
+                                  Match.mid,
+                                  name,
+                                  null,
+                                  true,
+                                  5,
+                                  0,
+                                  0,
+                                  360,
+                                  0,
+                                  null,
+                                  null,
+                                  null,
+                                  0,
+                                  null,
+                                  false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -383,8 +427,22 @@ class _CreateGameState extends State<CreateGame> {
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(Match.mid, null, true, 5, 0,
-                                  0, 360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(
+                                  Match.mid,
+                                  name,
+                                  null,
+                                  true,
+                                  5,
+                                  0,
+                                  0,
+                                  360,
+                                  0,
+                                  null,
+                                  null,
+                                  null,
+                                  0,
+                                  null,
+                                  false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -403,8 +461,22 @@ class _CreateGameState extends State<CreateGame> {
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(Match.mid, null, true, 5, 0,
-                                  0, 360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(
+                                  Match.mid,
+                                  name,
+                                  null,
+                                  true,
+                                  5,
+                                  0,
+                                  0,
+                                  360,
+                                  0,
+                                  null,
+                                  null,
+                                  null,
+                                  0,
+                                  null,
+                                  false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -423,8 +495,22 @@ class _CreateGameState extends State<CreateGame> {
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(Match.mid, null, true, 5, 0,
-                                  0, 360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(
+                                  Match.mid,
+                                  name,
+                                  null,
+                                  true,
+                                  5,
+                                  0,
+                                  0,
+                                  360,
+                                  0,
+                                  null,
+                                  null,
+                                  null,
+                                  0,
+                                  null,
+                                  false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -444,8 +530,22 @@ class _CreateGameState extends State<CreateGame> {
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(Match.mid, null, true, 5, 0,
-                                  0, 360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(
+                                  Match.mid,
+                                  name,
+                                  null,
+                                  true,
+                                  5,
+                                  0,
+                                  0,
+                                  360,
+                                  0,
+                                  null,
+                                  null,
+                                  null,
+                                  0,
+                                  null,
+                                  false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -464,8 +564,22 @@ class _CreateGameState extends State<CreateGame> {
                           print(mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(Match.mid, null, true, 5, 0,
-                                  0, 360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(
+                                  Match.mid,
+                                  name,
+                                  null,
+                                  true,
+                                  5,
+                                  0,
+                                  0,
+                                  360,
+                                  0,
+                                  null,
+                                  null,
+                                  null,
+                                  0,
+                                  null,
+                                  false);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -484,8 +598,22 @@ class _CreateGameState extends State<CreateGame> {
                           print(mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
-                              .updateNestedplayers(Match.mid, null, true, 5, 0,
-                                  0, 360, 0, null, null, null, 0, null, false);
+                              .updateNestedplayers(
+                                  Match.mid,
+                                  name,
+                                  null,
+                                  true,
+                                  5,
+                                  0,
+                                  0,
+                                  360,
+                                  0,
+                                  null,
+                                  null,
+                                  null,
+                                  0,
+                                  null,
+                                  false);
                         } catch (e) {
                           print(e.toString());
                         }

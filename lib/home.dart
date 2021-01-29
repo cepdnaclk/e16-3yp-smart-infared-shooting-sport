@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Services/auth.dart';
 import 'Model/player.dart';
+import 'Model/player1.dart';
 import 'Model/user.dart';
 import 'PlayModes/gun_connect.dart';
 import 'Screens/register.dart';
@@ -13,7 +14,6 @@ import 'package:provider/provider.dart';
 import 'Developers/about_us.dart';
 import 'Developers/contact_us.dart';
 import 'Developers/offers_page.dar.dart';
-import 'Player/player_details.dart';
 
 class Home extends StatelessWidget {
   final AuthService _auth = AuthService();
@@ -22,11 +22,24 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     //final user = Provider.of<UserN>(context);
     final auth = FirebaseAuth.instance;
+    String uid;
     User user;
     user = auth.currentUser;
     String emailC = 'No User';
+    String name;
     if (user != null) {
       emailC = user.email;
+      uid = user.uid;
+      FirebaseFirestore.instance
+          .collection('player')
+          .doc(uid)
+          .get()
+          .then((DocumentSnapshot documentSnapshot) {
+        print("Vira0");
+        print(documentSnapshot['name']);
+        name = documentSnapshot['name'];
+        Player1.name = name;
+      });
     }
     print(emailC);
     print(emailC);
@@ -52,8 +65,8 @@ class Home extends StatelessWidget {
               ),
               onPressed: () async {
                 await _auth.signOut();
-                user = auth.currentUser;
-                print(user);
+                //user = auth.currentUser;
+                //print(user);
               },
             )
           ],
@@ -217,6 +230,7 @@ class Home extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
+                      //Player1.name = name;
                       //user = auth.currentUser;
                       //print(user.email);
                       Navigator.of(context)

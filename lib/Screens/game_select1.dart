@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/creat_game.dart';
 import 'package:xtag_demo/Battle/join_game.dart';
+import 'package:xtag_demo/Model/player.dart';
 import 'package:xtag_demo/PlayModes/gun_connect.dart';
-import 'package:xtag_demo/Player/player_details.dart';
 
 import '../home.dart';
 
@@ -14,6 +14,7 @@ class GameSelect1 extends StatefulWidget {
 class _GameSelect1State extends State<GameSelect1> {
   bool creatGame = false;
   bool joinGame = false;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

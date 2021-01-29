@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/creat_game.dart';
+import 'package:xtag_demo/Battle/waiting_to_start_3team.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'creat_game.dart';
 import 'package:xtag_demo/Model/match.dart';
@@ -463,6 +464,11 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                             } catch (e) {
                               print(e.toString());
                             }
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (_) {
+                              print('sdds');
+                              return WaitingToStart3teams();
+                            }));
                           })),
                 ],
               ),
