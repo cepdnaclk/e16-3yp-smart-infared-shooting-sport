@@ -319,7 +319,8 @@ class _CreateGameState extends State<CreateGame> {
                           User user = _auth.currentUser;
                           //String name = user.name;
                           Match.mid = await DatabaseServices(uid: user.uid)
-                              .updateMatchMode('n2', true, true, false, 180);
+                              .updateMatchMode('n2', true, true, false, 180,
+                                  'Game startted');
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
@@ -338,7 +339,11 @@ class _CreateGameState extends State<CreateGame> {
                                   null,
                                   0,
                                   null,
-                                  false);
+                                  false,
+                                  null,
+                                  null,
+                                  null,
+                                  null);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -353,7 +358,8 @@ class _CreateGameState extends State<CreateGame> {
                           User user = _auth.currentUser;
 
                           Match.mid = await DatabaseServices(uid: user.uid)
-                              .updateMatchMode('n3', true, true, false, 180);
+                              .updateMatchMode(
+                                  'n3', true, true, false, 180, 'Game started');
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
@@ -372,7 +378,11 @@ class _CreateGameState extends State<CreateGame> {
                                   null,
                                   0,
                                   null,
-                                  false);
+                                  false,
+                                  null,
+                                  null,
+                                  null,
+                                  null);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -387,7 +397,8 @@ class _CreateGameState extends State<CreateGame> {
                           User user = _auth.currentUser;
 
                           Match.mid = await DatabaseServices(uid: user.uid)
-                              .updateMatchMode('4', true, true, false, 180);
+                              .updateMatchMode(
+                                  'n4', true, true, false, 180, 'Game started');
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
@@ -406,7 +417,11 @@ class _CreateGameState extends State<CreateGame> {
                                   null,
                                   0,
                                   null,
-                                  false);
+                                  false,
+                                  null,
+                                  null,
+                                  null,
+                                  null);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -423,7 +438,8 @@ class _CreateGameState extends State<CreateGame> {
                           User user = _auth.currentUser;
 
                           Match.mid = await DatabaseServices(uid: user.uid)
-                              .updateMatchMode('r2', true, true, false, 180);
+                              .updateMatchMode(
+                                  'r2', true, true, false, 180, 'Game started');
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
@@ -442,7 +458,11 @@ class _CreateGameState extends State<CreateGame> {
                                   null,
                                   0,
                                   null,
-                                  false);
+                                  false,
+                                  null,
+                                  null,
+                                  null,
+                                  null);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -457,7 +477,8 @@ class _CreateGameState extends State<CreateGame> {
                           User user = _auth.currentUser;
 
                           Match.mid = await DatabaseServices(uid: user.uid)
-                              .updateMatchMode('r3', true, true, false, 180);
+                              .updateMatchMode(
+                                  'r3', true, true, false, 180, 'Game started');
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
@@ -476,7 +497,11 @@ class _CreateGameState extends State<CreateGame> {
                                   null,
                                   0,
                                   null,
-                                  false);
+                                  false,
+                                  null,
+                                  null,
+                                  null,
+                                  null);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -491,7 +516,8 @@ class _CreateGameState extends State<CreateGame> {
                           User user = _auth.currentUser;
 
                           Match.mid = await DatabaseServices(uid: user.uid)
-                              .updateMatchMode('4', true, true, false, 180);
+                              .updateMatchMode(
+                                  'r4', true, true, false, 180, 'Game started');
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
@@ -510,7 +536,11 @@ class _CreateGameState extends State<CreateGame> {
                                   null,
                                   0,
                                   null,
-                                  false);
+                                  false,
+                                  null,
+                                  null,
+                                  null,
+                                  null);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -526,7 +556,8 @@ class _CreateGameState extends State<CreateGame> {
                           User user = _auth.currentUser;
 
                           Match.mid = await DatabaseServices(uid: user.uid)
-                              .updateMatchMode('s2', true, true, false, 180);
+                              .updateMatchMode(
+                                  's2', true, true, false, 180, 'Game started');
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
@@ -545,7 +576,11 @@ class _CreateGameState extends State<CreateGame> {
                                   null,
                                   0,
                                   null,
-                                  false);
+                                  false,
+                                  null,
+                                  null,
+                                  null,
+                                  null);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -560,7 +595,8 @@ class _CreateGameState extends State<CreateGame> {
                           User user = _auth.currentUser;
 
                           Match.mid = await DatabaseServices(uid: user.uid)
-                              .updateMatchMode('s3', true, true, false, 180);
+                              .updateMatchMode(
+                                  's3', true, true, false, 180, 'Game started');
                           print(mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
@@ -579,7 +615,11 @@ class _CreateGameState extends State<CreateGame> {
                                   null,
                                   0,
                                   null,
-                                  false);
+                                  false,
+                                  null,
+                                  null,
+                                  null,
+                                  null);
                         } catch (e) {
                           print(e.toString());
                         }
@@ -593,7 +633,8 @@ class _CreateGameState extends State<CreateGame> {
                           User user = _auth.currentUser;
 
                           Match.mid = await DatabaseServices(uid: user.uid)
-                              .updateMatchMode('4', true, true, false, 180);
+                              .updateMatchMode(
+                                  's4', true, true, false, 180, 'Game started');
 
                           print(mid);
                           //update the nested collection
@@ -613,7 +654,11 @@ class _CreateGameState extends State<CreateGame> {
                                   null,
                                   0,
                                   null,
-                                  false);
+                                  false,
+                                  null,
+                                  null,
+                                  null,
+                                  null);
                         } catch (e) {
                           print(e.toString());
                         }
