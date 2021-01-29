@@ -104,7 +104,7 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     const Text(
-                                      '5s',
+                                      '3m',
                                       style: TextStyle(
                                           fontSize: 15, color: Colors.white),
                                     ),
@@ -135,7 +135,7 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     const Text(
-                                      '10s',
+                                      '5m',
                                       style: TextStyle(
                                           fontSize: 15, color: Colors.white),
                                     ),
@@ -167,7 +167,7 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     const Text(
-                                      '20s',
+                                      '10m',
                                       style: TextStyle(
                                           fontSize: 15, color: Colors.white),
                                     ),
