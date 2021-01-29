@@ -77,4 +77,16 @@ And also push button and RGB LED are used.
 * Companies  for Commercial laser tag systems ,
 * and any other user who like to buy a pair of guns or more.
 
+# Back-end technologies
+Firebase
+-   Cloud Firestore is used.
+
+
+# Database
+- Two main collections are used to store Player data and Match data.
+- Player collection will store records as documents according to the Used ID.
+- Match collection will store records as documents according to the Match ID.
+- Players' details of each match will be stored as a sub collection inside the relevent match document.
+ ![](images/dbl.PNG)
+
 
