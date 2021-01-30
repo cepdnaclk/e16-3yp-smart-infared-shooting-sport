@@ -21,7 +21,24 @@ class TimeDisplay extends StatelessWidget {
         print(sec);
         int min = (time) ~/ 60;
         print(min);
-        return Text(matchdata['duration'].toString());
+        return Container(
+            margin: const EdgeInsets.only(top: 20.0, right: 100.0, left: 100.0),
+            alignment: Alignment.center,
+            color: Colors.yellow,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(Icons.timer, size: 30.0, color: Colors.black),
+                Container(
+                  margin: const EdgeInsets.only(right: 5.0, left: 5.0),
+                  alignment: Alignment.center,
+                  child: Text(
+                    ' $min : $sec ',
+                    style: TextStyle(fontSize: 40, color: Colors.red[900]),
+                  ),
+                ),
+              ],
+            ));
       },
     );
   }
