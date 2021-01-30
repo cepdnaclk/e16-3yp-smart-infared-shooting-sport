@@ -7,13 +7,13 @@ import 'package:xtag_demo/Battling/time_display.dart';
 
 import 'battle_started_mas.dart';
 
-class Join3teamNormalUntilStart extends StatefulWidget {
+class Host3teamSurvlUntilStart extends StatefulWidget {
   @override
-  _Join3teamNormalUntilStartState createState() =>
-      _Join3teamNormalUntilStartState();
+  _Host3teamSurvlUntilStartState createState() =>
+      _Host3teamSurvlUntilStartState();
 }
 
-class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
+class _Host3teamSurvlUntilStartState extends State<Host3teamSurvlUntilStart> {
   //print(Match.mid);
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,6 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
               ),
             ),*/
 
-            MatchStartedMsg(),
             TimeDisplay(),
             PlayerParameters(),
             Flexible(

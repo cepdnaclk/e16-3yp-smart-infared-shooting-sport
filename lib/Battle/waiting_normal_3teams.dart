@@ -468,7 +468,7 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                                 (_tens || _twentys || _fives)) {
                               Navigator.of(context)
                                   .push(MaterialPageRoute(builder: (_) {
-                                print('sdds');
+                                print(Match.mid);
                                 return WaitingToStart3teams();
                               }));
                             }

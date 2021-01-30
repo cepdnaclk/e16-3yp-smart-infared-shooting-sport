@@ -606,6 +606,8 @@ class _CreateGameState extends State<CreateGame> {
                               .updateMatchMode(
                                   's3', true, true, false, 180, 'Game started');
                           print(mid);
+
+                          print(Match.mode);
                           Match.mode = "s3";
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
