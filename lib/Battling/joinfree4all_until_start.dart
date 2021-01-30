@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battling/player_data_free4all.dart';
 import 'package:xtag_demo/Battling/time_display.dart';
 
+import 'battle_started_mas.dart';
+
 class Joinfree4allUntilStart extends StatefulWidget {
   @override
   _Joinfree4allUntilStartState createState() => _Joinfree4allUntilStartState();
@@ -13,7 +15,7 @@ class _Joinfree4allUntilStartState extends State<Joinfree4allUntilStart> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('Wait until the host start play '),
+        title: Text('XTag Battle'),
       ),
       body: Container(
         alignment: Alignment.center,
@@ -34,7 +36,7 @@ class _Joinfree4allUntilStartState extends State<Joinfree4allUntilStart> {
             /*SizedBox(
               height: 20.0,
             ),*/
-            Container(
+            /*Container(
               margin:
                   const EdgeInsets.only(top: 20.0, right: 100.0, left: 100.0),
               child: RaisedButton(
@@ -52,7 +54,8 @@ class _Joinfree4allUntilStartState extends State<Joinfree4allUntilStart> {
                 color: Colors.green[700],
                 onPressed: () {},
               ),
-            ),
+            ),*/
+            MatchStartedMsg(),
             TimeDisplay(),
             Flexible(
               child: JoinedPlayersfree4allJu(),

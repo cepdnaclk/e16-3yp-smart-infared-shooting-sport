@@ -12,6 +12,7 @@ class JoinedPlayersfree4allJu extends StatelessWidget {
           .collection('match')
           .doc(Match.mid)
           .collection('players')
+          .orderBy('score', descending: true)
           .snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (!snapshot.hasData) return Text('Loading');
@@ -23,7 +24,7 @@ class JoinedPlayersfree4allJu extends StatelessWidget {
             bool enabled = true;
             //print('name : $name  team :$team');
             return Container(
-              margin: const EdgeInsets.only(top: 0.0, right: 20.0, left: 70.0),
+              margin: const EdgeInsets.only(top: 0.0, right: 20.0, left: 60.0),
               alignment: Alignment.center,
               child: Column(
                 children: [
@@ -33,11 +34,11 @@ class JoinedPlayersfree4allJu extends StatelessWidget {
                       child: Row(children: <Widget>[
                         //width: 80.0,
                         Container(
-                          width: 120.0,
-                          child: Text('$name'),
+                          width: 150.0,
+                          child: Text(' $name'),
                         ),
                         Container(
-                          width: 10.0,
+                          width: 20.0,
                           child: Text('$score'),
                         ),
                       ]),
