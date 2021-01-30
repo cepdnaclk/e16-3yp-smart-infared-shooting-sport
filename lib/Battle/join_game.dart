@@ -108,15 +108,19 @@ class _JoinGameState extends State<JoinGame> {
                 } catch (e) {
                   print(e.toString());
                 }
-                await FirebaseFirestore.instance
-                    .collection('match')
-                    .doc(_matchid)
-                    .get()
-                    .then((DocumentSnapshot documentSnapshot) {
-                  print("Vira0");
-                  print(documentSnapshot['mode']);
-                  mode = documentSnapshot['mode'];
-                });
+                try {
+                  await FirebaseFirestore.instance
+                      .collection('match')
+                      .doc(_matchid)
+                      .get()
+                      .then((DocumentSnapshot documentSnapshot) {
+                    print("Vira0");
+                    print(documentSnapshot['mode']);
+                    mode = documentSnapshot['mode'];
+                  });
+                } catch (e) {
+                  print(e.toString());
+                }
                 try {
                   if (mode == 'n3' || mode == 'r3' || mode == 's3') {
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:xtag_demo/Battle/joined_players_3team.dart';
+
+import 'package:xtag_demo/Battling/host_battle_2teams_resc.dart';
+import 'package:xtag_demo/Model/match.dart';
 
 import 'joined_players_2team.dart';
 
@@ -42,11 +44,19 @@ class WaitingToStart2teams extends StatelessWidget {
                 child: Row(children: <Widget>[
                   //width: 80.0,
                   Container(
-                    child: Text('    Start the battle'),
+                    child: Text('    Start the battle r2'),
                   ),
                 ]),
                 color: Colors.green[700],
-                onPressed: () {},
+                onPressed: () {
+                  print(Match.mid);
+                  if (Match.mode == 'r2') {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      print('sdds');
+                      return Host2teamResclUntilStart();
+                    }));
+                  }
+                },
               ),
             ),
             Flexible(

@@ -31,20 +31,20 @@ class Home extends StatelessWidget {
       emailC = user.email;
       uid = user.uid;
       Player1.uid = uid;
-      print(Player1.uid);
+      // print(Player1.uid);
       FirebaseFirestore.instance
           .collection('player')
           .doc(uid)
           .get()
           .then((DocumentSnapshot documentSnapshot) {
-        print("Vira0");
-        print(documentSnapshot['name']);
+        //print("Vira0");
+        //print(documentSnapshot['name']);
         name = documentSnapshot['name'];
         Player1.name = name;
       });
     }
-    print(emailC);
-    print(emailC);
+    //print(emailC);
+    //print(emailC);
     return StreamProvider<List<Player>>.value(
       value: DatabaseServices().players,
       child: Scaffold(

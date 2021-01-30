@@ -1,4 +1,4 @@
-class Team3 {
+class Team1 {
   static int deaths;
   static int kills;
   static int score;

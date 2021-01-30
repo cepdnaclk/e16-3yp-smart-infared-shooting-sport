@@ -15,7 +15,7 @@ class JoinedPlayers3teamsSurv extends StatelessWidget {
           .collection('match')
           .doc(Match.mid)
           .collection('players')
-          .orderBy('deaths', descending: true)
+          .orderBy('deaths', descending: false)
           .orderBy('team', descending: false)
           .orderBy('score', descending: true)
           .snapshots(),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:xtag_demo/Battle/creat_game.dart';
+
 import 'package:xtag_demo/Battling/player_parameter.dart';
-import 'package:xtag_demo/Battling/players_data_3teams.dart';
-import 'package:xtag_demo/Battling/players_data_free4all.dart';
+import 'package:xtag_demo/Battling/players_data_3teams_surv.dart';
+
 import 'package:xtag_demo/Battling/time_display.dart';
 
 import 'battle_started_mas.dart';
