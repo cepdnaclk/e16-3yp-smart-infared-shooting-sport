@@ -15,9 +15,9 @@ class JoinedPlayers3teamsSurv extends StatelessWidget {
           .collection('match')
           .doc(Match.mid)
           .collection('players')
+          .orderBy('deaths', descending: true)
           .orderBy('team', descending: false)
           .orderBy('score', descending: true)
-          .orderBy('deaths', descending: true)
           .snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (!snapshot.hasData) return Text('Loading');
