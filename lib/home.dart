@@ -25,9 +25,13 @@ class Home extends StatelessWidget {
     user = auth.currentUser;
     String emailC = 'No User';
     String name;
+    //Player1.uid = uid;
+    //print(Player1.uid);
     if (user != null) {
       emailC = user.email;
       uid = user.uid;
+      Player1.uid = uid;
+      print(Player1.uid);
       FirebaseFirestore.instance
           .collection('player')
           .doc(uid)

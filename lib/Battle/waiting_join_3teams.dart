@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:xtag_demo/Battling/join3teams_until_start.dart';
+import 'package:xtag_demo/Battling/join3teams_normal_until_start.dart';
 import 'package:xtag_demo/Model/match.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'join_game.dart';
@@ -325,7 +325,7 @@ class _Join3TeamsState extends State<Join3Teams> {
                             }
                             Navigator.of(context)
                                 .push(MaterialPageRoute(builder: (_) {
-                              return Join3teamsUntilStart();
+                              return Join3teamNormalUntilStart();
                             }));
                             print(_gunNumber);
                           })),

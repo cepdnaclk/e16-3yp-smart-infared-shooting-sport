@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:xtag_demo/Battling/host_battle_normal_free.dart';
 import 'joined_players_free4all.dart';
+import 'package:xtag_demo/Model/match.dart';
 
 class WaitingToStartfree4all extends StatelessWidget {
+  String mode = Match.mode;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,20 +35,28 @@ class WaitingToStartfree4all extends StatelessWidget {
               margin:
                   const EdgeInsets.only(top: 20.0, right: 100.0, left: 100.0),
               child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: Colors.deepPurple[900],
+                  shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                        color: Colors.deepPurple[900],
+                      ),
+                      borderRadius: BorderRadius.circular(20.0)),
+                  child: Row(children: <Widget>[
+                    //width: 80.0,
+                    Container(
+                      child: Text('    Start the battle'),
                     ),
-                    borderRadius: BorderRadius.circular(20.0)),
-                child: Row(children: <Widget>[
-                  //width: 80.0,
-                  Container(
-                    child: Text('    Start the battle'),
-                  ),
-                ]),
-                color: Colors.green[700],
-                onPressed: () {},
-              ),
+                  ]),
+                  color: Colors.green[700],
+                  onPressed: () {
+                    print(Match.mid);
+                    if (Match.mode == 'n4') {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (_) {
+                        print('sdds');
+                        return Hostfree4allNormalUntilStart();
+                      }));
+                    }
+                  }),
             ),
             Flexible(
               child: JoinedPlayersfree4all(),

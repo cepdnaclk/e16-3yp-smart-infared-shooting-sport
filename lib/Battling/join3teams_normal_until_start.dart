@@ -6,12 +6,13 @@ import 'package:xtag_demo/Battling/time_display.dart';
 
 import 'battle_started_mas.dart';
 
-class Joinfree4allUntilStart extends StatefulWidget {
+class Join3teamNormalUntilStart extends StatefulWidget {
   @override
-  _Joinfree4allUntilStartState createState() => _Joinfree4allUntilStartState();
+  _Join3teamNormalUntilStartState createState() =>
+      _Join3teamNormalUntilStartState();
 }
 
-class _Joinfree4allUntilStartState extends State<Joinfree4allUntilStart> {
+class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
   //print(Match.mid);
   @override
   Widget build(BuildContext context) {

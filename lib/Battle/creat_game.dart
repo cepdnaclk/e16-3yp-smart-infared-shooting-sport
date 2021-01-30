@@ -318,6 +318,7 @@ class _CreateGameState extends State<CreateGame> {
                         try {
                           User user = _auth.currentUser;
                           //String name = user.name;
+                          Match.mode = "n2";
                           Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('n2', true, true, false, 180,
                                   'Game startted');
@@ -360,6 +361,7 @@ class _CreateGameState extends State<CreateGame> {
                           Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode(
                                   'n3', true, true, false, 180, 'Game started');
+                          Match.mode = "n3";
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
@@ -400,6 +402,8 @@ class _CreateGameState extends State<CreateGame> {
                               .updateMatchMode(
                                   'n4', true, true, false, 180, 'Game started');
                           print(Match.mid);
+                          Match.mode = "n4";
+                          print(Match.mode);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
                               .updateNestedplayers(
@@ -441,6 +445,7 @@ class _CreateGameState extends State<CreateGame> {
                               .updateMatchMode(
                                   'r2', true, true, false, 180, 'Game started');
                           print(Match.mid);
+                          Match.mode = "r2";
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
                               .updateNestedplayers(
@@ -480,6 +485,7 @@ class _CreateGameState extends State<CreateGame> {
                               .updateMatchMode(
                                   'r3', true, true, false, 180, 'Game started');
                           print(Match.mid);
+                          Match.mode = "r3";
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
                               .updateNestedplayers(
@@ -519,6 +525,7 @@ class _CreateGameState extends State<CreateGame> {
                               .updateMatchMode(
                                   'r4', true, true, false, 180, 'Game started');
                           print(Match.mid);
+                          Match.mode = "r4";
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
                               .updateNestedplayers(
@@ -559,6 +566,7 @@ class _CreateGameState extends State<CreateGame> {
                               .updateMatchMode(
                                   's2', true, true, false, 180, 'Game started');
                           print(Match.mid);
+                          Match.mode = "s2";
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
                               .updateNestedplayers(
@@ -598,6 +606,7 @@ class _CreateGameState extends State<CreateGame> {
                               .updateMatchMode(
                                   's3', true, true, false, 180, 'Game started');
                           print(mid);
+                          Match.mode = "s3";
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
                               .updateNestedplayers(
@@ -637,6 +646,7 @@ class _CreateGameState extends State<CreateGame> {
                                   's4', true, true, false, 180, 'Game started');
 
                           print(mid);
+                          Match.mode = "s4";
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
                               .updateNestedplayers(

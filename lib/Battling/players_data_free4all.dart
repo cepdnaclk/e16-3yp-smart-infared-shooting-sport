@@ -5,6 +5,7 @@ import 'package:xtag_demo/Model/match.dart';
 class JoinedPlayersfree4allJu extends StatelessWidget {
   int count1 = 1;
   int number1;
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -34,7 +35,7 @@ class JoinedPlayersfree4allJu extends StatelessWidget {
                       child: Row(children: <Widget>[
                         //width: 80.0,
                         Container(
-                          width: 150.0,
+                          width: 170.0,
                           child: Text(' $name'),
                         ),
                         Container(

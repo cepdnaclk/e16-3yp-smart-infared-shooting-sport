@@ -80,6 +80,7 @@ class _JoinGameState extends State<JoinGame> {
               onPressed: () async {
                 //add data to the game
                 Match.mid = _matchid;
+
                 try {
                   User user = _auth.currentUser;
                   print(_matchid);
@@ -107,7 +108,7 @@ class _JoinGameState extends State<JoinGame> {
                 } catch (e) {
                   print(e.toString());
                 }
-                FirebaseFirestore.instance
+                await FirebaseFirestore.instance
                     .collection('match')
                     .doc(_matchid)
                     .get()
@@ -138,6 +139,7 @@ class _JoinGameState extends State<JoinGame> {
                 /*Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                   return Join2Teams();
                 }));*/
+                print(Match.mid);
               },
             ),
           ]),

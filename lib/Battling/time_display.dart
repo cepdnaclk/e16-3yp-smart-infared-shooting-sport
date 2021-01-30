@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Model/match.dart';
@@ -5,6 +7,7 @@ import 'package:xtag_demo/Model/match.dart';
 class TimeDisplay extends StatelessWidget {
   int count1 = 1;
   int number1;
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -21,6 +24,7 @@ class TimeDisplay extends StatelessWidget {
         print(sec);
         int min = (time) ~/ 60;
         print(min);
+        print(Match.mid);
 
         return Container(
             margin: const EdgeInsets.only(top: 20.0, right: 100.0, left: 100.0),

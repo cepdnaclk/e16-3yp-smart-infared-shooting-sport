@@ -6,12 +6,14 @@ import 'package:xtag_demo/Battling/time_display.dart';
 
 import 'battle_started_mas.dart';
 
-class Joinfree4allUntilStart extends StatefulWidget {
+class Hostfree4allNormalUntilStart extends StatefulWidget {
   @override
-  _Joinfree4allUntilStartState createState() => _Joinfree4allUntilStartState();
+  _Hostfree4allNormalUntilStartState createState() =>
+      _Hostfree4allNormalUntilStartState();
 }
 
-class _Joinfree4allUntilStartState extends State<Joinfree4allUntilStart> {
+class _Hostfree4allNormalUntilStartState
+    extends State<Hostfree4allNormalUntilStart> {
   //print(Match.mid);
   @override
   Widget build(BuildContext context) {
@@ -60,7 +62,6 @@ class _Joinfree4allUntilStartState extends State<Joinfree4allUntilStart> {
               ),
             ),*/
 
-            MatchStartedMsg(),
             TimeDisplay(),
             PlayerParameters(),
             Flexible(
