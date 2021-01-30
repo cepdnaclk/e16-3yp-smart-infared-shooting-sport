@@ -7,8 +7,6 @@ import 'Model/player.dart';
 import 'Model/player1.dart';
 import 'Model/user.dart';
 import 'PlayModes/gun_connect.dart';
-import 'Screens/register.dart';
-import 'Screens/sign_in.dart';
 import 'Services/database.dart';
 import 'package:provider/provider.dart';
 import 'Developers/about_us.dart';

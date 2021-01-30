@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xtag_demo/Battling/joinfree4all_until_start.dart';
 
 import 'join_game.dart';
 
@@ -172,29 +173,37 @@ class _Joinfre4allState extends State<Joinfre4all> {
                       margin: const EdgeInsets.only(
                           top: 45.0, right: 80.0, left: 80.0),
                       child: RaisedButton(
-                          elevation: 10.0,
-                          color: Colors.lightBlueAccent,
-                          shape: RoundedRectangleBorder(
-                              side: BorderSide(
-                                color: Colors.blue,
-                              ),
-                              borderRadius: BorderRadius.circular(30.0)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              const Icon(Icons.play_arrow_rounded,
-                                  size: 30.0, color: Colors.white),
-                              const Text(
-                                'Ready To Battle',
-                                style: TextStyle(
-                                    fontSize: 15, color: Colors.white),
-                              ),
-                            ],
-                          ),
-                          onPressed: () {
-                            print(_gunNumber);
-                          })),
+                        elevation: 10.0,
+                        color: Colors.lightBlueAccent,
+                        shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              color: Colors.blue,
+                            ),
+                            borderRadius: BorderRadius.circular(30.0)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            const Icon(Icons.play_arrow_rounded,
+                                size: 30.0, color: Colors.white),
+                            const Text(
+                              'Ready To Battle',
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.white),
+                            ),
+                          ],
+                        ),
+                        onPressed: () {
+                          if (_gunNumber != 0) {
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (_) {
+                              print('sdds');
+                              return Joinfree4allUntilStart();
+                            }));
+                          }
+                          print(_gunNumber);
+                        },
+                      )),
                 ],
               ),
             ),
