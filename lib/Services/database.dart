@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:xtag_demo/Model/player.dart';
+import 'package:intl/date_symbol_data_local.dart';
 //import 'package:xtag_demo/Model/match.dart';
 
 class DatabaseServices {
@@ -187,14 +188,25 @@ class DatabaseServices {
     String mid,
     String killerUid,
     int teamid,
-    int tempid,
-    String name,
   ) async {
+    int tempid;
+    String myname;
+    await matchCollection
+        .doc(mid)
+        .collection('players')
+        .doc(uid)
+        .get()
+        .then((value) {
+      myname = value.data()['name'];
+      tempid = value.data()['tempid'];
+      //print(name);
+    });
     await matchCollection
         .doc(mid)
         .collection('players')
         .doc(killerUid)
         .update({'lastkill': tempid});
+    print('last kill updated');
     await matchCollection
         .doc(mid)
         .collection('players')
@@ -204,7 +216,7 @@ class DatabaseServices {
         .doc(mid)
         .collection('players')
         .doc(killerUid)
-        .update({'lastkillName': name});
+        .update({'lastkillName': myname});
   }
 //set my data
 
@@ -221,7 +233,7 @@ class DatabaseServices {
         .then((value) {
       hisname = value.data()['name'];
       team = value.data()['team'];
-      tempid = value.data()['userid'];
+      tempid = value.data()['tempid'];
       //print(name);
     });
 
@@ -281,52 +293,55 @@ class DatabaseServices {
   Future updateaftermatchnesteddata(
     String mid,
     int health,
-    int kills,
-    int deaths,
     int gun,
     int team,
-    bool iswin,
   ) async {
-    print(uid);
-    return await playerCollection
-        .doc(uid)
-        .collection('playedmatch')
+    int deaths;
+    int score;
+    bool iswin;
+    int battleplayed;
+    int battlewon;
+    int todeaths;
+    int toscore;
+    final now = new DateTime.now();
+    await matchCollection
         .doc(mid)
-        .set({
+        .collection('players')
+        .doc(uid)
+        .get()
+        .then((value) {
+      score = value.data()['score'];
+      deaths = value.data()['deaths'];
+      iswin = value.data()['status'];
+      //print(name);
+    });
+    print(uid);
+    await playerCollection.doc(uid).collection('playedmatch').doc(mid).set({
       'team': team,
       'status': iswin,
       'health': health,
-      'kills': kills,
+      'score': score,
       'deaths': deaths,
       'gun': gun,
+      'date': new DateTime.now(),
     });
-  }
-
-  //update playerbasic data
-  Future setmybasicdata(int _kills, int _deaths, bool iswin) async {
-    int kills;
-    int deaths;
-    int battleplayed;
-    int battlewon;
     await playerCollection.doc(uid).get().then((value) {
       battleplayed = value.data()['Battles Played'];
-      deaths = value.data()['Total Deaths'];
-      kills = value.data()['Total Kills'];
       battlewon = value.data()['Battles Won'];
+      todeaths = value.data()['Total Deaths'];
+      toscore = value.data()['Total Kills'];
     });
-//set data
+    //set data
     battleplayed = battleplayed + 1;
-    deaths = deaths + _deaths;
-    kills = kills + _kills;
+    todeaths = deaths + todeaths;
+    toscore = toscore + score;
     if (iswin) {
       battlewon = battlewon + 1;
     }
     await playerCollection.doc(uid).update({'Battles Played': battleplayed});
-    await playerCollection.doc(uid).update({'Total Deaths': deaths});
-    await playerCollection.doc(uid).update({'Total Kills': kills});
+    await playerCollection.doc(uid).update({'Total Deaths': todeaths});
+    await playerCollection.doc(uid).update({'Total Kills': toscore});
     await playerCollection.doc(uid).update({'Battles Won': battlewon});
-
-    return 1;
   }
 
   //delete the match data after the match

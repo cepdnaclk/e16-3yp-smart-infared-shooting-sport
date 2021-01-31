@@ -1,9 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/joined_players_3team.dart';
-import 'package:xtag_demo/Battling/host_battle_3teams_resc.dart';
 import 'package:xtag_demo/Battling/host_battle_3teams_normal.dart';
+import 'package:xtag_demo/Battling/host_battle_3teams_resc.dart';
+import 'package:xtag_demo/Battling/host_battle_normal_3team.dart';
 import 'package:xtag_demo/Battling/host_battle_surv_3teams.dart';
 import 'package:xtag_demo/Model/match.dart';
+import 'package:xtag_demo/Services/database.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class WaitingToStart3teams extends StatelessWidget {
   @override
@@ -48,7 +53,15 @@ class WaitingToStart3teams extends StatelessWidget {
                   ),
                 ]),
                 color: Colors.green[700],
-                onPressed: () {
+                onPressed: () async {
+                  //set the temp id
+                  try {
+                    User user = _auth.currentUser;
+                    print('working');
+                    await DatabaseServices(uid: user.uid).settempid(Match.mid);
+                  } catch (e) {
+                    print(e.toString());
+                  }
                   print(Match.mid);
                   if (Match.mode == 's3') {
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {

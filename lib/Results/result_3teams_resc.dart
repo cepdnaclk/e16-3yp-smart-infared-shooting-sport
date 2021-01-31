@@ -7,14 +7,12 @@ import 'package:xtag_demo/TeamSocres/team1.dart';
 import 'package:xtag_demo/TeamSocres/team2.dart';
 import 'package:xtag_demo/TeamSocres/team3.dart';
 
-import '../home.dart';
-
-class Result3teamNormal extends StatefulWidget {
+class Result3teamResc extends StatefulWidget {
   @override
-  _Result3teamNormalState createState() => _Result3teamNormalState();
+  _Result3teamRescState createState() => _Result3teamRescState();
 }
 
-class _Result3teamNormalState extends State<Result3teamNormal> {
+class _Result3teamRescState extends State<Result3teamResc> {
   final auth = FirebaseAuth.instance;
 
   int score1 = 20;
@@ -42,7 +40,41 @@ class _Result3teamNormalState extends State<Result3teamNormal> {
   @override
   Widget build(BuildContext context) {
     int score;
-
+    FirebaseFirestore.instance
+        .collection('match')
+        .doc(Match.mid)
+        .collection('players')
+        .doc(Player1.uid)
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
+      Player1.deaths = documentSnapshot['deaths'];
+      Player1.kills = documentSnapshot['kills'];
+      Player1.score = documentSnapshot['score'];
+    });
+    FirebaseFirestore.instance
+        .collection('match')
+        .doc(Match.mid)
+        .collection('players')
+        .get()
+        .then((QuerySnapshot querySnapshot) => {
+              querySnapshot.docs.forEach((doc) {
+                if (doc['team'] == 1) {
+                  Team1.score = Team1.score + doc['score'];
+                  Team1.deaths = Team1.deaths + doc['deaths'];
+                  Team1.kills = Team1.kills + doc['kills'];
+                }
+                if (doc['team'] == 2) {
+                  Team2.score = Team2.score + doc['score'];
+                  Team2.deaths = Team2.deaths + doc['deaths'];
+                  Team2.kills = Team2.kills + doc['kills'];
+                }
+                if (doc['team'] == 3) {
+                  Team3.score = Team3.score + doc['score'];
+                  Team3.deaths = Team3.deaths + doc['deaths'];
+                  Team3.kills = Team3.kills + doc['kills'];
+                }
+              })
+            });
     print(Player1.score);
     return Scaffold(
       appBar: AppBar(
@@ -239,11 +271,18 @@ class _Result3teamNormalState extends State<Result3teamNormal> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Player of the match  : "),
-                Text(Match.pom.toString()),
-                Text(" with "),
-                Text(Match.poms.toString()),
-                Text(" points "),
+                Text("Player of the match  :"),
+                Text('$pof with $pofs points'),
+              ],
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Most kills  :"),
+                Text(' $mok with $moks points'),
               ],
             ),
             SizedBox(
@@ -303,7 +342,7 @@ class _Result3teamNormalState extends State<Result3teamNormal> {
                         ),
                       ),
                       Text(
-                        "Kills per Life",
+                        "Kills per Death",
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.white,
@@ -419,7 +458,7 @@ class _Result3teamNormalState extends State<Result3teamNormal> {
                         ),
                       ),
                       Text(
-                        ((Player1.kills / (Player1.deaths + 1)).toString()),
+                        ((Player1.kills / Player1.deaths).toString()),
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.white,
@@ -427,10 +466,7 @@ class _Result3teamNormalState extends State<Result3teamNormal> {
                         ),
                       ),
                       Text(
-                        (Player1.kills /
-                                (Team1.kills + Team2.kills + Team3.kills) *
-                                100)
-                            .toString(),
+                        ":",
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.white,
@@ -438,10 +474,7 @@ class _Result3teamNormalState extends State<Result3teamNormal> {
                         ),
                       ),
                       Text(
-                        (Player1.kills /
-                                (Team1.deaths + Team2.deaths + Team3.deaths) *
-                                100)
-                            .toString(),
+                        ":",
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.white,
@@ -453,29 +486,6 @@ class _Result3teamNormalState extends State<Result3teamNormal> {
                 ],
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(top: 50.0, right: 90.0, left: 90.0),
-              child: RaisedButton(
-                color: Colors.blueAccent,
-                shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: Colors.deepPurple[900],
-                    ),
-                    borderRadius: BorderRadius.circular(20.0)),
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-                    return Home();
-                  }));
-                },
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        child: Text(' Go to Home '),
-                      ),
-                    ]),
-              ),
-            )
           ],
         ),
       ),

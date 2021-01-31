@@ -73,7 +73,7 @@ class _Host3teamRescUntilStartState extends State<Host3teamRescUntilStart> {
                 child: Row(children: <Widget>[
                   //width: 80.0,
                   Container(
-                    child: Text('      Ge2t hit '),
+                    child: Text('      Get hit '),
                   ),
                 ]),
               ),
@@ -88,7 +88,7 @@ class _Host3teamRescUntilStartState extends State<Host3teamRescUntilStart> {
                   //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
                   //validator: numberValidator,,
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 12.0,
                   ),
                   onChanged: (val) {

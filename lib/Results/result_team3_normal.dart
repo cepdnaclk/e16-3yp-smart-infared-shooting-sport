@@ -3,11 +3,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Model/match.dart';
 import 'package:xtag_demo/Model/player1.dart';
+import 'package:xtag_demo/Services/database.dart';
 import 'package:xtag_demo/TeamSocres/team1.dart';
 import 'package:xtag_demo/TeamSocres/team2.dart';
 import 'package:xtag_demo/TeamSocres/team3.dart';
 
 import '../home.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
+String mid;
 
 class Result3teamNormal extends StatefulWidget {
   @override
@@ -462,7 +466,17 @@ class _Result3teamNormalState extends State<Result3teamNormal> {
                       color: Colors.deepPurple[900],
                     ),
                     borderRadius: BorderRadius.circular(20.0)),
-                onPressed: () {
+                onPressed: () async {
+                  //after th match
+                  User user = _auth.currentUser;
+                  try {
+                    await DatabaseServices(uid: user.uid)
+                        .updateaftermatchnesteddata(Match.mid, Player1.health,
+                            Player1.gun, Player1.team);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+
                   Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                     return Home();
                   }));

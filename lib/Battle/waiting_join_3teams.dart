@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battling/join3teams_normal_until_start.dart';
 import 'package:xtag_demo/Model/match.dart';
+import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'join_game.dart';
 
@@ -18,11 +19,11 @@ class _Join3TeamsState extends State<Join3Teams> {
   String _gameid = Match.mid;
   @override
   Widget build(BuildContext context) {
-    //String matchid = null;
+    String matchid = null;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text('X Tage Battle 3'),
+          title: Text('X Tage Battle'),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
@@ -107,7 +108,6 @@ class _Join3TeamsState extends State<Join3Teams> {
                                   ],
                                 ),
                                 onPressed: () {
-                                  print(Match.mid);
                                   setState(() {
                                     _gunNumber = 1;
                                   });
@@ -306,6 +306,9 @@ class _Join3TeamsState extends State<Join3Teams> {
                           ),
                           onPressed: () async {
                             //set the gun
+                            Player1.gun = _gunNumber;
+                            Player1.team = _teamNumber;
+                            Player1.health = 5;
                             try {
                               User user = _auth.currentUser;
                               await DatabaseServices(uid: user.uid)
@@ -324,16 +327,11 @@ class _Join3TeamsState extends State<Join3Teams> {
                             } catch (e) {
                               print(e.toString());
                             }
-                            print('MatchId');
-                            print(Match.mid);
                             Navigator.of(context)
                                 .push(MaterialPageRoute(builder: (_) {
                               return Join3teamNormalUntilStart();
                             }));
                             print(_gunNumber);
-                            print(Match.mid);
-                            print(Match.mid);
-                            print('hfjjfjf');
                           })),
                 ],
               ),
