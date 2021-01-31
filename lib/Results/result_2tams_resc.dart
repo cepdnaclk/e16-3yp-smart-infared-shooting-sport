@@ -6,6 +6,8 @@ import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/TeamSocres/team1.dart';
 import 'package:xtag_demo/TeamSocres/team2.dart';
 
+import '../home.dart';
+
 class Result2teamResc extends StatefulWidget {
   @override
   _Result2teamRescState createState() => _Result2teamRescState();
@@ -13,18 +15,6 @@ class Result2teamResc extends StatefulWidget {
 
 class _Result2teamRescState extends State<Result2teamResc> {
   final auth = FirebaseAuth.instance;
-
-  int score1 = 20;
-
-  int score2 = 12;
-
-  int totalKills1 = 4;
-
-  int totalKills2 = 5;
-
-  int totalDeaths1 = 4;
-
-  int totalDeaths2 = 5;
 
   String pof = 'Balla';
 
@@ -39,7 +29,7 @@ class _Result2teamRescState extends State<Result2teamResc> {
   @override
   Widget build(BuildContext context) {
     int score;
-    FirebaseFirestore.instance
+    /*FirebaseFirestore.instance
         .collection('match')
         .doc(Match.mid)
         .collection('players')
@@ -68,7 +58,7 @@ class _Result2teamRescState extends State<Result2teamResc> {
                   Team2.kills = Team2.kills + doc['kills'];
                 }
               })
-            });
+            });*/
     print(Player1.score);
     return Scaffold(
       appBar: AppBar(
@@ -264,11 +254,14 @@ class _Result2teamRescState extends State<Result2teamResc> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Player of the match  :"),
-                Text('$pof with $pofs points'),
+                Text("Player of the match  : "),
+                Text(Match.pom.toString()),
+                Text(" with "),
+                Text(Match.poms.toString()),
+                Text(" points "),
               ],
             ),
-            SizedBox(
+            /* SizedBox(
               height: 10.0,
             ),
             Row(
@@ -277,7 +270,7 @@ class _Result2teamRescState extends State<Result2teamResc> {
                 Text("Most kills  :"),
                 Text(' $mok with $moks points'),
               ],
-            ),
+            ),*/
             SizedBox(
               height: 30.0,
             ),
@@ -335,7 +328,7 @@ class _Result2teamRescState extends State<Result2teamResc> {
                         ),
                       ),
                       Text(
-                        "Kills per Death",
+                        "Kills per Life",
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.white,
@@ -451,7 +444,7 @@ class _Result2teamRescState extends State<Result2teamResc> {
                         ),
                       ),
                       Text(
-                        ((Player1.kills / Player1.deaths).toString()),
+                        ((Player1.kills / (Player1.deaths + 1)).toString()),
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.white,
@@ -459,7 +452,8 @@ class _Result2teamRescState extends State<Result2teamResc> {
                         ),
                       ),
                       Text(
-                        ":",
+                        (Player1.kills / (Team1.kills + Team2.kills) * 100)
+                            .toString(),
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.white,
@@ -467,7 +461,8 @@ class _Result2teamRescState extends State<Result2teamResc> {
                         ),
                       ),
                       Text(
-                        ":",
+                        (Player1.kills / (Team1.deaths + Team2.deaths) * 100)
+                            .toString(),
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.white,
@@ -479,6 +474,29 @@ class _Result2teamRescState extends State<Result2teamResc> {
                 ],
               ),
             ),
+            Container(
+              margin: const EdgeInsets.only(top: 50.0, right: 90.0, left: 90.0),
+              child: RaisedButton(
+                color: Colors.blueAccent,
+                shape: RoundedRectangleBorder(
+                    side: BorderSide(
+                      color: Colors.deepPurple[900],
+                    ),
+                    borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                    return Home();
+                  }));
+                },
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        child: Text(' Go to Home '),
+                      ),
+                    ]),
+              ),
+            )
           ],
         ),
       ),

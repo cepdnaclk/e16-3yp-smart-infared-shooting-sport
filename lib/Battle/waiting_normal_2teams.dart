@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/creat_game.dart';
 import 'package:xtag_demo/Battle/creat_game.dart';
 import 'package:xtag_demo/Battle/waiting_to_start2team.dart';
+import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'creat_game.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -422,6 +423,7 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                             //print(_gunNumber);
                             if (_fives) {
                               try {
+                                Match.duration = 180;
                                 User user = _auth.currentUser;
                                 await DatabaseServices(uid: user.uid)
                                     .updateMatchduration(_gameid, 180);
@@ -431,6 +433,7 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                               }
                             } else if (_tens) {
                               try {
+                                Match.duration = 300;
                                 User user = _auth.currentUser;
                                 await DatabaseServices(uid: user.uid)
                                     .updateMatchduration(_gameid, 300);
@@ -440,6 +443,7 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                               }
                             } else if (_twentys) {
                               try {
+                                Match.duration = 600;
                                 User user = _auth.currentUser;
                                 await DatabaseServices(uid: user.uid)
                                     .updateMatchduration(_gameid, 600);
@@ -450,6 +454,8 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                             }
                             //set the gun
                             try {
+                              Player1.gun = _gunNumber;
+
                               User user = _auth.currentUser;
                               await DatabaseServices(uid: user.uid)
                                   .upadtenestedplayersdata(
@@ -460,6 +466,8 @@ class _Normal2TeamsState extends State<Normal2Teams> {
 
                             //set the team
                             try {
+                              Player1.team = _teamNumber;
+
                               User user = _auth.currentUser;
                               await DatabaseServices(uid: user.uid)
                                   .upadtenestedplayersdata(

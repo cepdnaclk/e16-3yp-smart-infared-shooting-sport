@@ -1,26 +1,32 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:xtag_demo/Battling/player_parameter.dart';
 import 'package:xtag_demo/Battling/players_data_2teams_resc.dart';
+import 'package:xtag_demo/Battling/players_data_normal3.dart';
 import 'package:xtag_demo/Battling/time_display.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Model/match.dart';
-import 'package:xtag_demo/Results/result_2tams_resc.dart';
+
+import 'package:xtag_demo/Results/result_team3_normal.dart';
 import 'package:xtag_demo/TeamSocres/team1.dart';
 import 'package:xtag_demo/TeamSocres/team2.dart';
+import 'package:xtag_demo/TeamSocres/team3.dart';
 
 import 'battle_started_mas.dart';
 
-class Host2teamResclUntilStart extends StatefulWidget {
+class Host3teamNormalUntilStart extends StatefulWidget {
   @override
-  _Host2teamResclUntilStartState createState() =>
-      _Host2teamResclUntilStartState();
+  _Host3teamNormalUntilStartState createState() =>
+      _Host3teamNormalUntilStartState();
 }
 
-class _Host2teamResclUntilStartState extends State<Host2teamResclUntilStart> {
+class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
   //print(Match.mid);
   final bool isBattlefinished = true;
+  int _shootid = 0;
+  var it;
   @override
   @override
   Widget build(BuildContext context) {
@@ -28,7 +34,7 @@ class _Host2teamResclUntilStartState extends State<Host2teamResclUntilStart> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('XTag Battle'),
+        title: Text('XTag Battle 3n'),
       ),
       body: Container(
         alignment: Alignment.center,
@@ -49,7 +55,63 @@ class _Host2teamResclUntilStartState extends State<Host2teamResclUntilStart> {
             TimeDisplay(),
             PlayerParameters(),
             Flexible(
-              child: JoinedPlayers2teamsResc(),
+              child: JoinedPlayers3teamNormal(),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 10.0, right: 90.0, left: 90.0),
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                    side: BorderSide(
+                      color: Colors.deepPurple[900],
+                    ),
+                    borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  print(it);
+                },
+                child: Row(children: <Widget>[
+                  //width: 80.0,
+                  Container(
+                    child: Text('      Get hit '),
+                  ),
+                ]),
+              ),
+            ),
+            Container(
+              color: Colors.white,
+              width: 50.0,
+              child: TextFormField(
+                keyboardType: TextInputType.number,
+                //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+                //validator: numberValidator,,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15.0,
+                ),
+                onChanged: (val) {
+                  it = int.parse(val);
+                  setState(() => _shootid = it);
+                  print(it);
+                },
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 10.0, right: 90.0, left: 90.0),
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                    side: BorderSide(
+                      color: Colors.deepPurple[900],
+                    ),
+                    borderRadius: BorderRadius.circular(20.0)),
+                onPressed: () {
+                  print(it);
+                },
+                child: Row(children: <Widget>[
+                  //width: 80.0,
+                  Container(
+                    child: Text('      Shoot '),
+                  ),
+                ]),
+              ),
             ),
             Container(
               margin: const EdgeInsets.only(top: 20.0, right: 90.0, left: 90.0),
@@ -74,6 +136,9 @@ class _Host2teamResclUntilStartState extends State<Host2teamResclUntilStart> {
                   Team2.score = 0;
                   Team2.deaths = 0;
                   Team2.kills = 0;
+                  Team3.score = 0;
+                  Team3.deaths = 0;
+                  Team3.kills = 0;
                   await FirebaseFirestore.instance
                       .collection('match')
                       .doc(Match.mid)
@@ -102,6 +167,11 @@ class _Host2teamResclUntilStartState extends State<Host2teamResclUntilStart> {
                                 Team2.deaths = Team2.deaths + doc['deaths'];
                                 Team2.kills = Team2.kills + doc['kills'];
                               }
+                              if (doc['team'] == 3) {
+                                Team3.score = Team3.score + doc['score'];
+                                Team3.deaths = Team3.deaths + doc['deaths'];
+                                Team3.kills = Team3.kills + doc['kills'];
+                              }
                             })
                           });
                   await FirebaseFirestore.instance
@@ -120,7 +190,7 @@ class _Host2teamResclUntilStartState extends State<Host2teamResclUntilStart> {
                       print('sdds');
                       print(Match.pom);
                       print(Match.poms);
-                      return Result2teamResc();
+                      return Result3teamNormal();
                     }));
                   }
                 },

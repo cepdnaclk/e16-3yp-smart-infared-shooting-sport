@@ -4,4 +4,6 @@ class Player1 {
   static int score;
   static int deaths;
   static int kills;
+  static int team;
+  static int gun;
 }

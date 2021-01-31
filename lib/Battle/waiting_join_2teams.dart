@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:xtag_demo/Battling/join3teams_normal_until_start.dart';
+import 'package:xtag_demo/Battling/players_data_2teams_resc.dart';
 import 'package:xtag_demo/Model/match.dart';
+import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Services/database.dart';
 
 import 'join_game.dart';
@@ -278,6 +281,7 @@ class _Join2TeamsState extends State<Join2Teams> {
                             //set player details
                             //set the gun
                             try {
+                              Player1.gun = _gunNumber;
                               User user = _auth.currentUser;
                               await DatabaseServices(uid: user.uid)
                                   .upadtenestedplayersdata(
@@ -288,12 +292,27 @@ class _Join2TeamsState extends State<Join2Teams> {
 
                             //set the team
                             try {
+                              Player1.team = _teamNumber;
                               User user = _auth.currentUser;
                               await DatabaseServices(uid: user.uid)
                                   .upadtenestedplayersdata(
                                       _gameid, 'team', _teamNumber);
                             } catch (e) {
                               print(e.toString());
+                            }
+                            if (_gunNumber != 0 && _teamNumber != 0) {
+                              if (Match.mode == 'r2') {
+                                Navigator.of(context)
+                                    .push(MaterialPageRoute(builder: (_) {
+                                  print('sdds');
+                                  return JoinedPlayers2teamsResc();
+                                }));
+                              }
+                              Navigator.of(context)
+                                  .push(MaterialPageRoute(builder: (_) {
+                                print('sdds');
+                                return Join3teamNormalUntilStart();
+                              }));
                             }
                             print(_gunNumber);
                           })),

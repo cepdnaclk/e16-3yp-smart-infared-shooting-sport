@@ -23,8 +23,6 @@ class TimeDisplay extends StatelessWidget {
         int sec = time % 60;
         print(sec);
         int min = (time) ~/ 60;
-        print(min);
-        print(Match.mid);
 
         return Container(
             margin: const EdgeInsets.only(top: 20.0, right: 100.0, left: 100.0),

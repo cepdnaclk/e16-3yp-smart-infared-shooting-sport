@@ -12,7 +12,7 @@ class PlayerParameters extends StatelessWidget {
     return StreamBuilder(
       stream: FirebaseFirestore.instance
           .collection('match')
-          .doc('R4')
+          .doc(Match.mid)
           .collection('players')
           .doc(Player1.uid)
           .snapshots(),
@@ -21,12 +21,6 @@ class PlayerParameters extends StatelessWidget {
         if (!snapshot.hasData) return Text('Loading');
         var playerdata = snapshot.data;
         int health = playerdata['health'];
-        int kills = playerdata['kills'];
-        int deaths = playerdata['deaths'];
-        int ammocount = playerdata['ammocount'];
-        print(health);
-        print(kills);
-        int health1 = 1;
         return Container(
             margin: const EdgeInsets.only(top: 10.0, right: 20.0, left: 20.0),
             alignment: Alignment.center,

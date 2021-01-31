@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/waiting_join_%20free4all.dart';
 import 'package:xtag_demo/Battle/waiting_join_2teams.dart';
 import 'package:xtag_demo/Battle/waiting_join_3teams.dart';
+import 'package:xtag_demo/Model/match2.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Screens/game_select1.dart';
 import 'package:xtag_demo/Services/database.dart';
@@ -80,6 +81,8 @@ class _JoinGameState extends State<JoinGame> {
               onPressed: () async {
                 //add data to the game
                 Match.mid = _matchid;
+                print('hjhajskjjkasjkas');
+                print(Match.mid);
 
                 try {
                   User user = _auth.currentUser;
@@ -108,7 +111,9 @@ class _JoinGameState extends State<JoinGame> {
                 } catch (e) {
                   print(e.toString());
                 }
+                Match2.mid2 = _matchid;
                 try {
+                  print(_matchid);
                   await FirebaseFirestore.instance
                       .collection('match')
                       .doc(_matchid)
@@ -116,10 +121,12 @@ class _JoinGameState extends State<JoinGame> {
                       .then((DocumentSnapshot documentSnapshot) {
                     print("Vira0");
                     print(documentSnapshot['mode']);
+                    Match.mode = documentSnapshot['mode'];
                     mode = documentSnapshot['mode'];
                   });
                 } catch (e) {
                   print(e.toString());
+                  print("error");
                 }
                 try {
                   if (mode == 'n3' || mode == 'r3' || mode == 's3') {
@@ -127,7 +134,7 @@ class _JoinGameState extends State<JoinGame> {
                       return Join3Teams();
                     }));
                   }
-                  if (mode == 'n2' || mode == 'r2' || mode == 's2') {
+                  if (Match.mode == 'n2' || mode == 'r2' || mode == 's2') {
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       return Join2Teams();
                     }));
