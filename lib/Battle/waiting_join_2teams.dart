@@ -308,11 +308,13 @@ class _Join2TeamsState extends State<Join2Teams> {
                                   return Join2teamRescUntilStart();
                                 }));
                               }
-                              Navigator.of(context)
-                                  .push(MaterialPageRoute(builder: (_) {
-                                print('sdds');
-                                return Join3teamNormalUntilStart();
-                              }));
+                              if (Match.mode == 'n3') {
+                                Navigator.of(context)
+                                    .push(MaterialPageRoute(builder: (_) {
+                                  print('sdds');
+                                  return Join3teamNormalUntilStart();
+                                }));
+                              }
                             }
                             print(_gunNumber);
                           })),

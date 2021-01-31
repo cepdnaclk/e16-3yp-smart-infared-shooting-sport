@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:xtag_demo/Battling/player_parameter.dart';
-import 'package:xtag_demo/Battling/players_data_3teams_surv.dart';
+import 'package:xtag_demo/Battling/players_data_2teams_resc.dart';
 import 'package:xtag_demo/Battling/players_data_normal3.dart';
-
 import 'package:xtag_demo/Battling/time_display.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Model/match.dart';
+
 import 'package:xtag_demo/Results/result_team3_normal.dart';
 import 'package:xtag_demo/TeamSocres/team1.dart';
 import 'package:xtag_demo/TeamSocres/team2.dart';
@@ -16,13 +16,14 @@ import 'package:xtag_demo/TeamSocres/team3.dart';
 
 import 'battle_started_mas.dart';
 
-class Join3teamNormalUntilStart extends StatefulWidget {
+class Host3teamRescUntilStart extends StatefulWidget {
   @override
-  _Join3teamNormalUntilStartState createState() =>
-      _Join3teamNormalUntilStartState();
+  _Host3teamRescUntilStartState createState() =>
+      _Host3teamRescUntilStartState();
 }
 
-class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
+class _Host3teamRescUntilStartState extends State<Host3teamRescUntilStart> {
+  //print(Match.mid);
   final bool isBattlefinished = true;
   int _shootid = 0;
   var it;
@@ -35,7 +36,7 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text("XTag 3n"),
+        title: Text('XTag Battle 3r'),
       ),
       body: Container(
         alignment: Alignment.center,
@@ -53,7 +54,6 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            //MatchStartedMsg(),
             TimeDisplay(),
             PlayerParameters(),
             Flexible(
@@ -147,7 +147,6 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
                 ),
               ),
             ),
-
             Container(
               margin: const EdgeInsets.only(top: 5.0, right: 90.0, left: 90.0),
               child: RaisedButton(
@@ -157,10 +156,7 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
                     ),
                     borderRadius: BorderRadius.circular(20.0)),
                 onPressed: () {
-                  //print(it);
-                  //print(Match.mode);
-                  print('sfsffs');
-                  print(Player1.uid);
+                  print(it);
                 },
                 child: Row(children: <Widget>[
                   //width: 80.0,
@@ -171,7 +167,7 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 10.0, right: 90.0, left: 90.0),
+              margin: const EdgeInsets.only(top: 20.0, right: 90.0, left: 90.0),
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     side: BorderSide(
@@ -186,6 +182,7 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
                 ]),
                 color: Colors.red[900],
                 onPressed: () async {
+                  print(isBattlefinished);
                   Team1.score = 0;
                   Team1.deaths = 0;
                   Team1.kills = 0;
@@ -240,7 +237,7 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
                             Match.pom = querySnapshot.docs[0]['name'],
                             Match.poms = querySnapshot.docs[0]['score']
                           });
-                  if (true) {
+                  if (isBattlefinished) {
                     print('battle Ended');
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       print('sdds');
