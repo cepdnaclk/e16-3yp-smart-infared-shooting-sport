@@ -27,6 +27,8 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
   final bool isBattlefinished = true;
   int _shootid = 0;
   var it;
+  var dam;
+  var variable;
   @override
   @override
   Widget build(BuildContext context) {
@@ -78,24 +80,75 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
             ),
             Container(
               color: Colors.white,
-              width: 50.0,
-              child: TextFormField(
-                keyboardType: TextInputType.number,
-                //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
-                //validator: numberValidator,,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15.0,
+              height: 20.0,
+              width: 30.0,
+              child: Container(
+                child: TextFormField(
+                  keyboardType: TextInputType.number,
+                  //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+                  //validator: numberValidator,,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12.0,
+                  ),
+                  onChanged: (val) {
+                    it = int.parse(val);
+                    setState(() => _shootid = it);
+                    print(it);
+                  },
                 ),
-                onChanged: (val) {
-                  it = int.parse(val);
-                  setState(() => _shootid = it);
-                  print(it);
-                },
+              ),
+            ),
+            SizedBox(
+              height: 2.0,
+            ),
+            Container(
+              color: Colors.white,
+              height: 20.0,
+              width: 30.0,
+              child: Container(
+                child: TextFormField(
+                  keyboardType: TextInputType.number,
+                  //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+                  //validator: numberValidator,,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12.0,
+                  ),
+                  onChanged: (val) {
+                    dam = int.parse(val);
+                    setState(() => _shootid = it);
+                    print(it);
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 2.0,
+            ),
+            Container(
+              color: Colors.white,
+              height: 20.0,
+              width: 30.0,
+              child: Container(
+                child: TextFormField(
+                  keyboardType: TextInputType.number,
+                  //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+                  //validator: numberValidator,,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12.0,
+                  ),
+                  onChanged: (val) {
+                    variable = int.parse(val);
+                    setState(() => _shootid = it);
+                    print(it);
+                  },
+                ),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 10.0, right: 90.0, left: 90.0),
+              margin: const EdgeInsets.only(top: 5.0, right: 90.0, left: 90.0),
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     side: BorderSide(

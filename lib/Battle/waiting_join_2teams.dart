@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battling/join3teams_normal_until_start.dart';
-import 'package:xtag_demo/Battling/players_data_2teams_resc.dart';
+import 'package:xtag_demo/Battling/join_2tams_resc_until_start.dart';
 import 'package:xtag_demo/Model/match.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Services/database.dart';
@@ -305,7 +305,7 @@ class _Join2TeamsState extends State<Join2Teams> {
                                 Navigator.of(context)
                                     .push(MaterialPageRoute(builder: (_) {
                                   print('sdds');
-                                  return JoinedPlayers2teamsResc();
+                                  return Join2teamRescUntilStart();
                                 }));
                               }
                               Navigator.of(context)
