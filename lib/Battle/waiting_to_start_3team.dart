@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/joined_players_3team.dart';
 import 'package:xtag_demo/Battling/host_battle_3teams_resc.dart';
-import 'package:xtag_demo/Battling/host_battle_normal_3team.dart';
+import 'package:xtag_demo/Battling/host_battle_3teams_normal.dart';
 import 'package:xtag_demo/Battling/host_battle_surv_3teams.dart';
 import 'package:xtag_demo/Model/match.dart';
 

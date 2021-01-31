@@ -26,9 +26,9 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
   //print(Match.mid);
   final bool isBattlefinished = true;
   int _shootid = 0;
-  var it;
-  var dam;
-  var variable;
+  int damage;
+  int teamid;
+  int tempid;
   @override
   @override
   Widget build(BuildContext context) {
@@ -68,7 +68,7 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                     ),
                     borderRadius: BorderRadius.circular(20.0)),
                 onPressed: () {
-                  print(it);
+                  ///hhjjjjjjjj
                 },
                 child: Row(children: <Widget>[
                   //width: 80.0,
@@ -88,13 +88,11 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                   //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
                   //validator: numberValidator,,
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12.0,
+                    color: Colors.black,
+                    fontSize: 10.0,
                   ),
                   onChanged: (val) {
-                    it = int.parse(val);
-                    setState(() => _shootid = it);
-                    print(it);
+                    damage = int.parse(val);
                   },
                 ),
               ),
@@ -112,13 +110,12 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                   //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
                   //validator: numberValidator,,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 12.0,
                   ),
                   onChanged: (val) {
-                    dam = int.parse(val);
-                    setState(() => _shootid = it);
-                    print(it);
+                    teamid = int.parse(val);
+                    ;
                   },
                 ),
               ),
@@ -136,13 +133,11 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                   //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
                   //validator: numberValidator,,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 12.0,
                   ),
                   onChanged: (val) {
-                    variable = int.parse(val);
-                    setState(() => _shootid = it);
-                    print(it);
+                    tempid = int.parse(val);
                   },
                 ),
               ),
@@ -155,9 +150,7 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                       color: Colors.deepPurple[900],
                     ),
                     borderRadius: BorderRadius.circular(20.0)),
-                onPressed: () {
-                  print(it);
-                },
+                onPressed: () {},
                 child: Row(children: <Widget>[
                   //width: 80.0,
                   Container(
