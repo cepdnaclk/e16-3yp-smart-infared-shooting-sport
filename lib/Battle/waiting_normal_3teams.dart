@@ -27,7 +27,7 @@ class _Normal3TeamsState extends State<Normal3Teams> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text('X Tage Battle 3n'),
+          title: Text('X Tage Battle'),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
@@ -386,8 +386,6 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                                   ],
                                 ),
                                 onPressed: () {
-                                  print('ballll');
-                                  print(Match.mid);
                                   setState(() {
                                     _teamNumber = 3;
                                   });
@@ -423,7 +421,6 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                             Player1.gun = _gunNumber;
                             Player1.team = _teamNumber;
                             Player1.health = 5;
-                            Match.duration = 180;
                             if (_fives) {
                               try {
                                 User user = _auth.currentUser;
@@ -435,7 +432,6 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                               }
                             } else if (_tens) {
                               try {
-                                Match.duration = 300;
                                 User user = _auth.currentUser;
                                 await DatabaseServices(uid: user.uid)
                                     .updateMatchduration(_gameid, 300);
@@ -445,7 +441,6 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                               }
                             } else if (_twentys) {
                               try {
-                                Match.duration = 600;
                                 User user = _auth.currentUser;
                                 await DatabaseServices(uid: user.uid)
                                     .updateMatchduration(_gameid, 600);
@@ -456,7 +451,6 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                             }
                             //set the gun
                             try {
-                              Player1.gun = _gunNumber;
                               User user = _auth.currentUser;
                               await DatabaseServices(uid: user.uid)
                                   .upadtenestedplayersdata(
@@ -467,8 +461,6 @@ class _Normal3TeamsState extends State<Normal3Teams> {
 
                             //set the team
                             try {
-                              Player1.team = _teamNumber;
-
                               User user = _auth.currentUser;
                               await DatabaseServices(uid: user.uid)
                                   .upadtenestedplayersdata(

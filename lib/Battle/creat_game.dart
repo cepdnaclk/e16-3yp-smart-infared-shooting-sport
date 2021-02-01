@@ -317,8 +317,10 @@ class _CreateGameState extends State<CreateGame> {
                         print('Normal Two Teams1');
                         /*  User user = _auth.currentUser;
                         Match.mid = 'F25APUYrNOr2yYJ0vOyu';
+
                         String name1 = await DatabaseServices(uid: user.uid)
                             .getshootedplayerdata('0fWRQMUl9SvvpwuKx60D', 2, 2);
+
                         print(name1);*/
                         try {
                           User user = _auth.currentUser;

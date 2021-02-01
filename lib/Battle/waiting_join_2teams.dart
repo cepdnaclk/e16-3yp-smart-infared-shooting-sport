@@ -1,8 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:xtag_demo/Battling/join2teams_normal_until_start.dart';
-import 'package:xtag_demo/Battling/join3teams_normal_until_start.dart';
-import 'package:xtag_demo/Battling/join2teams_resc_until_start.dart';
 import 'package:xtag_demo/Battling/join3teams_normal_until_start.dart';
 import 'package:xtag_demo/Battling/join_2tams_resc_until_start.dart';
 import 'package:xtag_demo/Model/match.dart';
@@ -308,7 +305,7 @@ class _Join2TeamsState extends State<Join2Teams> {
                                 Navigator.of(context)
                                     .push(MaterialPageRoute(builder: (_) {
                                   print('sdds');
-                                  return J2teamNormalUntilStart();
+                                  return Join2teamRescUntilStart();
                                 }));
                               }
                               if (Match.mode == 'n3') {
@@ -316,13 +313,6 @@ class _Join2TeamsState extends State<Join2Teams> {
                                     .push(MaterialPageRoute(builder: (_) {
                                   print('sdds');
                                   return Join3teamNormalUntilStart();
-                                }));
-                              }
-                              if (Match.mode == 'n2') {
-                                Navigator.of(context)
-                                    .push(MaterialPageRoute(builder: (_) {
-                                  print('sdds');
-                                  return J2teamNormalUntilStart();
                                 }));
                               }
                             }

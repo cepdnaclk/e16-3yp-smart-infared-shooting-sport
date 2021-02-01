@@ -19,11 +19,11 @@ class _Join3TeamsState extends State<Join3Teams> {
   String _gameid = Match.mid;
   @override
   Widget build(BuildContext context) {
-    //String matchid = null;
+    String matchid = null;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text('X Tage Battle 3'),
+          title: Text('X Tage Battle'),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
@@ -108,7 +108,6 @@ class _Join3TeamsState extends State<Join3Teams> {
                                   ],
                                 ),
                                 onPressed: () {
-                                  print(Match.mid);
                                   setState(() {
                                     _gunNumber = 1;
                                   });

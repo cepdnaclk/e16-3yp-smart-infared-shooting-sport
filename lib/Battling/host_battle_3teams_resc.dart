@@ -88,7 +88,7 @@ class _Host3teamRescUntilStartState extends State<Host3teamRescUntilStart> {
                   //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
                   //validator: numberValidator,,
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 12.0,
                   ),
                   onChanged: (val) {

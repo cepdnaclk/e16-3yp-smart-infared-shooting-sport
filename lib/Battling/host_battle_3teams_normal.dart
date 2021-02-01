@@ -11,7 +11,6 @@ import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Model/match.dart';
 
 import 'package:xtag_demo/Results/result_team3_normal.dart';
-
 import 'package:xtag_demo/Services/database.dart';
 import 'package:xtag_demo/TeamSocres/team1.dart';
 import 'package:xtag_demo/TeamSocres/team2.dart';
@@ -77,6 +76,7 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                   User user = _auth.currentUser;
                   String hisuid;
                   Player1.health = Player1.health - damage;
+                  Player1.deaths = Player1.deaths + damage;
                   print(
                       'damage $damage , team $teamid , tempid $tempid  current health:${Player1.health} player team:${Player1.team}');
 
@@ -85,6 +85,16 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                         .upadtenestedplayersdata(
                             Match.mid, 'health', Player1.health);
                     print(Player1.health);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+
+                  //increase the deaths
+                  try {
+                    await DatabaseServices(uid: user.uid)
+                        .upadtenestedplayersdata(
+                            Match.mid, 'deaths', Player1.deaths);
+                    print(Player1.deaths);
                   } catch (e) {
                     print(e.toString());
                   }

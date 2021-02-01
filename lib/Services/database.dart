@@ -292,7 +292,6 @@ class DatabaseServices {
 
   Future updateaftermatchnesteddata(
     String mid,
-    int health,
     int gun,
     int team,
   ) async {
@@ -303,6 +302,7 @@ class DatabaseServices {
     int battlewon;
     int todeaths;
     int toscore;
+    String mode;
     final now = new DateTime.now();
     await matchCollection
         .doc(mid)
@@ -315,15 +315,18 @@ class DatabaseServices {
       iswin = value.data()['status'];
       //print(name);
     });
+    await matchCollection.doc(mid).get().then((value) {
+      mode = value.data()['mode'];
+    });
     print(uid);
     await playerCollection.doc(uid).collection('playedmatch').doc(mid).set({
       'team': team,
       'status': iswin,
-      'health': health,
       'score': score,
       'deaths': deaths,
       'gun': gun,
       'date': new DateTime.now(),
+      'mode': mode,
     });
     await playerCollection.doc(uid).get().then((value) {
       battleplayed = value.data()['Battles Played'];
