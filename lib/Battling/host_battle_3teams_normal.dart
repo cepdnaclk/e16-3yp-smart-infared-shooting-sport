@@ -9,8 +9,9 @@ import 'package:xtag_demo/Battling/players_data_normal3.dart';
 import 'package:xtag_demo/Battling/time_display.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Model/match.dart';
-import 'package:xtag_demo/PlayModes/timer.dart';
+import 'package:xtag_demo/PlayModes/timern.dart';
 import 'package:xtag_demo/PlayModes/timer2.dart';
+import 'package:xtag_demo/PlayModes/timerh.dart';
 
 import 'package:xtag_demo/Results/result_team3_normal.dart';
 import 'package:xtag_demo/Services/database.dart';
@@ -62,7 +63,7 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
           children: [
             MatchStartedMsg(),
             TimerCounter2(),
-            //TimeDisplay(),
+            Timern(),
             PlayerParameters(),
             Flexible(
               child: JoinedPlayers3teamNormal(),
@@ -223,7 +224,7 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                 ]),
               ),
             ),
-            Container(
+            /*Container(
               margin: const EdgeInsets.only(top: 20.0, right: 90.0, left: 90.0),
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
@@ -305,7 +306,7 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                   }
                 },
               ),
-            ),
+            ),*/
           ],
         ),
       ),

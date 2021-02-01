@@ -36,6 +36,7 @@ dependencies:
   provider: ^4.3.3
   flutter_spinkit: "^4.0.0"
   flutter_countdown_timer: ^3.0.0
+  circular_countdown_timer: ^0.0.9
 
 dev_dependencies:
   flutter_test:

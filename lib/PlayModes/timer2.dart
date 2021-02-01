@@ -4,6 +4,7 @@ import 'package:xtag_demo/Model/match.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
+import 'package:xtag_demo/PlayModes/timerh.dart';
 import 'package:xtag_demo/Services/database.dart';
 
 class TimerCounter2 extends StatefulWidget {
@@ -58,7 +59,8 @@ class _TimerCounter2State extends State<TimerCounter2> {
             onPressed: () async {
               if (!started) {
                 msg = '   Started';
-                startTimer();
+                //Timern();
+                //startTimer();
                 started = true;
                 try {
                   User user = _auth.currentUser;
@@ -74,24 +76,6 @@ class _TimerCounter2State extends State<TimerCounter2> {
           ),
         ),
         SizedBox(height: 5.0),
-        Container(
-            margin: const EdgeInsets.only(top: 2.0, right: 100.0, left: 100.0),
-            alignment: Alignment.center,
-            color: Colors.yellow,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Icon(Icons.timer, size: 30.0, color: Colors.black),
-                Container(
-                  margin: const EdgeInsets.only(right: 5.0, left: 5.0),
-                  alignment: Alignment.center,
-                  child: Text(
-                    ' $_start',
-                    style: TextStyle(fontSize: 40, color: Colors.red[900]),
-                  ),
-                ),
-              ],
-            ))
       ],
     );
   }

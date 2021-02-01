@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Model/user.dart';
 import 'package:xtag_demo/Services/database.dart';
+import 'package:xtag_demo/Services/massages.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -64,8 +65,15 @@ class AuthService {
           .updateUserData(email, userName, 0, 0, 0, 0, 'Beginer');
       return _userFromUser(user);
     } catch (e) {
-      print(e.toString());
-      return null;
+      print(e);
+      if (e ==
+          '[firebase_auth/invalid-email] The email address is badly formatted.') {
+        Massages.regerror = "Email Already Registered ";
+        return null;
+      } else {
+        Massages.regerror = "Please Enter Valid Email";
+        return null;
+      }
     }
   }
 

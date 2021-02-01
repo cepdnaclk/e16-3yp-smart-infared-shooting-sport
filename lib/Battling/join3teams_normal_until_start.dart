@@ -9,7 +9,9 @@ import 'package:xtag_demo/Battling/players_data_normal3.dart';
 import 'package:xtag_demo/Battling/time_display.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Model/match.dart';
-import 'package:xtag_demo/PlayModes/timer.dart';
+import 'package:xtag_demo/PlayModes/timern.dart';
+import 'package:xtag_demo/PlayModes/timer2.dart';
+import 'package:xtag_demo/PlayModes/timerh.dart';
 import 'package:xtag_demo/Results/result_team3_normal.dart';
 import 'package:xtag_demo/TeamSocres/team1.dart';
 import 'package:xtag_demo/TeamSocres/team2.dart';
@@ -55,7 +57,8 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             MatchStartedMsg(),
-            TimerCounter3(),
+            TimerCounter2(),
+            TimernJ(),
             //TimeDisplay(),
             PlayerParameters(),
             Flexible(

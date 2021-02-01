@@ -22,6 +22,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     //final user = Provider.of<UserN>(context);
     final auth = FirebaseAuth.instance;
+
     String uid;
     User user;
     user = auth.currentUser;
@@ -84,13 +85,14 @@ class Home extends StatelessWidget {
                 Container(
                   child: UserAccountsDrawerHeader(
                     accountName: Text(
-                      Player1.name,
+                      emailC,
                       style: TextStyle(fontSize: 20.0),
                     ),
                     currentAccountPicture: CircleAvatar(
                       backgroundColor: Colors.redAccent,
                       radius: 300.0,
                     ),
+                    accountEmail: null,
                   ),
                 ),
                 ListTile(
@@ -112,8 +114,8 @@ class Home extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  onTap: () {
-                    FirebaseFirestore.instance
+                  onTap: () async {
+                    await FirebaseFirestore.instance
                         .collection('player')
                         .doc(Player1.uid)
                         .get()

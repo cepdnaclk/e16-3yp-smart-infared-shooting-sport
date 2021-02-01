@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:xtag_demo/Screens/sign_in.dart';
 import 'package:xtag_demo/Screens/verify.dart';
 import 'package:xtag_demo/Services/auth.dart';
+import 'package:xtag_demo/Services/massages.dart';
 import 'package:xtag_demo/Shared/loading.dart';
 
 import '../home.dart';
@@ -143,8 +144,7 @@ class _RegisterState extends State<Register> {
                                           email, password, userName);
                                   print(result);
                                   if (result == null) {
-                                    setState(() =>
-                                        error = 'Please supply a Valid Email');
+                                    setState(() => error = Massages.regerror);
                                     loading = false;
                                   } else {
                                     widget.toggleView();

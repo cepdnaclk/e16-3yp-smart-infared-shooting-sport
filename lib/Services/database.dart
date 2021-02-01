@@ -160,6 +160,13 @@ class DatabaseServices {
     return await matchCollection.doc(mid).update({'isStart': true});
   }
 
+  //isStar false Match
+  Future upadtenestedmatchisreadyfalse(
+    String mid,
+  ) async {
+    return await matchCollection.doc(mid).update({'isStart': false});
+  }
+
   //update player status
   Future upadtenestedplayerstatus(
     String mid,
