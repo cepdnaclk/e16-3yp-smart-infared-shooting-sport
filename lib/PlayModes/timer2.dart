@@ -14,7 +14,6 @@ class TimerCounter2 extends StatefulWidget {
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class _TimerCounter2State extends State<TimerCounter2> {
-  DateTime _timeuntil;
   Timer _timer;
   int _start = Match.duration;
   bool started = false;

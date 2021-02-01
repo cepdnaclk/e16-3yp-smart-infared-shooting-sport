@@ -24,7 +24,7 @@ class Home extends StatelessWidget {
     User user;
     user = auth.currentUser;
     String emailC = 'No User';
-    String name;
+    String name = 'null';
     //Player1.uid = uid;
     //print(Player1.uid);
     if (user != null) {
@@ -82,7 +82,7 @@ class Home extends StatelessWidget {
                 Container(
                   child: UserAccountsDrawerHeader(
                     accountName: Text(
-                      emailC,
+                      Player1.name,
                       style: TextStyle(fontSize: 20.0),
                     ),
                     currentAccountPicture: CircleAvatar(
