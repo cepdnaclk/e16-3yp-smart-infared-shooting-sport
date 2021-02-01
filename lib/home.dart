@@ -3,8 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Services/auth.dart';
+import 'Developers/profile.dart';
 import 'Model/player.dart';
 import 'Model/player1.dart';
+import 'Model/player_history.dart';
 import 'Model/user.dart';
 import 'PlayModes/gun_connect.dart';
 import 'Services/database.dart';
@@ -100,6 +102,39 @@ class Home extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                ),
+                ListTile(
+                  title: Text(
+                    'Profile',
+                    style: TextStyle(
+                      fontSize: 22.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  onTap: () {
+                    FirebaseFirestore.instance
+                        .collection('player')
+                        .doc(Player1.uid)
+                        .get()
+                        .then((DocumentSnapshot documentSnapshot) {
+                      print("Vira0");
+                      //print(documentSnapshot['name']);
+                      print(documentSnapshot['rank']);
+                      Player2.rank = documentSnapshot['rank'];
+                      Player2.battlesplayed =
+                          documentSnapshot['Battles Played'];
+                      Player2.wins = documentSnapshot['Battles Won'];
+                      Player2.deaths = documentSnapshot['Total Deaths'];
+                      Player2.kills = documentSnapshot['Total Kills'];
+                    });
+                    Navigator.of(context).pop();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => PlayerProf()),
+                    );
+                  },
                 ),
                 ListTile(
                   title: Text(
