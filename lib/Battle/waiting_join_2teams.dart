@@ -308,7 +308,7 @@ class _Join2TeamsState extends State<Join2Teams> {
                                 Navigator.of(context)
                                     .push(MaterialPageRoute(builder: (_) {
                                   print('sdds');
-                                  return Join2teamRescUntilStart();
+                                  return J2teamNormalUntilStart();
                                 }));
                               }
                               if (Match.mode == 'n3') {
