@@ -18,8 +18,8 @@ class _TimernJState extends State<TimernJ> {
 
   Stream<bool> onfat() async* {
     //bool name;
-    while (!Match.started) {
-      await Future.delayed(Duration(seconds: 2));
+    while (Match.started != true) {
+      await Future.delayed(Duration(seconds: 1));
       yield await FirebaseFirestore.instance
           .collection('match')
           .doc(Match.mid)

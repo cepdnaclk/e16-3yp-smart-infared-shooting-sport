@@ -19,7 +19,7 @@ class _TimerImpState extends State<TimerImp> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   CountDownController _controller = CountDownController();
-  int _duration = Match.duration;
+  int _duration = 180;
   @override
   Widget build(BuildContext context) {
     //_controller.start();

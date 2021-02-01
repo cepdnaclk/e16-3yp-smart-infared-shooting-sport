@@ -48,6 +48,7 @@ class JoinedPlayers3teams extends StatelessWidget {
                                   ? Colors.yellow[900]
                                   : Colors.green[00]),
                       onPressed: () {
+                        print(Match.duration);
                         if (enabled) {
                           if (team == 1) {
                             number1 = count1;

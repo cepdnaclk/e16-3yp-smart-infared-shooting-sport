@@ -39,7 +39,7 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
   @override
   @override
   Widget build(BuildContext context) {
-    //print(Match.mid);
+    print(Match.mid);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,

@@ -18,7 +18,7 @@ class _TimernState extends State<Timern> {
 
   Stream<bool> onfat() async* {
     //bool name;
-    while (!Match.started) {
+    while (Match.started != true) {
       await Future.delayed(Duration(seconds: 2));
       yield await FirebaseFirestore.instance
           .collection('match')
@@ -54,7 +54,7 @@ class _TimernState extends State<Timern> {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 if (snapshot.data == true) {
-                  return TimerImp();
+                  return TimerImpJ();
                 } else {
                   return Container(
                     alignment: Alignment.center,

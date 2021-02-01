@@ -92,7 +92,6 @@ class Home extends StatelessWidget {
                       backgroundColor: Colors.redAccent,
                       radius: 300.0,
                     ),
-                    accountEmail: null,
                   ),
                 ),
                 ListTile(

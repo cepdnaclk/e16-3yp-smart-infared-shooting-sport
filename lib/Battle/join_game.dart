@@ -124,6 +124,7 @@ class _JoinGameState extends State<JoinGame> {
                     Match.mode = documentSnapshot['mode'];
                     mode = documentSnapshot['mode'];
                     Match.duration = documentSnapshot['duration'];
+                    Match.started = documentSnapshot['isStart'];
                   });
                 } catch (e) {
                   print(e.toString());
