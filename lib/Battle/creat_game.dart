@@ -312,6 +312,7 @@ class _CreateGameState extends State<CreateGame> {
                     ],
                   ),
                   onPressed: () async {
+                    Match.started = false;
                     if (_normal) {
                       if (_twoteam) {
                         print('Normal Two Teams1');

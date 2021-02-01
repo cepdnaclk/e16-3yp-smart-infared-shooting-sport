@@ -17,10 +17,13 @@ class MatchStartedMsg extends StatelessWidget {
         if (!snapshot.hasData) return Text('Loading');
         var matchdata = snapshot.data;
         bool started = matchdata['isStart'];
+        String msg = matchdata['msg'];
         print(started);
         String massage = 'Wait Until the Host Start';
         if (started) {
-          massage = 'Batttle Begin';
+          msg = matchdata['msg'];
+        } else {
+          msg = 'Wait Until host start the battle';
         }
         ;
         //String massage = 'Wait ';
@@ -28,7 +31,7 @@ class MatchStartedMsg extends StatelessWidget {
           alignment: Alignment.center,
           color: Colors.blue[300],
           child: Text(
-            '$massage',
+            '$msg',
             style: TextStyle(fontSize: 15, color: Colors.black),
           ),
         );

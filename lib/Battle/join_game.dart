@@ -123,6 +123,7 @@ class _JoinGameState extends State<JoinGame> {
                     print(documentSnapshot['mode']);
                     Match.mode = documentSnapshot['mode'];
                     mode = documentSnapshot['mode'];
+                    Match.duration = documentSnapshot['duration'];
                   });
                 } catch (e) {
                   print(e.toString());

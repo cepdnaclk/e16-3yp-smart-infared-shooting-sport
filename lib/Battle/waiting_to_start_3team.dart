@@ -54,7 +54,9 @@ class WaitingToStart3teams extends StatelessWidget {
                 ]),
                 color: Colors.green[700],
                 onPressed: () async {
+                  //To do set the isStarted status to true
                   //set the temp id
+
                   try {
                     User user = _auth.currentUser;
                     print('working');
@@ -62,7 +64,7 @@ class WaitingToStart3teams extends StatelessWidget {
                   } catch (e) {
                     print(e.toString());
                   }
-                  print(Match.mid);
+
                   if (Match.mode == 's3') {
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       print('sdds');

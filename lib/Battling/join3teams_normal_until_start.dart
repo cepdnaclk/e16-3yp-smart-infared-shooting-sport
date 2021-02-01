@@ -53,7 +53,7 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            //MatchStartedMsg(),
+            MatchStartedMsg(),
             TimeDisplay(),
             PlayerParameters(),
             Flexible(
@@ -147,7 +147,6 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
                 ),
               ),
             ),
-
             Container(
               margin: const EdgeInsets.only(top: 5.0, right: 90.0, left: 90.0),
               child: RaisedButton(

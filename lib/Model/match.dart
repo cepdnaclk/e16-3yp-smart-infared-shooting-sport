@@ -8,4 +8,5 @@ class Match {
   static int pokk;
   static String winner;
   static int wscore;
+  static bool started;
 }

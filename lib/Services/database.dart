@@ -153,6 +153,13 @@ class DatabaseServices {
         .update({'isready': value});
   }
 
+  //isStar Match
+  Future upadtenestedmatchisready(
+    String mid,
+  ) async {
+    return await matchCollection.doc(mid).update({'isStart': true});
+  }
+
   //update player status
   Future upadtenestedplayerstatus(
     String mid,
@@ -402,6 +409,7 @@ class DatabaseServices {
 
     return 1;
   }
+  //updated is Start
 
   //players list
   List<Player> _playerListFromSnampshot(QuerySnapshot snapshot) {
