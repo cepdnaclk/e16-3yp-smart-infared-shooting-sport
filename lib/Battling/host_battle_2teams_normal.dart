@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+
 import 'package:xtag_demo/Battling/player_parameter.dart';
 import 'package:xtag_demo/Battling/players_data_2teams_resc.dart';
 import 'package:xtag_demo/Battling/time_display.dart';

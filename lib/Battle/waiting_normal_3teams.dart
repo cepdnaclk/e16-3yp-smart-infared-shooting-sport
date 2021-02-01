@@ -420,11 +420,12 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                             ],
                           ),
                           onPressed: () async {
-                            print('ballll');
-                            print(Match.mid);
+                            Player1.gun = _gunNumber;
+                            Player1.team = _teamNumber;
+                            Player1.health = 5;
+                            Match.duration = 180;
                             if (_fives) {
                               try {
-                                Match.duration = 180;
                                 User user = _auth.currentUser;
                                 await DatabaseServices(uid: user.uid)
                                     .updateMatchduration(_gameid, 180);

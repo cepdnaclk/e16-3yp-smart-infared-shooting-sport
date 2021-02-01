@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battle/creat_game.dart';
 import 'package:xtag_demo/Battle/waiting_to_start_3team.dart';
 import 'package:xtag_demo/Battle/waiting_to_start_free4all.dart';
+import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'creat_game.dart';
 import 'package:xtag_demo/Model/match.dart';
@@ -316,6 +317,8 @@ class _NormalFree4AllState extends State<NormalFree4All> {
                             ],
                           ),
                           onPressed: () async {
+                            Player1.gun = _gunNumber;
+                            Player1.team = _teamNumber;
                             if (_fives) {
                               try {
                                 User user = _auth.currentUser;

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -10,6 +11,8 @@ import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Model/match.dart';
 
 import 'package:xtag_demo/Results/result_team3_normal.dart';
+
+import 'package:xtag_demo/Services/database.dart';
 import 'package:xtag_demo/TeamSocres/team1.dart';
 import 'package:xtag_demo/TeamSocres/team2.dart';
 import 'package:xtag_demo/TeamSocres/team3.dart';
@@ -21,6 +24,8 @@ class Host3teamNormalUntilStart extends StatefulWidget {
   _Host3teamNormalUntilStartState createState() =>
       _Host3teamNormalUntilStartState();
 }
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
   //print(Match.mid);
@@ -67,8 +72,53 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                       color: Colors.deepPurple[900],
                     ),
                     borderRadius: BorderRadius.circular(20.0)),
-                onPressed: () {
-                  ///hhjjjjjjjj
+                onPressed: () async {
+                  //decrease the health**************************************************************************************
+                  User user = _auth.currentUser;
+                  String hisuid;
+                  Player1.health = Player1.health - damage;
+                  print(
+                      'damage $damage , team $teamid , tempid $tempid  current health:${Player1.health} player team:${Player1.team}');
+
+                  try {
+                    await DatabaseServices(uid: user.uid)
+                        .upadtenestedplayersdata(
+                            Match.mid, 'health', Player1.health);
+                    print(Player1.health);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+
+                  //get  his id
+                  try {
+                    hisuid = await DatabaseServices(uid: user.uid)
+                        .getshootedplayerdata(Match.mid, teamid, tempid);
+                    print(hisuid);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+                  //set his data
+                  try {
+                    await DatabaseServices(uid: user.uid)
+                        .updatehisdata(Match.mid, hisuid, Player1.team);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+
+                  //set my data
+                  try {
+                    await DatabaseServices(uid: user.uid)
+                        .setmyshotdata(Match.mid, hisuid);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+                  //increase the enemy player score
+                  try {
+                    await DatabaseServices(uid: user.uid)
+                        .increasehisscorre(hisuid, Match.mid, damage);
+                  } catch (e) {
+                    print(e.toString());
+                  }
                 },
                 child: Row(children: <Widget>[
                   //width: 80.0,

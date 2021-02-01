@@ -314,7 +314,12 @@ class _CreateGameState extends State<CreateGame> {
                   onPressed: () async {
                     if (_normal) {
                       if (_twoteam) {
-                        print('Normal Two Twams');
+                        print('Normal Two Teams1');
+                        /*  User user = _auth.currentUser;
+                        Match.mid = 'F25APUYrNOr2yYJ0vOyu';
+                        String name1 = await DatabaseServices(uid: user.uid)
+                            .getshootedplayerdata('0fWRQMUl9SvvpwuKx60D', 2, 2);
+                        print(name1);*/
                         try {
                           User user = _auth.currentUser;
                           //String name = user.name;
@@ -333,7 +338,7 @@ class _CreateGameState extends State<CreateGame> {
                                   5,
                                   0,
                                   0,
-                                  360,
+                                  user.uid,
                                   0,
                                   null,
                                   null,
@@ -373,7 +378,7 @@ class _CreateGameState extends State<CreateGame> {
                                   5,
                                   0,
                                   0,
-                                  360,
+                                  user.uid,
                                   0,
                                   null,
                                   null,
@@ -414,7 +419,7 @@ class _CreateGameState extends State<CreateGame> {
                                   5,
                                   0,
                                   0,
-                                  360,
+                                  user.uid,
                                   0,
                                   null,
                                   null,
@@ -456,7 +461,7 @@ class _CreateGameState extends State<CreateGame> {
                                   5,
                                   0,
                                   0,
-                                  360,
+                                  user.uid,
                                   0,
                                   null,
                                   null,
@@ -496,7 +501,7 @@ class _CreateGameState extends State<CreateGame> {
                                   5,
                                   0,
                                   0,
-                                  360,
+                                  user.uid,
                                   0,
                                   null,
                                   null,
@@ -536,7 +541,7 @@ class _CreateGameState extends State<CreateGame> {
                                   5,
                                   0,
                                   0,
-                                  360,
+                                  user.uid,
                                   0,
                                   null,
                                   null,
@@ -577,7 +582,7 @@ class _CreateGameState extends State<CreateGame> {
                                   5,
                                   0,
                                   0,
-                                  360,
+                                  user.uid,
                                   0,
                                   null,
                                   null,
@@ -619,7 +624,7 @@ class _CreateGameState extends State<CreateGame> {
                                   5,
                                   0,
                                   0,
-                                  360,
+                                  user.uid,
                                   0,
                                   null,
                                   null,
@@ -659,7 +664,7 @@ class _CreateGameState extends State<CreateGame> {
                                   5,
                                   0,
                                   0,
-                                  360,
+                                  user.uid,
                                   0,
                                   null,
                                   null,

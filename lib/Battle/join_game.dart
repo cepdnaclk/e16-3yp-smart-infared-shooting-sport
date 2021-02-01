@@ -96,7 +96,7 @@ class _JoinGameState extends State<JoinGame> {
                       5,
                       0,
                       0,
-                      360,
+                      user.uid,
                       0,
                       null,
                       null,
