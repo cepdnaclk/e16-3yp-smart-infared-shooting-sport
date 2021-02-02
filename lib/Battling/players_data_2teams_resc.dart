@@ -30,7 +30,7 @@ class JoinedPlayers2teamsResc extends StatelessWidget {
             int deaths = doc['deaths'];
             String status = 'Alive';
             int health = doc['health'];
-            if (health == 0) {
+            if (health <= 0) {
               status = 'Killed';
             }
             bool enabled = true;
