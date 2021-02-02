@@ -377,16 +377,18 @@ class DatabaseServices {
     int team1 = 0;
     int team2 = 0;
     int team3 = 0;
+    int i = 0;
     String userid;
     int compareid;
+    String name;
     var result = await matchCollection.doc(mid).collection('players').get();
 
     result.docs.forEach((res) {
       compareid = res.data()['team'];
       userid = res.data()['userid'];
-      print(userid);
-      print(team3);
-      print(res.data()['team']);
+      name = res.data()['name'];
+      print('userid: $userid current team :$compareid name: $name itter: $i');
+      i++;
 
       if (compareid == 1) {
         matchCollection
@@ -394,6 +396,7 @@ class DatabaseServices {
             .collection('players')
             .doc(userid)
             .update({'tempid': team1});
+        print('temid setted in team 1');
         team1++;
       } else if (compareid == 2) {
         matchCollection
@@ -402,21 +405,18 @@ class DatabaseServices {
             .doc(userid)
             .update({'tempid': team2});
         team2++;
-      }
-
-      if (compareid == 3) {
+        print('temid setted in team 2');
+      } else if (compareid == 3) {
         matchCollection
             .doc(mid)
             .collection('players')
             .doc(userid)
             .update({'tempid': team3});
         team3++;
+        print('temid setted in team 3');
       }
     });
-
-    return 1;
   }
-  //updated is Start
 
   //players list
   List<Player> _playerListFromSnampshot(QuerySnapshot snapshot) {

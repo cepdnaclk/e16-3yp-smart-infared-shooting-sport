@@ -59,7 +59,7 @@ class WaitingToStart3teams extends StatelessWidget {
 
                   try {
                     User user = _auth.currentUser;
-                    print('working');
+                    print('Setting the temp ids');
                     await DatabaseServices(uid: user.uid).settempid(Match.mid);
                   } catch (e) {
                     print(e.toString());
