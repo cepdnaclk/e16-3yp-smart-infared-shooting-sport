@@ -62,7 +62,7 @@ class _Host2teamResclUntilStartState extends State<Host2teamResclUntilStart> {
               child: JoinedPlayers2teamsResc(),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 10.0, right: 90.0, left: 90.0),
+              margin: const EdgeInsets.only(top: 0.0, right: 90.0, left: 90.0),
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     side: BorderSide(
@@ -200,23 +200,7 @@ class _Host2teamResclUntilStartState extends State<Host2teamResclUntilStart> {
                 ),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(top: 5.0, right: 90.0, left: 90.0),
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: Colors.deepPurple[900],
-                    ),
-                    borderRadius: BorderRadius.circular(20.0)),
-                onPressed: () {},
-                child: Row(children: <Widget>[
-                  //width: 80.0,
-                  Container(
-                    child: Text('      Shoot '),
-                  ),
-                ]),
-              ),
-            ),
+            SizedBox(height: 5.0),
           ],
         ),
       ),

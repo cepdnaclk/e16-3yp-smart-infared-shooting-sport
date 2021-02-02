@@ -203,7 +203,7 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
                 ),
               ),
             ),
-            Container(
+            /*Container(
               margin: const EdgeInsets.only(top: 5.0, right: 90.0, left: 90.0),
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
@@ -224,7 +224,7 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
                   ),
                 ]),
               ),
-            ),
+            ),*/
             /*Container(
               margin: const EdgeInsets.only(top: 10.0, right: 90.0, left: 90.0),
               child: RaisedButton(
