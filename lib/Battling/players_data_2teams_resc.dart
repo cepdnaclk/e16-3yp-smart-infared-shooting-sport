@@ -68,11 +68,11 @@ class JoinedPlayers2teamsResc extends StatelessWidget {
                           ),
                         ),
                       ]),
-                      color: ((team == 1 && deaths == 0)
+                      color: ((team == 1 && health <= 0)
                           ? Colors.green[700]
-                          : (team == 2 && deaths == 0)
+                          : (team == 2 && health <= 0)
                               ? Colors.blue[700]
-                              : (team == 3 && deaths == 0)
+                              : (team == 3 && health <= 0)
                                   ? Colors.yellow[700]
                                   : Colors.black54),
                     ),

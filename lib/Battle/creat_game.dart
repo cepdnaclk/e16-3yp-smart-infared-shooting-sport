@@ -312,6 +312,9 @@ class _CreateGameState extends State<CreateGame> {
                     ],
                   ),
                   onPressed: () async {
+                    Player1.health = 5;
+                    Player1.deaths = 0;
+                    Player1.kills = 0;
                     Match.started = false;
                     if (_normal) {
                       if (_twoteam) {
