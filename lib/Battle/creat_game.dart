@@ -363,6 +363,9 @@ class _CreateGameState extends State<CreateGame> {
                       }
                       if (_threeteam) {
                         print('Normal Three teams');
+                        Player1.health = 5;
+                        Player1.deaths = 0;
+                        Player1.kills = 0;
                         try {
                           User user = _auth.currentUser;
 
@@ -446,6 +449,9 @@ class _CreateGameState extends State<CreateGame> {
                     if (_rescue) {
                       if (_twoteam) {
                         print('rescue Two teams');
+                        Player1.health = 5;
+                        Player1.deaths = 0;
+                        Player1.kills = 0;
                         try {
                           User user = _auth.currentUser;
 

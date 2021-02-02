@@ -132,16 +132,25 @@ class _JoinGameState extends State<JoinGame> {
                 }
                 try {
                   if (mode == 'n3' || mode == 'r3' || mode == 's3') {
+                    Player1.health = 5;
+                    Player1.deaths = 0;
+                    Player1.kills = 0;
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       return Join3Teams();
                     }));
                   }
                   if (Match.mode == 'n2' || mode == 'r2' || mode == 's2') {
+                    Player1.health = 5;
+                    Player1.deaths = 0;
+                    Player1.kills = 0;
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       return Join2Teams();
                     }));
                   }
                   if (mode == 'n4' || mode == 'r4' || mode == 's4') {
+                    Player1.health = 5;
+                    Player1.deaths = 0;
+                    Player1.kills = 0;
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       return Joinfre4all();
                     }));
