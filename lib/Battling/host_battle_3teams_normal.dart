@@ -222,7 +222,7 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                 ),
               ),
             ),
-            Container(
+            /*Container(
               margin: const EdgeInsets.only(top: 5.0, right: 90.0, left: 90.0),
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
@@ -238,7 +238,7 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                   ),
                 ]),
               ),
-            ),
+            ),*/
             /*Container(
               margin: const EdgeInsets.only(top: 20.0, right: 90.0, left: 90.0),
               child: RaisedButton(
