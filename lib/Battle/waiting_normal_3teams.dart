@@ -135,7 +135,7 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     const Text(
-                                      '5m',
+                                      '1.5m',
                                       style: TextStyle(
                                           fontSize: 15, color: Colors.white),
                                     ),
