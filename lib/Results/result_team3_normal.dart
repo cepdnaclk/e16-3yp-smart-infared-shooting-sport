@@ -468,7 +468,7 @@ class _Result3teamNormalState extends State<Result3teamNormal> {
                     borderRadius: BorderRadius.circular(20.0)),
                 onPressed: () async {
                   //after th match
-                  User user = _auth.currentUser;
+                  /* User user = _auth.currentUser;
                   try {
                     await DatabaseServices(uid: user.uid)
                         .deletematchdata(Match.mid);
@@ -480,7 +480,7 @@ class _Result3teamNormalState extends State<Result3teamNormal> {
                         .deletematchdata(Match.mid);
                   } catch (e) {
                     print(e.toString());
-                  }
+                  }*/
 
                   Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                     return Home();

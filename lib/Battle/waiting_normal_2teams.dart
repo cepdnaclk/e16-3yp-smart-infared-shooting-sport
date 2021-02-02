@@ -105,7 +105,7 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     const Text(
-                                      '3m',
+                                      '1.5m',
                                       style: TextStyle(
                                           fontSize: 15, color: Colors.white),
                                     ),
@@ -136,7 +136,7 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     const Text(
-                                      '1.5m',
+                                      '5m',
                                       style: TextStyle(
                                           fontSize: 15, color: Colors.white),
                                     ),
@@ -423,10 +423,10 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                             //print(_gunNumber);
                             if (_fives) {
                               try {
-                                Match.duration = 180;
+                                Match.duration = 90;
                                 User user = _auth.currentUser;
                                 await DatabaseServices(uid: user.uid)
-                                    .updateMatchduration(_gameid, 180);
+                                    .updateMatchduration(_gameid, 90);
                                 print(mid);
                               } catch (e) {
                                 print(e.toString());

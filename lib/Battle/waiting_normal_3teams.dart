@@ -104,7 +104,7 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     const Text(
-                                      '3m',
+                                      '1.5m',
                                       style: TextStyle(
                                           fontSize: 15, color: Colors.white),
                                     ),
@@ -135,7 +135,7 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     const Text(
-                                      '1.5m',
+                                      '5m',
                                       style: TextStyle(
                                           fontSize: 15, color: Colors.white),
                                     ),
@@ -439,21 +439,21 @@ class _Normal3TeamsState extends State<Normal3Teams> {
 
                             if (_fives) {
                               try {
-                                Match.duration = 180;
+                                Match.duration = 90;
 
                                 User user = _auth.currentUser;
                                 await DatabaseServices(uid: user.uid)
-                                    .updateMatchduration(_gameid, 180);
+                                    .updateMatchduration(_gameid, 90);
                                 print(mid);
                               } catch (e) {
                                 print(e.toString());
                               }
                             } else if (_tens) {
                               try {
-                                Match.duration = 30;
+                                Match.duration = 300;
                                 User user = _auth.currentUser;
                                 await DatabaseServices(uid: user.uid)
-                                    .updateMatchduration(_gameid, 30);
+                                    .updateMatchduration(_gameid, 300);
                                 print(mid);
                               } catch (e) {
                                 print(e.toString());
