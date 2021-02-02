@@ -17,15 +17,9 @@ class PlayedMatches extends StatelessWidget {
         return ListView(
           padding: const EdgeInsets.all(30),
           children: snapshot.data.docs.map((doc) {
-            String name = doc['name'];
+            String mod = doc['mode'];
             int score = doc['score'];
-            int team = doc['team'];
-            int health = doc['health'];
-            String status = 'Alive';
-            if (health <= 0) {
-              status = 'Killed';
-            }
-            bool enabled = true;
+            int deaths = doc['deaths'];
 
             //print('name : $name  team :$team');
             return Container(
@@ -41,7 +35,7 @@ class PlayedMatches extends StatelessWidget {
                         Container(
                           width: 150.0,
                           child: Text(
-                            ' $name',
+                            ' $mod',
                             style: TextStyle(fontSize: 15, color: Colors.white),
                           ),
                         ),
@@ -55,18 +49,12 @@ class PlayedMatches extends StatelessWidget {
                         Container(
                           width: 50.0,
                           child: Text(
-                            ' $status',
+                            ' $deaths',
                             style: TextStyle(fontSize: 15, color: Colors.white),
                           ),
                         ),
                       ]),
-                      color: ((team == 1 && health != 0)
-                          ? Colors.green[700]
-                          : (team == 2 && health != 0)
-                              ? Colors.blue[700]
-                              : (team == 3 && health != 0)
-                                  ? Colors.yellow[700]
-                                  : Colors.black54),
+                      color: Colors.green[700],
                     ),
 
                     //Text('$name'),
