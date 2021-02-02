@@ -8,4 +8,5 @@ class Player1 {
   static bool iswin;
   static int team;
   static int health;
+  static int rescode;
 }

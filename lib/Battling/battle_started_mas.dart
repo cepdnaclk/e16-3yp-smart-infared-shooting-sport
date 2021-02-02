@@ -19,7 +19,7 @@ class MatchStartedMsg extends StatelessWidget {
         bool started = matchdata['isStart'];
         String msg = matchdata['msg'];
         print(started);
-        //String massage = 'Wait Until the Host Start';
+        String massage = 'Wait Until the Host Start';
         if (started) {
           msg = matchdata['msg'];
         } else {

@@ -54,7 +54,6 @@ class WaitingToStart2teams extends StatelessWidget {
                 ]),
                 color: Colors.green[700],
                 onPressed: () async {
-                  //To do set the isStarted status to true
                   //set the temp id
 
                   try {
@@ -64,14 +63,17 @@ class WaitingToStart2teams extends StatelessWidget {
                   } catch (e) {
                     print(e.toString());
                   }
+
                   print(Match.mid);
                   if (Match.mode == 'r2') {
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      print('sdds');
                       return Host2teamResclUntilStart();
                     }));
                   }
                   if (Match.mode == 'n2') {
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      print('sdds');
                       return Host2teamNormalUntilStart();
                     }));
                   }

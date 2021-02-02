@@ -29,8 +29,7 @@ class JoinedPlayers2teamsResc extends StatelessWidget {
             int team = doc['team'];
             int deaths = doc['deaths'];
             String status = 'Alive';
-            int health = doc['health'];
-            if (health == 0) {
+            if (deaths == 1) {
               status = 'Killed';
             }
             bool enabled = true;
@@ -68,11 +67,11 @@ class JoinedPlayers2teamsResc extends StatelessWidget {
                           ),
                         ),
                       ]),
-                      color: ((team == 1 && health > 0)
+                      color: ((team == 1 && deaths == 0)
                           ? Colors.green[700]
-                          : (team == 2 && health > 0)
+                          : (team == 2 && deaths == 0)
                               ? Colors.blue[700]
-                              : (team == 3 && health > 0)
+                              : (team == 3 && deaths == 0)
                                   ? Colors.yellow[700]
                                   : Colors.black54),
                     ),

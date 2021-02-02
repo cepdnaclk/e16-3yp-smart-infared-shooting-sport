@@ -433,10 +433,10 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                               }
                             } else if (_tens) {
                               try {
-                                Match.duration = 30;
+                                Match.duration = 300;
                                 User user = _auth.currentUser;
                                 await DatabaseServices(uid: user.uid)
-                                    .updateMatchduration(_gameid, 30);
+                                    .updateMatchduration(_gameid, 300);
                                 print(mid);
                               } catch (e) {
                                 print(e.toString());

@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:xtag_demo/Developers/played_match.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Model/player_history.dart';
 import 'package:xtag_demo/Services/auth.dart';
@@ -108,40 +107,6 @@ class PlayerProf extends StatelessWidget {
                           color: Colors.white,
                           fontSize: 15.0,
                         ),
-                      )),
-                  Container(
-                      margin: const EdgeInsets.only(
-                          top: 5.0, right: 80.0, left: 80.0),
-                      child: RaisedButton(
-                        elevation: 10.0,
-                        color: Colors.black54,
-                        shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                              color: Colors.blue,
-                            ),
-                            borderRadius: BorderRadius.circular(30.0)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            const Icon(Icons.add,
-                                size: 20.0, color: Colors.white),
-                            const Text(
-                              'Connect Gun',
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.white),
-                            ),
-                          ],
-                        ),
-                        onPressed: () {
-                          //Player1.name = name;
-                          //user = auth.currentUser;
-                          //print(user.email);
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (_) {
-                            return PlayedMatches();
-                          }));
-                        },
                       )),
                 ])));
   }
