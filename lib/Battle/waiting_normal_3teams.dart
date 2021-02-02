@@ -450,7 +450,7 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                               }
                             } else if (_tens) {
                               try {
-                                Match.duration = 30;
+                                Match.duration = 300;
                                 User user = _auth.currentUser;
                                 await DatabaseServices(uid: user.uid)
                                     .updateMatchduration(_gameid, 300);

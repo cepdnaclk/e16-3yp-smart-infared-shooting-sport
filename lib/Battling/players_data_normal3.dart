@@ -39,7 +39,7 @@ class _JoinedPlayers3teamNormalState extends State<JoinedPlayers3teamNormal> {
             int team = doc['team'];
             int health = doc['health'];
             String status = 'Alive';
-            if (health <= 0) {
+            if (health == 0) {
               status = 'Killed';
             }
             bool enabled = true;
