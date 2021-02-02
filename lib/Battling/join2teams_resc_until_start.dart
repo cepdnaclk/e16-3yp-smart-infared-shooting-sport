@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -126,6 +128,25 @@ class _Join2teamRescUntilStartState extends State<Join2teamRescUntilStart> {
                         .increasehisscorre(hisuid, Match.mid, damage);
                   } catch (e) {
                     print(e.toString());
+                  }
+
+                  //set rescue code
+                  //respan the player
+                  if (Player1.health <= 0) {
+                    var randomizer = new Random();
+                    Player1.rescode = randomizer.nextInt(1000000);
+                    await Future.delayed(Duration(seconds: 5));
+                    try {
+                      await DatabaseServices(uid: user.uid)
+                          .upadtenestedplayersdata(
+                              Match.mid, 'rescuecode', Player1.rescode);
+                      print(Player1.rescode);
+                      //set the the msg
+                      await DatabaseServices(uid: user.uid)
+                          .setscreenmsg(Match.mid, Player1.rescode);
+                    } catch (e) {
+                      print(e.toString());
+                    }
                   }
                 },
                 child: Row(children: <Widget>[

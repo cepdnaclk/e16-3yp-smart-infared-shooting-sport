@@ -471,8 +471,13 @@ class _Result3teamNormalState extends State<Result3teamNormal> {
                   User user = _auth.currentUser;
                   try {
                     await DatabaseServices(uid: user.uid)
-                        .updateaftermatchnesteddata(
-                            Match.mid, Player1.gun, Player1.team);
+                        .deletematchdata(Match.mid);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+                  try {
+                    await DatabaseServices(uid: user.uid)
+                        .deletematchdata(Match.mid);
                   } catch (e) {
                     print(e.toString());
                   }

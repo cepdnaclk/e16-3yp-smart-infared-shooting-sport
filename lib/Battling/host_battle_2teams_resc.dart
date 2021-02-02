@@ -12,6 +12,7 @@ import 'package:xtag_demo/Results/result_2tams_resc.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'package:xtag_demo/TeamSocres/team1.dart';
 import 'package:xtag_demo/TeamSocres/team2.dart';
+import 'dart:math' show Random;
 
 import 'battle_started_mas.dart';
 
@@ -126,6 +127,24 @@ class _Host2teamResclUntilStartState extends State<Host2teamResclUntilStart> {
                         .increasehisscorre(hisuid, Match.mid, damage);
                   } catch (e) {
                     print(e.toString());
+                  }
+
+                  //respan the player
+                  if (Player1.health <= 0) {
+                    var randomizer = new Random();
+                    Player1.rescode = randomizer.nextInt(1000000);
+                    await Future.delayed(Duration(seconds: 5));
+                    try {
+                      await DatabaseServices(uid: user.uid)
+                          .upadtenestedplayersdata(
+                              Match.mid, 'rescuecode', Player1.rescode);
+                      print(Player1.rescode);
+                      //set the the msg
+                      await DatabaseServices(uid: user.uid)
+                          .setscreenmsg(Match.mid, Player1.rescode);
+                    } catch (e) {
+                      print(e.toString());
+                    }
                   }
                 },
                 child: Row(children: <Widget>[

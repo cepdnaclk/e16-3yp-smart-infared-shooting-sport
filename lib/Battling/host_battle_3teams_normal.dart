@@ -15,6 +15,9 @@ import 'package:xtag_demo/PlayModes/timerh.dart';
 
 import 'package:xtag_demo/Results/result_team3_normal.dart';
 import 'package:xtag_demo/Services/database.dart';
+import 'package:xtag_demo/TeamSocres/team1.dart';
+import 'package:xtag_demo/TeamSocres/team2.dart';
+import 'package:xtag_demo/TeamSocres/team3.dart';
 
 import 'battle_started_mas.dart';
 
@@ -100,6 +103,7 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                   } catch (e) {
                     print(e.toString());
                   }
+                  print(Match.mid);
 
                   //get  his id
                   try {
@@ -130,6 +134,20 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                         .increasehisscorre(hisuid, Match.mid, damage);
                   } catch (e) {
                     print(e.toString());
+                  }
+
+                  //respan the player
+                  if (Player1.health <= 0) {
+                    await Future.delayed(Duration(seconds: 10));
+                    Player1.health = 5;
+                    try {
+                      await DatabaseServices(uid: user.uid)
+                          .upadtenestedplayersdata(
+                              Match.mid, 'health', Player1.health);
+                      print(Player1.health);
+                    } catch (e) {
+                      print(e.toString());
+                    }
                   }
                 },
                 child: Row(children: <Widget>[

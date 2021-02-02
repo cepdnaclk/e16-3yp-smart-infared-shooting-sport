@@ -186,7 +186,7 @@ class DatabaseServices {
         .doc(mid)
         .collection('players')
         .where('team', isEqualTo: teamid)
-        .where('tempid', isEqualTo: teamid)
+        .where('tempid', isEqualTo: tempid)
         .get()
         .then((value) {
       value.docs.forEach((element) {
@@ -279,6 +279,25 @@ class DatabaseServices {
         .collection('players')
         .doc(uid)
         .update({'lastshotby': tempid});
+    return 1;
+  }
+
+//update the screnn msg
+  Future setscreenmsg(String mid, int code) async {
+    String myname;
+
+    await matchCollection
+        .doc(mid)
+        .collection('players')
+        .doc(uid)
+        .get()
+        .then((value) {
+      myname = value.data()['name'];
+      //print(name);
+    });
+    //set the game msg
+    String msg = 'rescue code of ' + myname + ' is ' + code.toString();
+    await matchCollection.doc(mid).update({'msg': msg});
     return 1;
   }
 
