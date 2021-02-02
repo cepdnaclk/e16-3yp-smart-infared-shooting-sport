@@ -1,10 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battling/host_battle_2teams_normal.dart';
 
 import 'package:xtag_demo/Battling/host_battle_2teams_resc.dart';
 import 'package:xtag_demo/Model/match.dart';
+import 'package:xtag_demo/Services/database.dart';
 
 import 'joined_players_2team.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class WaitingToStart2teams extends StatelessWidget {
   @override
@@ -49,17 +53,25 @@ class WaitingToStart2teams extends StatelessWidget {
                   ),
                 ]),
                 color: Colors.green[700],
-                onPressed: () {
+                onPressed: () async {
+                  //To do set the isStarted status to true
+                  //set the temp id
+
+                  try {
+                    User user = _auth.currentUser;
+                    print('Setting the temp ids');
+                    await DatabaseServices(uid: user.uid).settempid(Match.mid);
+                  } catch (e) {
+                    print(e.toString());
+                  }
                   print(Match.mid);
                   if (Match.mode == 'r2') {
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-                      print('sdds');
                       return Host2teamResclUntilStart();
                     }));
                   }
                   if (Match.mode == 'n2') {
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-                      print('sdds');
                       return Host2teamNormalUntilStart();
                     }));
                   }

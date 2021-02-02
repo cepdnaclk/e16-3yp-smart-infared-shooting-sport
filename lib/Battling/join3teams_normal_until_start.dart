@@ -13,11 +13,14 @@ import 'package:xtag_demo/PlayModes/timern.dart';
 import 'package:xtag_demo/PlayModes/timer2.dart';
 import 'package:xtag_demo/PlayModes/timerh.dart';
 import 'package:xtag_demo/Results/result_team3_normal.dart';
+import 'package:xtag_demo/Services/database.dart';
 import 'package:xtag_demo/TeamSocres/team1.dart';
 import 'package:xtag_demo/TeamSocres/team2.dart';
 import 'package:xtag_demo/TeamSocres/team3.dart';
 
 import 'battle_started_mas.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class Join3teamNormalUntilStart extends StatefulWidget {
   @override
@@ -28,9 +31,9 @@ class Join3teamNormalUntilStart extends StatefulWidget {
 class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
   final bool isBattlefinished = true;
   int _shootid = 0;
-  var it;
-  var dam;
-  var variable;
+  int damage;
+  int teamid;
+  int tempid;
   @override
   @override
   Widget build(BuildContext context) {
@@ -57,9 +60,7 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             MatchStartedMsg(),
-            //TimerCounter2(),
             TimernJ(),
-            //TimeDisplay(),
             PlayerParameters(),
             Flexible(
               child: JoinedPlayers3teamNormal(),
@@ -72,8 +73,63 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
                       color: Colors.deepPurple[900],
                     ),
                     borderRadius: BorderRadius.circular(20.0)),
-                onPressed: () {
-                  print(it);
+                onPressed: () async {
+                  User user = _auth.currentUser;
+                  String hisuid;
+                  Player1.health = Player1.health - damage;
+                  Player1.deaths = Player1.deaths + damage;
+                  print(
+                      'damage $damage , team $teamid , tempid $tempid  current health:${Player1.health} player team:${Player1.team}');
+
+                  try {
+                    await DatabaseServices(uid: user.uid)
+                        .upadtenestedplayersdata(
+                            Match.mid, 'health', Player1.health);
+                    print(Player1.health);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+
+                  //increase the deaths
+                  try {
+                    await DatabaseServices(uid: user.uid)
+                        .upadtenestedplayersdata(
+                            Match.mid, 'deaths', Player1.deaths);
+                    print(Player1.deaths);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+
+                  //get  his id
+                  try {
+                    hisuid = await DatabaseServices(uid: user.uid)
+                        .getshootedplayerdata(Match.mid, teamid, tempid);
+                    print(hisuid);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+                  //set his data
+                  try {
+                    await DatabaseServices(uid: user.uid)
+                        .updatehisdata(Match.mid, hisuid, Player1.team);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+
+                  //set my data
+                  try {
+                    await DatabaseServices(uid: user.uid)
+                        .setmyshotdata(Match.mid, hisuid);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+                  //increase the enemy player score
+                  try {
+                    await DatabaseServices(uid: user.uid)
+                        .increasehisscorre(hisuid, Match.mid, damage);
+                  } catch (e) {
+                    print(e.toString());
+                  }
                 },
                 child: Row(children: <Widget>[
                   //width: 80.0,
@@ -93,13 +149,11 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
                   //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
                   //validator: numberValidator,,
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12.0,
+                    color: Colors.black,
+                    fontSize: 10.0,
                   ),
                   onChanged: (val) {
-                    it = int.parse(val);
-                    setState(() => _shootid = it);
-                    print(it);
+                    damage = int.parse(val);
                   },
                 ),
               ),
@@ -117,13 +171,12 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
                   //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
                   //validator: numberValidator,,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 12.0,
                   ),
                   onChanged: (val) {
-                    dam = int.parse(val);
-                    setState(() => _shootid = it);
-                    print(it);
+                    teamid = int.parse(val);
+                    ;
                   },
                 ),
               ),
@@ -141,13 +194,11 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
                   //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
                   //validator: numberValidator,,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 12.0,
                   ),
                   onChanged: (val) {
-                    variable = int.parse(val);
-                    setState(() => _shootid = it);
-                    print(it);
+                    tempid = int.parse(val);
                   },
                 ),
               ),

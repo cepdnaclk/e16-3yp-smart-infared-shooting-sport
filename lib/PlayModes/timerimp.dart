@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:xtag_demo/Model/match.dart';
 import 'package:xtag_demo/Model/player1.dart';
+import 'package:xtag_demo/Results/result_2tams_resc.dart';
 import 'package:xtag_demo/Results/result_team3_normal.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'package:xtag_demo/TeamSocres/team1.dart';
@@ -159,12 +160,22 @@ class _TimerImpState extends State<TimerImp> {
                         });
 
                 print('battle Ended');
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-                  print('sdds');
-                  print(Match.pom);
-                  print(Match.poms);
-                  return Result3teamNormal();
-                }));
+                if (Match.mode == 'n3') {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                    print('sdds');
+                    print(Match.pom);
+                    print(Match.poms);
+                    return Result3teamNormal();
+                  }));
+                  if (Match.mode == 'r2') {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      print('sdds');
+                      print(Match.pom);
+                      print(Match.poms);
+                      return Result2teamResc();
+                    }));
+                  }
+                }
                 print('Countdown Ended');
               })),
       //RaisedButton(onPressed: () {  },),

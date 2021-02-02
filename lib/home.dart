@@ -129,7 +129,7 @@ class Home extends StatelessWidget {
                       Player2.deaths = documentSnapshot['Total Deaths'];
                       Player2.kills = documentSnapshot['Total Kills'];
                     });
-                    Navigator.of(context).pop();
+                    //Navigator.of(context).pop();
                     Navigator.push(
                       context,
                       MaterialPageRoute(

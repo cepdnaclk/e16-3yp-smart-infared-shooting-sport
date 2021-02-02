@@ -15,9 +15,6 @@ import 'package:xtag_demo/PlayModes/timerh.dart';
 
 import 'package:xtag_demo/Results/result_team3_normal.dart';
 import 'package:xtag_demo/Services/database.dart';
-import 'package:xtag_demo/TeamSocres/team1.dart';
-import 'package:xtag_demo/TeamSocres/team2.dart';
-import 'package:xtag_demo/TeamSocres/team3.dart';
 
 import 'battle_started_mas.dart';
 

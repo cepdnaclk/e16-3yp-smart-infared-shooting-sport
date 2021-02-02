@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:xtag_demo/Battling/join2teams_normal_until_start.dart';
 import 'package:xtag_demo/Battling/join3teams_normal_until_start.dart';
 import 'package:xtag_demo/Battling/join_2tams_resc_until_start.dart';
 import 'package:xtag_demo/Model/match.dart';
@@ -282,6 +283,8 @@ class _Join2TeamsState extends State<Join2Teams> {
                             //set the gun
                             try {
                               Player1.gun = _gunNumber;
+                              Player1.team = _teamNumber;
+                              Player1.health = 5;
                               User user = _auth.currentUser;
                               await DatabaseServices(uid: user.uid)
                                   .upadtenestedplayersdata(
@@ -308,11 +311,11 @@ class _Join2TeamsState extends State<Join2Teams> {
                                   return Join2teamRescUntilStart();
                                 }));
                               }
-                              if (Match.mode == 'n3') {
+                              if (Match.mode == 'n2') {
                                 Navigator.of(context)
                                     .push(MaterialPageRoute(builder: (_) {
                                   print('sdds');
-                                  return Join3teamNormalUntilStart();
+                                  return J2teamNormalUntilStart();
                                 }));
                               }
                             }
