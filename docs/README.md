@@ -143,16 +143,15 @@ Access and authentication
 # [](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/tree/main/docs#back-end-technologies) Back-end technologies
 Firebase
 
--   Realtime database
-    
--   Easy authentication
-    
--   Provides Firestore storage service
+- It is ideal for our Xtag mobile app.
+- Cloud deployment -Firestore 
+    - database helps to store real-time and synchronize game data.
+- Firebase authentication library is used for authentication
     
 
 Storage
 
--   Cloud storage
+-   Cloud Firestore
     
 
 Fast performance, high availability, and security
@@ -176,13 +175,35 @@ Fast performance, high availability, and security
      - Ex: isready,rescue code
 
 
+ # Main Functionalities
+ 
+- How to refresh the screen when players are connected
+    - Streams are used
+- Syncing the game time counter
+- How to set a tempid
+- How to give a score to the shooter
+    - Query searching is done by the killed player
+
+
 # Tests done
     1. Authentication test (Integrated  security test)
     2. Network compatibility testing
     3. Data Mapping testing
     4. Stored Procedures(Black box testing)
     5. Device compatibility testing
- The report of the results of these tests are uploaded in Testreport.md file
+The report of the results of these tests are uploaded in docs file.
+ [see the report](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/tree/main/docs)
+ 
+ 
+ # Main Functionalities
+ 
+- How to refresh the screen when players are connected
+    - Streams are used
+- Syncing the game time counter
+- How to set a tempid
+- How to give a score to the shooter
+    - Query searching is done by the killed player
+ 
 
 # User Interface - Mobile Application
 Develop using Futter 1.17 
