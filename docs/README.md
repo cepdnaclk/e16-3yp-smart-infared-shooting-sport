@@ -175,16 +175,6 @@ Fast performance, high availability, and security
      - Ex: isready,rescue code
 
 
- # Main Functionalities
- 
-- How to refresh the screen when players are connected
-    - Streams are used
-- Syncing the game time counter
-- How to set a tempid
-- How to give a score to the shooter
-    - Query searching is done by the killed player
-
-
 # Tests done
     1. Authentication test (Integrated  security test)
     2. Network compatibility testing
