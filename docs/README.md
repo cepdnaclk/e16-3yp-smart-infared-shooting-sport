@@ -158,11 +158,15 @@ Storage
 Fast performance, high availability, and security
 
 # Database
+ ![](images/db1.PNG)
+ ![](images/db2.PNG)
+
+
 - Two main collections are used to store Player data and Match data.
 - Player collection will store records as documents according to the Used ID.
 - Match collection will store records as documents according to the Match ID.
 - Players' details of each match will be stored as a sub collection inside the relevent match document.
- ![](images/dbl.PNG)
+
 
 ## Reasons behind the database
 - When do a query search in a match, It will be efficient
