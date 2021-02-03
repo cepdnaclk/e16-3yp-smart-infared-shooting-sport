@@ -192,7 +192,7 @@ Fast performance, high availability, and security
     4. Stored Procedures(Black box testing)
     5. Device compatibility testing
 The report of the results of these tests are uploaded in docs file.
- [see the report](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/tree/main/docs)
+ [go to report](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/test%20XTAG.docx)
  
  
  # Main Functionalities
