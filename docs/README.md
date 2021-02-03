@@ -185,7 +185,7 @@ The report of the results of these tests are uploaded in docs file.
  [go to report](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/test%20XTAG.docx)
  
  
- # Main Functionalities
+# Main Functionalities
  
 - How to refresh the screen when players are connected
     - Streams are used
