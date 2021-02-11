@@ -179,15 +179,15 @@ Develop using Futter 1.17
 </p>
 
 ### Connect gun and go to battle
-![](images/connct gn and go to ply.PNG)
+![](images/connct_gn_and_go_to_ply.PNG)
 
 
 ### Create or join a battle
-![](images/crt or join.PNG)
+![](images/crt_or_join.PNG)
 
 
 ### Start and play
-![](images/start n ply.PNG)
+![](images/start_n_ply.PNG)
 
 
 # Tests done
