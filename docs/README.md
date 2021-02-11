@@ -47,6 +47,7 @@ purpose.
 	-   Diameter about      38mm (1.5″)
 
 
+
 ### IR reviser
 
  - SM0038 - TSOP1738 - 38KHz IR receiver 	
@@ -73,13 +74,13 @@ purpose.
 And also push button and RGB LED are used.
 
 ## Circuit Block of the gun and headband
- ![](images/circuit blog.jpg)
+ ![](images/circuitblock.png)
 
 ### IR circuit
 
-![](images/IR emitter.jpg)
+![](images/iremitter.png)
 ### IR lens
-![](images/ir lens.jpg)
+![](images/irlens.png)
 
 ### **IR Receiver**
 
@@ -114,31 +115,17 @@ Trigger and Reload buttons+wire  =  LKR 20
 -   Currently it is NEC IR protocol
 -   38 KHz
 - 8  bit is used
- ![](images/shot.jpg)
+ ![](images/irshot.png)
 
 # Network technologies and protocols
 
 
-Access and authentication
+### Access and authentication
 
-  
+Using Email and a password players can register Xtag
+Players have to verify their  Email before signed in
+More detail will be on testing report
 
--   put username/password in the post body and send it over HTTPS
-    
-
-  
-
--   Identify the user & issue an access token and a refresh token by the server
-    
-
-  
-
--   Server verifies the user by the validity of the token
-    
-
-  
-
--   We can keep the players logged in the game app for long using refresh tokens
 
 # [](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/tree/main/docs#back-end-technologies) Back-end technologies
 Firebase
@@ -174,8 +161,8 @@ Fast performance, high availability, and security
 - There Are Some data in the match,which are useless later
      - Ex: isready,rescue code
 
- 
- 
+
+
 # Main Functionalities
  
 - How to refresh the screen when players are connected
@@ -212,6 +199,9 @@ Develop using Futter 1.17
     3. Data Mapping testing
     4. Stored Procedures(Black box testing)
     5. Device compatibility testing
+
+
+
 
 # Test Report
 
