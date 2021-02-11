@@ -213,6 +213,6 @@ Develop using Futter 1.17
     4. Stored Procedures(Black box testing)
     5. Device compatibility testing
 The report of the results of these tests are uploaded in docs file.
- [go to report](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/test/test.txt)
+ [go to report](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/test/test.md)
  
  
