@@ -95,18 +95,9 @@ SM0038 - TSOP1738 IR Receiver
  5.   binary (data) 
  ![](images/TSOP1738-Block-Diagram.png)
 
-## **Budget**
+## **Bill of materials**
+![](images/bom.PNG)
 
-Microcontroller-ATMega328 =  LKR 350
-Infrared Emitter with lens  =  LKR 180
-Piezo Sounder  =  LKR 110
-16*2 LCD with I2C  =  LKR 450
-RGB light *5  =  LKR 100
-Vibration motor  *2  =  LKR 400
-HC-05 Bluetooth module  =  LKR 500
-Trigger and Reload buttons+wire  =  LKR 20
-3000mAh rechargeable 5v  =  LKR 1100
-#### Direct Material Cost  LKR 3185   Per unit
 
 ## CONTROLLER PLATFORMS
 
@@ -116,8 +107,6 @@ Trigger and Reload buttons+wire  =  LKR 20
 -   38 KHz
 - 8  bit is used
  ![](images/irshot.png)
-
-# Network technologies and protocols
 
 
 ### Access and authentication
@@ -179,6 +168,9 @@ Develop using Futter 1.17
 ### Home page
 <img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/UI_HomePage1.png" width="180" height="340"/>
 
+### User Profile
+![](images/profile.PNG)
+
 ### SignIn and SignUp pages
 <p float='left'>
 	<img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/UI_SigninPage.png" width="180" height="340"/>
@@ -186,12 +178,17 @@ Develop using Futter 1.17
 	<img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/UI_SignupPage.png" width="180" height="340"/> 
 </p>
 
-### Chose options and Start Playing
-<p float='left'>
-	<img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/UI_StartGame.png" width="180" height="340"/>
-	<width="100"/>
-	<img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/UI_CreateGame.png" width="180" height="340"/> 
-</p>
+### Connect gun and go to battle
+![](images/connct gn and go to ply.PNG)
+
+
+### Create or join a battle
+![](images/crt or join.PNG)
+
+
+### Start and play
+![](images/start n ply.PNG)
+
 
 # Tests done
     1. Authentication test (Integrated  security test)
