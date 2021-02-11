@@ -96,7 +96,7 @@ SM0038 - TSOP1738 IR Receiver
  ![](images/TSOP1738-Block-Diagram.png)
 
 ## **Bill of materials**
-![](images/bom.PNG)
+![](docs/images/bom.PNG)
 
 
 ## CONTROLLER PLATFORMS
@@ -169,7 +169,7 @@ Develop using Futter 1.17
 <img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/UI_HomePage1.png" width="180" height="340"/>
 
 ### User Profile
-![](images/profile.PNG)
+![](docs/images/profile.PNG)
 
 ### SignIn and SignUp pages
 <p float='left'>
@@ -179,15 +179,15 @@ Develop using Futter 1.17
 </p>
 
 ### Connect gun and go to battle
-![](images/connct_gn_and_go_to_ply.PNG)
+![](docs/images/connct_gn_and_go_to_ply.PNG)
 
 
 ### Create or join a battle
-![](images/crt_or_join.PNG)
+![](docs/images/crt_or_join.PNG)
 
 
 ### Start and play
-![](images/start_n_ply.PNG)
+![](docs/images/start_n_ply.PNG)
 
 # Tests done
     1. Authentication test (Integrated  security test)
