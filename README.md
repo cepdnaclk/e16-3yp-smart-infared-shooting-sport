@@ -175,16 +175,7 @@ Fast performance, high availability, and security
      - Ex: isready,rescue code
 
 
-# Tests done
-    1. Authentication test (Integrated  security test)
-    2. Network compatibility testing
-    3. Data Mapping testing
-    4. Stored Procedures(Black box testing)
-    5. Device compatibility testing
-The report of the results of these tests are uploaded in docs file.
- [go to report](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/test%20XTAG.docx)
- 
- 
+
 # Main Functionalities
  
 - How to refresh the screen when players are connected
@@ -214,3 +205,14 @@ Develop using Futter 1.17
 	<width="100"/>
 	<img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/UI_CreateGame.png" width="180" height="340"/> 
 </p>
+
+# Tests done
+    1. Authentication test (Integrated  security test)
+    2. Network compatibility testing
+    3. Data Mapping testing
+    4. Stored Procedures(Black box testing)
+    5. Device compatibility testing
+The report of the results of these tests are uploaded in docs file.
+ [go to report](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/test%20XTAG.docx)
+ 
+ 
