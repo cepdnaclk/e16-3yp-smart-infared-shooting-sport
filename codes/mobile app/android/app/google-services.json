@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "6513963045",
+    "project_id": "xtag-demo",
+    "storage_bucket": "xtag-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6513963045:android:d41a88e259eadb036d8fcc",
+        "android_client_info": {
+          "package_name": "com.example.xtag_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6513963045-dsvftk7am6l9qihjrstbb1r35ff9gojo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDvSO18nmet8Al8sdEIcxVzOlAI8Wks9M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6513963045-dsvftk7am6l9qihjrstbb1r35ff9gojo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

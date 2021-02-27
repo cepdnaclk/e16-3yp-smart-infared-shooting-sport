@@ -5,13 +5,13 @@ import 'package:xtag_demo/Model/user.dart';
 import 'package:xtag_demo/Services/auth.dart';
 import 'package:xtag_demo/wrapper.dart';
 
-void main() async {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return StreamProvider<UserN>.value(
