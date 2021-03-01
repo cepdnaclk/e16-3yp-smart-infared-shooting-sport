@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:xtag_demo/Battle/waiting_normal_2teams.dart';
-import 'package:xtag_demo/Battle/waiting_normal_3teams.dart';
-import 'package:xtag_demo/Battle/waiting_normal_free4all.dart';
+import 'package:xtag_demo/Battle/waiting_host_2teams.dart';
+import 'package:xtag_demo/Battle/waiting_host_3teams.dart';
+import 'package:xtag_demo/Battle/waiting_host_free4all.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'package:xtag_demo/Model/match.dart';
