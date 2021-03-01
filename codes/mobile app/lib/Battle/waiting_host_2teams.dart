@@ -436,7 +436,7 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                                 Match.duration = 30;
                                 User user = _auth.currentUser;
                                 await DatabaseServices(uid: user.uid)
-                                    .updateMatchduration(_gameid, 30);
+                                    .updateMatchduration(_gameid, 300);
                                 print(mid);
                               } catch (e) {
                                 print(e.toString());
