@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battling/player_parameter.dart';
 import 'package:xtag_demo/Battling/players_data_3teams_surv.dart';
-import 'package:xtag_demo/Battling/time_display.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Model/match.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:xtag_demo/Services/database.dart';
+import 'package:xtag_demo/PlayModes/timer2.dart';
+import 'package:xtag_demo/PlayModes/timerh.dart';
+import 'battle_started_mas.dart';
 
 class Host3teamSurvlUntilStart extends StatefulWidget {
   @override
@@ -47,30 +49,9 @@ class _Host3teamSurvlUntilStartState extends State<Host3teamSurvlUntilStart> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            /*SizedBox(
-              height: 20.0,
-            ),*/
-            /*Container(
-              margin:
-                  const EdgeInsets.only(top: 20.0, right: 100.0, left: 100.0),
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: Colors.deepPurple[900],
-                    ),
-                    borderRadius: BorderRadius.circular(20.0)),
-                child: Row(children: <Widget>[
-                  //width: 80.0,
-                  Container(
-                    child: Text('    Start the battle'),
-                  ),
-                ]),
-                color: Colors.green[700],
-                onPressed: () {},
-              ),
-            ),*/
-
-            TimeDisplay(),
+            MatchStartedMsg(),
+            TimerCounter2(),
+            Timern(),
             PlayerParameters(),
             Flexible(
               child: JoinedPlayers3teamsSurv(),
