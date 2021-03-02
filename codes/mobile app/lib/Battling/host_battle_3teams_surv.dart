@@ -125,7 +125,7 @@ class _Host3teamSurvlUntilStartState extends State<Host3teamSurvlUntilStart> {
                   }
 
                   //respan the player
-                  if (Player1.health <= 0) {
+                  /*if (Player1.health <= 0) {
                     await Future.delayed(Duration(seconds: 10));
                     Player1.health = 5;
                     try {
@@ -136,7 +136,7 @@ class _Host3teamSurvlUntilStartState extends State<Host3teamSurvlUntilStart> {
                     } catch (e) {
                       print(e.toString());
                     }
-                  }
+                  }*/
                 },
                 child: Row(children: <Widget>[
                   //width: 80.0,

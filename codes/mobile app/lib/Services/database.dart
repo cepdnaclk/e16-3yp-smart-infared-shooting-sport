@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:xtag_demo/Model/player.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:xtag_demo/Model/player1.dart';
 //import 'package:xtag_demo/Model/match.dart';
 
 class DatabaseServices {
@@ -139,6 +140,18 @@ class DatabaseServices {
         .collection('players')
         .doc(uid)
         .update({field: value});
+  }
+
+  //update players rescue code
+  Future upadteRescCode(
+    String mid,
+    int value,
+  ) async {
+    return await matchCollection
+        .doc(mid)
+        .collection('players')
+        .doc(uid)
+        .update({'rescuecode': value});
   }
 
   //update is ready
@@ -416,6 +429,7 @@ class DatabaseServices {
             .doc(userid)
             .update({'tempid': team1});
         print('temid setted in team 1');
+        Player1.tempid = team1;
         team1++;
       } else if (compareid == 2) {
         matchCollection
@@ -423,6 +437,7 @@ class DatabaseServices {
             .collection('players')
             .doc(userid)
             .update({'tempid': team2});
+        Player1.tempid = team2;
         team2++;
         print('temid setted in team 2');
       } else if (compareid == 3) {
@@ -431,6 +446,7 @@ class DatabaseServices {
             .collection('players')
             .doc(userid)
             .update({'tempid': team3});
+        Player1.tempid = team3;
         team3++;
         print('temid setted in team 3');
       }

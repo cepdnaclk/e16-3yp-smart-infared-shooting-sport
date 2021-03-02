@@ -127,7 +127,7 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
 
                   //respan the player
                   if (Player1.health <= 0) {
-                    await Future.delayed(Duration(seconds: 10));
+                    await Future.delayed(Duration(seconds: 2));
                     Player1.health = 5;
                     try {
                       await DatabaseServices(uid: user.uid)

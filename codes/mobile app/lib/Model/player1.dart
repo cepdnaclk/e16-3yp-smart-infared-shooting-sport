@@ -9,4 +9,6 @@ class Player1 {
   static int team;
   static int health;
   static int rescode;
+  static int tempid;
+  static int inputresc;
 }

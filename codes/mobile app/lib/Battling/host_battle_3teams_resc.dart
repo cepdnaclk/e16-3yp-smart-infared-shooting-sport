@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:xtag_demo/Battling/player_parameter.dart';
 import 'package:xtag_demo/Battling/players_data_normal3.dart';
 import 'package:xtag_demo/Model/player1.dart';
@@ -10,6 +9,7 @@ import 'package:xtag_demo/PlayModes/timer2.dart';
 import 'package:xtag_demo/PlayModes/timerh.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'battle_started_mas.dart';
+import 'dart:math';
 
 class Host3teamRescUntilStart extends StatefulWidget {
   @override
@@ -125,18 +125,52 @@ class _Host3teamRescUntilStartState extends State<Host3teamRescUntilStart> {
                   } catch (e) {
                     print(e.toString());
                   }
-
-                  //respan the player
+                  //Setting rescue code
                   if (Player1.health <= 0) {
-                    await Future.delayed(Duration(seconds: 10));
-                    Player1.health = 5;
+                    int temp1 = Player1.tempid;
+                    int temp2 = Player1.team;
+                    int resccode;
+                    int temp3;
+                    var rng = Random();
+                    temp3 = 1000 + rng.nextInt(8999);
+                    resccode = temp1 * 10000 + temp2 * 1000000 + temp3;
+                    Player1.rescode = resccode;
                     try {
-                      await DatabaseServices(uid: user.uid)
-                          .upadtenestedplayersdata(
-                              Match.mid, 'health', Player1.health);
+                      await DatabaseServices(uid: user.uid).upadteRescCode(
+                        Match.mid,
+                        Player1.rescode,
+                      );
                       print(Player1.health);
                     } catch (e) {
                       print(e.toString());
+                    }
+                  }
+
+                  //respan the player
+                  while (Player1.health <= 0) {
+                    await Future.delayed(Duration(seconds: 2));
+                    if (Player1.rescode == Player1.inputresc) {
+                      Player1.rescode = null;
+                      Player1.inputresc = null;
+                      try {
+                        await DatabaseServices(uid: user.uid).upadteRescCode(
+                          Match.mid,
+                          null,
+                        );
+                        print(Player1.health);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      await Future.delayed(Duration(seconds: 2));
+                      Player1.health = 5;
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .upadtenestedplayersdata(
+                                Match.mid, 'health', Player1.health);
+                        print(Player1.health);
+                      } catch (e) {
+                        print(e.toString());
+                      }
                     }
                   }
                 },
