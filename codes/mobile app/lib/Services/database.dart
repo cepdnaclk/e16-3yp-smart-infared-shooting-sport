@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:xtag_demo/Model/player.dart';
-import 'package:intl/date_symbol_data_local.dart';
 import 'package:xtag_demo/Model/player1.dart';
 //import 'package:xtag_demo/Model/match.dart';
 
@@ -44,14 +42,8 @@ class DatabaseServices {
   final CollectionReference gameplayersCollection =
       FirebaseFirestore.instance.collection("players");
   //update the match bsic
-  Future updateMatchMode(
-    String mode,
-    bool status,
-    bool host,
-    bool isStart,
-    int duration,
-    String msg,
-  ) async {
+  Future updateMatchMode(String mode, bool status, bool host, bool isStart,
+      int duration, String msg, int currentcode) async {
     print(uid);
     String mid = matchCollection.doc().id;
     //print(mid);
@@ -61,9 +53,20 @@ class DatabaseServices {
       'host': host,
       'isStart': isStart,
       'duration': duration,
-      'msg': msg
+      'msg': msg,
+      'currentcode': currentcode
     });
     return mid;
+  }
+
+  //set current code
+  Future updateMatchcode(
+    String mid,
+    int code,
+  ) async {
+    await matchCollection.doc(mid).update({'duration': code});
+    print(code);
+    return code;
   }
 
   //set match time
