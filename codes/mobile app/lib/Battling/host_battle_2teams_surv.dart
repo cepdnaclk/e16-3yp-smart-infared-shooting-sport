@@ -9,15 +9,15 @@ import 'package:xtag_demo/PlayModes/timer2.dart';
 import 'package:xtag_demo/PlayModes/timerh.dart';
 import 'battle_started_mas.dart';
 
-class Host3teamSurvlUntilStart extends StatefulWidget {
+class Host2teamSurvlUntilStart extends StatefulWidget {
   @override
-  _Host3teamSurvlUntilStartState createState() =>
-      _Host3teamSurvlUntilStartState();
+  _Host2teamSurvlUntilStartState createState() =>
+      _Host2teamSurvlUntilStartState();
 }
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
-class _Host3teamSurvlUntilStartState extends State<Host3teamSurvlUntilStart> {
+class _Host2teamSurvlUntilStartState extends State<Host2teamSurvlUntilStart> {
   //print(Match.mid);
   final bool isBattlefinished = true;
   int _shootid = 0;

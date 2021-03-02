@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battling/player_parameter.dart';
-import 'package:xtag_demo/Battling/players_data_3teams_surv.dart';
+import 'package:xtag_demo/Battling/players_data_normal3.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Model/match.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:xtag_demo/PlayModes/timern.dart';
 import 'package:xtag_demo/Services/database.dart';
-import 'package:xtag_demo/PlayModes/timer2.dart';
-import 'package:xtag_demo/PlayModes/timerh.dart';
 import 'battle_started_mas.dart';
 
-class Host3teamSurvlUntilStart extends StatefulWidget {
+class Join3teamSurvUntilStart extends StatefulWidget {
   @override
-  _Host3teamSurvlUntilStartState createState() =>
-      _Host3teamSurvlUntilStartState();
+  _Join3teamSurvUntilStartState createState() =>
+      _Join3teamSurvUntilStartState();
 }
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
-class _Host3teamSurvlUntilStartState extends State<Host3teamSurvlUntilStart> {
-  //print(Match.mid);
+class _Join3teamSurvUntilStartState extends State<Join3teamSurvUntilStart> {
   final bool isBattlefinished = true;
   int _shootid = 0;
   int damage;
@@ -26,12 +24,10 @@ class _Host3teamSurvlUntilStartState extends State<Host3teamSurvlUntilStart> {
   int tempid;
   @override
   Widget build(BuildContext context) {
-    //print(Match.mid);
-    bool isBattlefinished = true;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('XTag Battle'),
+        title: Text("XTag 3n"),
       ),
       body: Container(
         alignment: Alignment.center,
@@ -50,11 +46,10 @@ class _Host3teamSurvlUntilStartState extends State<Host3teamSurvlUntilStart> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             MatchStartedMsg(),
-            TimerCounter2(),
-            Timern(),
+            TimernJ(),
             PlayerParameters(),
             Flexible(
-              child: JoinedPlayers3teamsSurv(),
+              child: JoinedPlayers3teamNormal(),
             ),
             Container(
               margin: const EdgeInsets.only(top: 10.0, right: 90.0, left: 90.0),

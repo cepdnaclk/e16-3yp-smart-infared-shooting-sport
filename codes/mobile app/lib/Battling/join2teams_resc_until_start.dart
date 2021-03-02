@@ -13,8 +13,6 @@ import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Model/match.dart';
 import 'package:xtag_demo/Results/result_2tams_resc.dart';
 import 'package:xtag_demo/Services/database.dart';
-import 'package:xtag_demo/TeamSocres/team1.dart';
-import 'package:xtag_demo/TeamSocres/team2.dart';
 
 import 'battle_started_mas.dart';
 
@@ -98,6 +96,7 @@ class _Join2teamRescUntilStartState extends State<Join2teamRescUntilStart> {
                   } catch (e) {
                     print(e.toString());
                   }
+                  print(Match.mid);
 
                   //get  his id
                   try {
@@ -129,23 +128,110 @@ class _Join2teamRescUntilStartState extends State<Join2teamRescUntilStart> {
                   } catch (e) {
                     print(e.toString());
                   }
-
-                  //set rescue code
-                  //respan the player
+                  //Setting rescue code
                   if (Player1.health <= 0) {
-                    var randomizer = new Random();
-                    Player1.rescode = randomizer.nextInt(1000000);
-                    await Future.delayed(Duration(seconds: 5));
+                    int temp2 = Player1.team;
+                    int resccode;
+                    int temp3;
+                    var rng = Random();
+                    temp3 = 100000 + rng.nextInt(899999);
+                    resccode = temp2 * 1000000 + temp3;
+                    Player1.rescode = resccode;
                     try {
                       await DatabaseServices(uid: user.uid)
-                          .upadtenestedplayersdata(
-                              Match.mid, 'rescuecode', Player1.rescode);
-                      print(Player1.rescode);
-                      //set the the msg
-                      await DatabaseServices(uid: user.uid)
-                          .setscreenmsg(Match.mid, Player1.rescode);
+                          .updateMatchcode(Match.mid, resccode);
                     } catch (e) {
                       print(e.toString());
+                    }
+                    try {
+                      await DatabaseServices(uid: user.uid)
+                          .setscreenmsg(Match.mid, resccode);
+                    } catch (e) {
+                      print(e.toString());
+                    }
+                    try {
+                      await DatabaseServices(uid: user.uid).upadteRescCode(
+                        Match.mid,
+                        Player1.rescode,
+                      );
+                      print(Player1.health);
+                    } catch (e) {
+                      print(e.toString());
+                    }
+                  }
+                  int count = 0;
+                  //respan the player
+                  while (Player1.health <= 0 && count <= 15) {
+                    count++;
+                    await Future.delayed(Duration(seconds: 2));
+                    if (Player1.rescode == Player1.inputresc) {
+                      Player1.rescode = null;
+                      Player1.inputresc = null;
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .updateMatchcode(Match.mid, null);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .setscreenmsg(Match.mid, null);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      try {
+                        await DatabaseServices(uid: user.uid).upadteRescCode(
+                          Match.mid,
+                          null,
+                        );
+                        print(Player1.health);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      await Future.delayed(Duration(seconds: 2));
+                      Player1.health = 5;
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .upadtenestedplayersdata(
+                                Match.mid, 'health', Player1.health);
+                        print(Player1.health);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                    } else if (count == 15) {
+                      Player1.rescode = null;
+                      Player1.inputresc = null;
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .updateMatchcode(Match.mid, null);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .setscreenmsg(Match.mid, null);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      try {
+                        await DatabaseServices(uid: user.uid).upadteRescCode(
+                          Match.mid,
+                          null,
+                        );
+                        print(Player1.health);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      await Future.delayed(Duration(seconds: 2));
+                      Player1.health = 5;
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .upadtenestedplayersdata(
+                                Match.mid, 'health', Player1.health);
+                        print(Player1.health);
+                      } catch (e) {
+                        print(e.toString());
+                      }
                     }
                   }
                 },

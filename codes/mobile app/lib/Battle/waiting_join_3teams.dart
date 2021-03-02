@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battling/join3teams_normal_until_start.dart';
+import 'package:xtag_demo/Battling/join3teams_resc_until_start.dart';
+import 'package:xtag_demo/Battling/join3teams_surv_until_start.dart';
 import 'package:xtag_demo/Model/match.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Services/database.dart';
@@ -309,6 +311,7 @@ class _Join3TeamsState extends State<Join3Teams> {
                             Player1.gun = _gunNumber;
                             Player1.team = _teamNumber;
                             Player1.health = 5;
+                            Player1.rescode = null;
                             try {
                               User user = _auth.currentUser;
                               await DatabaseServices(uid: user.uid)
@@ -327,10 +330,24 @@ class _Join3TeamsState extends State<Join3Teams> {
                             } catch (e) {
                               print(e.toString());
                             }
-                            Navigator.of(context)
-                                .push(MaterialPageRoute(builder: (_) {
-                              return Join3teamNormalUntilStart();
-                            }));
+                            if (Match.mode == 'n3') {
+                              Navigator.of(context)
+                                  .push(MaterialPageRoute(builder: (_) {
+                                return Join3teamNormalUntilStart();
+                              }));
+                            }
+                            if (Match.mode == 'r3') {
+                              Navigator.of(context)
+                                  .push(MaterialPageRoute(builder: (_) {
+                                return Join3teamRescUntilStart();
+                              }));
+                            }
+                            if (Match.mode == 's3') {
+                              Navigator.of(context)
+                                  .push(MaterialPageRoute(builder: (_) {
+                                return Join3teamSurvUntilStart();
+                              }));
+                            }
                             print(_gunNumber);
                           })),
                 ],

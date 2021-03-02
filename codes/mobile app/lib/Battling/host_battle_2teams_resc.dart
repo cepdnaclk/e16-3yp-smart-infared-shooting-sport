@@ -63,7 +63,7 @@ class _Host2teamResclUntilStartState extends State<Host2teamResclUntilStart> {
               child: JoinedPlayers2teamsResc(),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 0.0, right: 90.0, left: 90.0),
+              margin: const EdgeInsets.only(top: 10.0, right: 90.0, left: 90.0),
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     side: BorderSide(
@@ -97,6 +97,7 @@ class _Host2teamResclUntilStartState extends State<Host2teamResclUntilStart> {
                   } catch (e) {
                     print(e.toString());
                   }
+                  print(Match.mid);
 
                   //get  his id
                   try {
@@ -128,22 +129,110 @@ class _Host2teamResclUntilStartState extends State<Host2teamResclUntilStart> {
                   } catch (e) {
                     print(e.toString());
                   }
-
-                  //respan the player
+                  //Setting rescue code
                   if (Player1.health <= 0) {
-                    var randomizer = new Random();
-                    Player1.rescode = randomizer.nextInt(1000000);
-                    await Future.delayed(Duration(seconds: 5));
+                    int temp2 = Player1.team;
+                    int resccode;
+                    int temp3;
+                    var rng = Random();
+                    temp3 = 100000 + rng.nextInt(899999);
+                    resccode = temp2 * 1000000 + temp3;
+                    Player1.rescode = resccode;
                     try {
                       await DatabaseServices(uid: user.uid)
-                          .upadtenestedplayersdata(
-                              Match.mid, 'rescuecode', Player1.rescode);
-                      print(Player1.rescode);
-                      //set the the msg
-                      await DatabaseServices(uid: user.uid)
-                          .setscreenmsg(Match.mid, Player1.rescode);
+                          .updateMatchcode(Match.mid, resccode);
                     } catch (e) {
                       print(e.toString());
+                    }
+                    try {
+                      await DatabaseServices(uid: user.uid)
+                          .setscreenmsg(Match.mid, resccode);
+                    } catch (e) {
+                      print(e.toString());
+                    }
+                    try {
+                      await DatabaseServices(uid: user.uid).upadteRescCode(
+                        Match.mid,
+                        Player1.rescode,
+                      );
+                      print(Player1.health);
+                    } catch (e) {
+                      print(e.toString());
+                    }
+                  }
+                  int count = 0;
+                  //respan the player
+                  while (Player1.health <= 0 && count <= 15) {
+                    count++;
+                    await Future.delayed(Duration(seconds: 2));
+                    if (Player1.rescode == Player1.inputresc) {
+                      Player1.rescode = null;
+                      Player1.inputresc = null;
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .updateMatchcode(Match.mid, null);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .setscreenmsg(Match.mid, null);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      try {
+                        await DatabaseServices(uid: user.uid).upadteRescCode(
+                          Match.mid,
+                          null,
+                        );
+                        print(Player1.health);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      await Future.delayed(Duration(seconds: 2));
+                      Player1.health = 5;
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .upadtenestedplayersdata(
+                                Match.mid, 'health', Player1.health);
+                        print(Player1.health);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                    } else if (count == 15) {
+                      Player1.rescode = null;
+                      Player1.inputresc = null;
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .updateMatchcode(Match.mid, null);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .setscreenmsg(Match.mid, null);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      try {
+                        await DatabaseServices(uid: user.uid).upadteRescCode(
+                          Match.mid,
+                          null,
+                        );
+                        print(Player1.health);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      await Future.delayed(Duration(seconds: 2));
+                      Player1.health = 5;
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .upadtenestedplayersdata(
+                                Match.mid, 'health', Player1.health);
+                        print(Player1.health);
+                      } catch (e) {
+                        print(e.toString());
+                      }
                     }
                   }
                 },

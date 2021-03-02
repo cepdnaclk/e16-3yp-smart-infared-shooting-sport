@@ -6,6 +6,7 @@ import 'package:xtag_demo/Model/player1.dart';
 class MatchStartedMsg extends StatelessWidget {
   int count1 = 1;
   int number1;
+  var codein;
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -31,6 +32,43 @@ class MatchStartedMsg extends StatelessWidget {
         } else {
           if (currentcode == Player1.rescode) {
             msg = 'You are killed';
+            return Row(
+              children: [
+                Container(
+                  margin:
+                      const EdgeInsets.only(top: 5.0, right: 20.0, left: 20.0),
+                  color: Colors.white60,
+                  child: TextFormField(
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17.0,
+                    ),
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(hintText: 'Rescue Code'),
+                    validator: (val) =>
+                        val.isEmpty ? 'Enter an Match ID' : null,
+                    onChanged: (val) {
+                      codein = int.parse(val);
+                    },
+                  ),
+                ),
+                RaisedButton(
+                    color: Colors.blueAccent[400],
+                    elevation: 10.0,
+                    shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: Colors.deepPurple[900],
+                        ),
+                        borderRadius: BorderRadius.circular(20.0)),
+                    child: Text(
+                      ' submit ',
+                      style: TextStyle(fontSize: 17.0),
+                    ),
+                    onPressed: () async {
+                      Player1.inputresc = codein;
+                    })
+              ],
+            );
           } else {
             int teamn = currentcode ~/ 1000000;
             if (teamn == Player1.team) {

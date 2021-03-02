@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battling/host_battle_2teams_normal.dart';
 
 import 'package:xtag_demo/Battling/host_battle_2teams_resc.dart';
+import 'package:xtag_demo/Battling/host_battle_3teams_surv.dart';
 import 'package:xtag_demo/Model/match.dart';
 import 'package:xtag_demo/Services/database.dart';
 
@@ -64,6 +65,13 @@ class WaitingToStart2teams extends StatelessWidget {
                     print(e.toString());
                   }
 
+                  if (Match.mode == 's2') {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      print('sdds');
+                      return Host3teamSurvlUntilStart();
+                    }));
+                  }
+
                   print(Match.mid);
                   if (Match.mode == 'r2') {
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
@@ -89,5 +97,7 @@ class WaitingToStart2teams extends StatelessWidget {
     );
   }
 }
+
+class Host2teamSurvlUntilStart {}
 
 class Host2teamNormallUntilStart {}

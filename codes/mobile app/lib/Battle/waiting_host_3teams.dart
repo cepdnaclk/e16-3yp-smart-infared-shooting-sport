@@ -422,20 +422,6 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                             Player1.team = _teamNumber;
                             Player1.health = 5;
                             Player1.deaths = 0;
-                            /* int i = 0;
-                            for (i = 0; i < 25; i++) {
-                              sleep1();
-                              Stopwatch stopwatch = new Stopwatch()..start();
-
-                              try {
-                                User user = _auth.currentUser;
-                                await DatabaseServices(uid: user.uid)
-                                    .updateMatchduration(_gameid, i);
-                              } catch (e) {
-                                print(e.toString());
-                              }
-                              print('change value $i ${stopwatch.elapsed}');
-                            }*/
 
                             if (_fives) {
                               try {

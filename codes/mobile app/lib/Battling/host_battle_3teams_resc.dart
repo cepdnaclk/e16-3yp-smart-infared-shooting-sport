@@ -127,13 +127,12 @@ class _Host3teamRescUntilStartState extends State<Host3teamRescUntilStart> {
                   }
                   //Setting rescue code
                   if (Player1.health <= 0) {
-                    int temp1 = Player1.tempid;
                     int temp2 = Player1.team;
                     int resccode;
                     int temp3;
                     var rng = Random();
-                    temp3 = 1000 + rng.nextInt(8999);
-                    resccode = temp1 * 10000 + temp2 * 1000000 + temp3;
+                    temp3 = 100000 + rng.nextInt(899999);
+                    resccode = temp2 * 1000000 + temp3;
                     Player1.rescode = resccode;
                     try {
                       await DatabaseServices(uid: user.uid)
@@ -166,6 +165,18 @@ class _Host3teamRescUntilStartState extends State<Host3teamRescUntilStart> {
                       Player1.rescode = null;
                       Player1.inputresc = null;
                       try {
+                        await DatabaseServices(uid: user.uid)
+                            .updateMatchcode(Match.mid, null);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .setscreenmsg(Match.mid, null);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      try {
                         await DatabaseServices(uid: user.uid).upadteRescCode(
                           Match.mid,
                           null,
@@ -187,6 +198,18 @@ class _Host3teamRescUntilStartState extends State<Host3teamRescUntilStart> {
                     } else if (count == 15) {
                       Player1.rescode = null;
                       Player1.inputresc = null;
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .updateMatchcode(Match.mid, null);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      try {
+                        await DatabaseServices(uid: user.uid)
+                            .setscreenmsg(Match.mid, null);
+                      } catch (e) {
+                        print(e.toString());
+                      }
                       try {
                         await DatabaseServices(uid: user.uid).upadteRescCode(
                           Match.mid,
