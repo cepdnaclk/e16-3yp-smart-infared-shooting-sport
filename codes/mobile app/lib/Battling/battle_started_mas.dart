@@ -21,81 +21,148 @@ class MatchStartedMsg extends StatelessWidget {
         bool started = matchdata['isStart'];
         String msg = matchdata['msg'];
         int currentcode = matchdata['currentcode'];
+        String mode = matchdata['mode'];
         print(started);
         String massage = 'Wait Until the Host Start';
-        if (currentcode == null) {
+        if (currentcode == null && mode != 'r3') {
           if (started) {
             msg = matchdata['msg'];
-          } else {
-            msg = 'Wait Until host start the battle';
-          }
-        } else {
-          if (currentcode == Player1.rescode) {
-            msg = 'You are killed';
-            return Row(
-              children: [
-                Container(
-                  margin:
-                      const EdgeInsets.only(top: 5.0, right: 20.0, left: 20.0),
-                  color: Colors.white60,
-                  child: TextFormField(
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17.0,
-                    ),
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(hintText: 'Rescue Code'),
-                    validator: (val) =>
-                        val.isEmpty ? 'Enter an Match ID' : null,
-                    onChanged: (val) {
-                      codein = int.parse(val);
-                    },
+            return Container(
+              alignment: Alignment.center,
+              color: Colors.blue[300],
+              child: Column(
+                children: [
+                  Text(
+                    '$msg , ',
+                    style: TextStyle(fontSize: 15, color: Colors.black),
                   ),
-                ),
-                RaisedButton(
-                    color: Colors.blueAccent[400],
-                    elevation: 10.0,
-                    shape: RoundedRectangleBorder(
-                        side: BorderSide(
-                          color: Colors.deepPurple[900],
-                        ),
-                        borderRadius: BorderRadius.circular(20.0)),
-                    child: Text(
-                      ' submit ',
-                      style: TextStyle(fontSize: 17.0),
-                    ),
-                    onPressed: () async {
-                      Player1.inputresc = codein;
-                    })
-              ],
+                ],
+              ),
             );
           } else {
-            int teamn = currentcode ~/ 1000000;
-            if (teamn == Player1.team) {
-              msg = msg = matchdata['msg'];
+            msg = 'Wait Until host start the battle';
+            return Container(
+              alignment: Alignment.center,
+              color: Colors.blue[300],
+              child: Column(
+                children: [
+                  Text(
+                    '$msg , ',
+                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  ),
+                ],
+              ),
+            );
+          }
+        } else {
+          if (currentcode == Player1.rescode && currentcode != null) {
+            msg = 'You are killed';
+            return Container(
+              child: Column(
+                children: [
+                  Container(
+                    width: 100.0,
+                    height: 20.0,
+                    color: Colors.blue[300],
+                    child: TextFormField(
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12.0,
+                      ),
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(hintText: 'Rescue Code'),
+                      validator: (val) =>
+                          val.isEmpty ? 'Enter an Match ID' : null,
+                      onChanged: (val) {
+                        codein = int.parse(val);
+                      },
+                    ),
+                  ),
+                  RaisedButton(
+                      color: Colors.green[400],
+                      elevation: 10.0,
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: Colors.deepPurple[900],
+                          ),
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: Text(
+                        ' Rascue ',
+                        style: TextStyle(fontSize: 12.0),
+                      ),
+                      onPressed: () async {
+                        Player1.inputresc = codein;
+                      })
+                ],
+              ),
+            );
+          } else {
+            if (currentcode != null) {
+              int teamn = (currentcode / 1000000).floor();
+              if (teamn == Player1.team) {
+                msg = 'Battle Happening';
+                return Container(
+                  alignment: Alignment.center,
+                  color: Colors.blue[300],
+                  child: Column(
+                    children: [
+                      Text(
+                        '$msg , ',
+                        style: TextStyle(fontSize: 15, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                );
+              } else {
+                msg = 'Battle happening';
+                return Container(
+                  alignment: Alignment.center,
+                  color: Colors.blue[300],
+                  child: Column(
+                    children: [
+                      Text(
+                        '$msg , ',
+                        style: TextStyle(fontSize: 15, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                );
+              }
             } else {
-              msg = 'Battle happening';
+              if (started) {
+                msg = matchdata['msg'];
+                return Container(
+                  alignment: Alignment.center,
+                  color: Colors.blue[300],
+                  child: Column(
+                    children: [
+                      Text(
+                        '$msg , ',
+                        style: TextStyle(fontSize: 15, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                );
+              } else {
+                msg = 'Wait Until host start the battle';
+                return Container(
+                  alignment: Alignment.center,
+                  color: Colors.blue[300],
+                  child: Column(
+                    children: [
+                      Text(
+                        '$msg , ',
+                        style: TextStyle(fontSize: 15, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                );
+              }
             }
           }
         }
 
         //String massage = 'Wait ';
-        return Container(
-          alignment: Alignment.center,
-          color: Colors.blue[300],
-          child: Column(
-            children: [
-              Text(
-                '$msg , ',
-                style: TextStyle(fontSize: 15, color: Colors.black),
-              ),
-              Text(
-                '$msg , ',
-                style: TextStyle(fontSize: 15, color: Colors.black),
-              ),
-            ],
-          ),
-        );
       },
     );
   }

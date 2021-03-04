@@ -64,7 +64,7 @@ class DatabaseServices {
     String mid,
     int code,
   ) async {
-    await matchCollection.doc(mid).update({'duration': code});
+    await matchCollection.doc(mid).update({'currentcode': code});
     print(code);
     return code;
   }

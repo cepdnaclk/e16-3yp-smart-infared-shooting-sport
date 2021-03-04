@@ -332,7 +332,7 @@ class _CreateGameState extends State<CreateGame> {
                           Match.mode = "n2";
                           Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('n2', true, true, false, 180,
-                                  'Game Created Wait until Start', null);
+                                  'Battle Started', null);
                           print(Match.mid);
                           //update the nested collection
                           await DatabaseServices(uid: user.uid)
@@ -374,7 +374,7 @@ class _CreateGameState extends State<CreateGame> {
 
                           Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('n3', true, true, false, 180,
-                                  'Game Created Wait until Start', null);
+                                  'Battle Started', null);
                           Match.mode = "n3";
                           print(Match.mid);
                           //update the nested collection
@@ -460,7 +460,7 @@ class _CreateGameState extends State<CreateGame> {
 
                           Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('r2', true, true, false, 180,
-                                  'Game Created Wait until Start', null);
+                                  'Battle Started', null);
                           print(Match.mid);
                           Match.mode = "r2";
                           //update the nested collection
@@ -500,7 +500,7 @@ class _CreateGameState extends State<CreateGame> {
 
                           Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('r3', true, true, false, 180,
-                                  'Game Created Wait until Start', null);
+                                  'Battle Started', null);
                           print(Match.mid);
                           Match.mode = "r3";
                           //update the nested collection
@@ -540,7 +540,7 @@ class _CreateGameState extends State<CreateGame> {
 
                           Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('r4', true, true, false, 180,
-                                  'Game Created Wait until Start', null);
+                                  'Battle Started', null);
                           print(Match.mid);
                           Match.mode = "r4";
                           //update the nested collection
@@ -581,7 +581,7 @@ class _CreateGameState extends State<CreateGame> {
 
                           Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('s2', true, true, false, 180,
-                                  'Game Created Wait until Start', null);
+                                  'Battle Started', null);
                           print(Match.mid);
                           Match.mode = "s2";
                           //update the nested collection
@@ -621,7 +621,7 @@ class _CreateGameState extends State<CreateGame> {
 
                           Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('s3', true, true, false, 180,
-                                  'Game Created Wait until Start', null);
+                                  'Battle Started', null);
                           print(mid);
 
                           print(Match.mode);
@@ -662,7 +662,7 @@ class _CreateGameState extends State<CreateGame> {
 
                           Match.mid = await DatabaseServices(uid: user.uid)
                               .updateMatchMode('s4', true, true, false, 180,
-                                  'Game Created Wait until Start', null);
+                                  'Battle Started', null);
 
                           print(mid);
                           Match.mode = "s4";
