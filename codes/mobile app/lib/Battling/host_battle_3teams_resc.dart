@@ -7,6 +7,7 @@ import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Model/match.dart';
 import 'package:xtag_demo/PlayModes/timer2.dart';
 import 'package:xtag_demo/PlayModes/timerh.dart';
+import 'package:xtag_demo/Services/blue.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'battle_started_mas.dart';
 import 'dart:math';
@@ -127,6 +128,12 @@ class _Host3teamRescUntilStartState extends State<Host3teamRescUntilStart> {
                   }
                   //Setting rescue code
                   if (Player1.health <= 0) {
+                    String kill = "K1";
+                    try {
+                      await BluetoothServices().write(kill);
+                    } catch (e) {
+                      print(e.toString());
+                    }
                     int temp2 = Player1.team;
                     int resccode;
                     int temp3;
@@ -195,6 +202,12 @@ class _Host3teamRescUntilStartState extends State<Host3teamRescUntilStart> {
                       } catch (e) {
                         print(e.toString());
                       }
+                      String kill = "K0";
+                      try {
+                        await BluetoothServices().write(kill);
+                      } catch (e) {
+                        print(e.toString());
+                      }
                     } else if (count == 15) {
                       Player1.rescode = null;
                       Player1.inputresc = null;
@@ -226,6 +239,12 @@ class _Host3teamRescUntilStartState extends State<Host3teamRescUntilStart> {
                             .upadtenestedplayersdata(
                                 Match.mid, 'health', Player1.health);
                         print(Player1.health);
+                      } catch (e) {
+                        print(e.toString());
+                      }
+                      String kill = "K0";
+                      try {
+                        await BluetoothServices().write(kill);
                       } catch (e) {
                         print(e.toString());
                       }

@@ -7,6 +7,7 @@ import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Model/match.dart';
 import 'package:xtag_demo/PlayModes/timer2.dart';
 import 'package:xtag_demo/PlayModes/timerh.dart';
+import 'package:xtag_demo/Services/blue.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'battle_started_mas.dart';
 
@@ -127,8 +128,20 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
 
                   //respan the player
                   if (Player1.health <= 0) {
-                    await Future.delayed(Duration(seconds: 2));
+                    String kill = "K1";
+                    try {
+                      await BluetoothServices().write(kill);
+                    } catch (e) {
+                      print(e.toString());
+                    }
+                    await Future.delayed(Duration(seconds: 10));
                     Player1.health = 5;
+                    kill = "K0";
+                    try {
+                      await BluetoothServices().write(kill);
+                    } catch (e) {
+                      print(e.toString());
+                    }
                     try {
                       await DatabaseServices(uid: user.uid)
                           .upadtenestedplayersdata(
