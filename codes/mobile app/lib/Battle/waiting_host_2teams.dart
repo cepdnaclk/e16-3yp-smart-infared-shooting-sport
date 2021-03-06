@@ -3,6 +3,7 @@ import 'package:xtag_demo/Battle/creat_game.dart';
 import 'package:xtag_demo/Battle/creat_game.dart';
 import 'package:xtag_demo/Battle/waiting_to_start2team.dart';
 import 'package:xtag_demo/Model/player1.dart';
+import 'package:xtag_demo/Services/blue.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'creat_game.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -22,6 +23,7 @@ class _Normal2TeamsState extends State<Normal2Teams> {
   int _gunNumber = 0;
   int _teamNumber = 0;
   String _gameid = Match.mid;
+  String gamedata;
   @override
   Widget build(BuildContext context) {
     //String _gameid = CreateGame.matchid;
@@ -421,6 +423,12 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                           ),
                           onPressed: () async {
                             //print(_gunNumber);
+                            gamedata = 'T$_teamNumber$_gunNumber';
+                            try {
+                              await BluetoothServices().write(gamedata);
+                            } catch (e) {
+                              print(e.toString());
+                            }
                             if (_fives) {
                               try {
                                 Match.duration = 90;

@@ -1,16 +1,23 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battling/joinfree4all_until_start.dart';
+import 'package:xtag_demo/Services/database.dart';
 
 import 'join_game.dart';
+import 'package:xtag_demo/Services/blue.dart';
 
 class Joinfre4all extends StatefulWidget {
   @override
   _Joinfre4allState createState() => _Joinfre4allState();
 }
 
+final FirebaseAuth _auth = FirebaseAuth.instance;
+
 class _Joinfre4allState extends State<Joinfre4all> {
   int _gunNumber = 0;
+  int _teamNumber = 0;
   String _gameid = 'hhd63shd8438';
+  String gamedata;
   @override
   Widget build(BuildContext context) {
     String matchid = null;
@@ -193,7 +200,31 @@ class _Joinfre4allState extends State<Joinfre4all> {
                             ),
                           ],
                         ),
-                        onPressed: () {
+                        onPressed: () async {
+                          gamedata = 'T$_teamNumber$_gunNumber';
+                          try {
+                            await BluetoothServices().write(gamedata);
+                          } catch (e) {
+                            print(e.toString());
+                          }
+                          try {
+                            User user = _auth.currentUser;
+                            await DatabaseServices(uid: user.uid)
+                                .upadtenestedplayersdata(
+                                    _gameid, 'gun', _gunNumber);
+                          } catch (e) {
+                            print(e.toString());
+                          }
+
+                          //set the team
+                          try {
+                            User user = _auth.currentUser;
+                            await DatabaseServices(uid: user.uid)
+                                .upadtenestedplayersdata(
+                                    _gameid, 'team', _teamNumber);
+                          } catch (e) {
+                            print(e.toString());
+                          }
                           if (_gunNumber != 0) {
                             Navigator.of(context)
                                 .push(MaterialPageRoute(builder: (_) {

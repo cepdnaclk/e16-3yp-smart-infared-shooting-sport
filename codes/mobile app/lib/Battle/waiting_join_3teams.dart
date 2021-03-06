@@ -7,6 +7,7 @@ import 'package:xtag_demo/Model/match.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'join_game.dart';
+import 'package:xtag_demo/Services/blue.dart';
 
 class Join3Teams extends StatefulWidget {
   @override
@@ -19,6 +20,7 @@ class _Join3TeamsState extends State<Join3Teams> {
   int _gunNumber = 0;
   int _teamNumber = 0;
   String _gameid = Match.mid;
+  String gamedata;
   @override
   Widget build(BuildContext context) {
     String matchid = null;
@@ -312,6 +314,12 @@ class _Join3TeamsState extends State<Join3Teams> {
                             Player1.team = _teamNumber;
                             Player1.health = 5;
                             Player1.rescode = null;
+                            gamedata = 'T$_teamNumber$_gunNumber';
+                            try {
+                              await BluetoothServices().write(gamedata);
+                            } catch (e) {
+                              print(e.toString());
+                            }
                             try {
                               User user = _auth.currentUser;
                               await DatabaseServices(uid: user.uid)

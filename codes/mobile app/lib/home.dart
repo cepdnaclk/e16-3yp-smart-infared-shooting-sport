@@ -2,6 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:xtag_demo/BlueTooth/bluetooth2.dart';
+
+import 'package:xtag_demo/BlueTooth/test.dart';
 import 'package:xtag_demo/Services/auth.dart';
 import 'Developers/profile.dart';
 import 'Model/player.dart';
@@ -273,7 +276,7 @@ class Home extends StatelessWidget {
                       //print(user.email);
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (_) {
-                        return BluetoothApp();
+                        return BluetoothApp1();
                       }));
                     },
                   )),

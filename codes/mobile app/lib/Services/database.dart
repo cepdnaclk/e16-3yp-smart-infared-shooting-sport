@@ -432,7 +432,7 @@ class DatabaseServices {
             .doc(userid)
             .update({'tempid': team1});
         print('temid setted in team 1');
-        Player1.tempid = team1;
+        //Player1.tempid = team1;
         team1++;
       } else if (compareid == 2) {
         matchCollection
@@ -440,7 +440,7 @@ class DatabaseServices {
             .collection('players')
             .doc(userid)
             .update({'tempid': team2});
-        Player1.tempid = team2;
+        //Player1.tempid = team2;
         team2++;
         print('temid setted in team 2');
       } else if (compareid == 3) {
@@ -449,10 +449,23 @@ class DatabaseServices {
             .collection('players')
             .doc(userid)
             .update({'tempid': team3});
-        Player1.tempid = team3;
+        //Player1.tempid = team3;
         team3++;
         print('temid setted in team 3');
       }
+    });
+  }
+
+  //get tempid
+  Future gettempid(String mid, String uid) async {
+    await matchCollection
+        .doc(mid)
+        .collection('players')
+        .doc(uid)
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
+      Player1.tempid = documentSnapshot['tempid'];
+      ;
     });
   }
 

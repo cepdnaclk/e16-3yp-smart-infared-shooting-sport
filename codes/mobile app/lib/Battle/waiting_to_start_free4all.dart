@@ -1,7 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:xtag_demo/Battling/host_battle_normal_free.dart';
+import 'package:xtag_demo/Model/player1.dart';
+import 'package:xtag_demo/Services/blue.dart';
+import 'package:xtag_demo/Services/database.dart';
 import 'joined_players_free4all.dart';
 import 'package:xtag_demo/Model/match.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class WaitingToStartfree4all extends StatelessWidget {
   String mode = Match.mode;
@@ -47,7 +53,32 @@ class WaitingToStartfree4all extends StatelessWidget {
                     ),
                   ]),
                   color: Colors.green[700],
-                  onPressed: () {
+                  onPressed: () async {
+                    User user = _auth.currentUser;
+                    try {
+                      print('Setting the temp ids');
+                      await DatabaseServices(uid: user.uid)
+                          .settempid(Match.mid);
+                    } catch (e) {
+                      print(e.toString());
+                    }
+                    try {
+                      await DatabaseServices(uid: user.uid)
+                          .gettempid(Match.mid, user.uid);
+                    } catch (e) {
+                      print(e.toString());
+                    }
+                    String temp;
+                    if (Player1.tempid < 10) {
+                      temp = "I0${Player1.tempid}";
+                    } else {
+                      temp = "I${Player1.tempid}";
+                    }
+                    try {
+                      await BluetoothServices().write(temp);
+                    } catch (e) {
+                      print(e.toString());
+                    }
                     print(Match.mid);
                     if (Match.mode == 'n4') {
                       Navigator.of(context)

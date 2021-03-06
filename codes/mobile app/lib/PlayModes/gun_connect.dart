@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'dart:typed_data';
-
+import 'package:xtag_demo/BlueTooth/bluetooth2.dart';
 import 'package:flutter/material.dart';
+import 'package:xtag_demo/BlueTooth/test.dart';
 import 'package:xtag_demo/Screens/game_select1.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
@@ -64,30 +65,10 @@ class _BluetoothAppState extends State<BluetoothApp> {
                     style: TextStyle(fontSize: 20.0),
                   ),
                   onPressed: () async {
-                    /*Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-                      return GameSelect1();
-                    }));*/
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      return Bluetooth();
+                    }));
                     // Some simplest connection :F
-                    String address = 'sss';
-                    try {
-                      BluetoothConnection connection =
-                          await BluetoothConnection.toAddress(address);
-                      print('Connected to the device');
-
-                      connection.input.listen((Uint8List data) {
-                        print('Data incoming: ${ascii.decode(data)}');
-                        connection.output.add(data); // Sending data
-
-                        if (ascii.decode(data).contains('!')) {
-                          connection.finish(); // Closing connection
-                          print('Disconnecting by local host');
-                        }
-                      }).onDone(() {
-                        print('Disconnected by remote request');
-                      });
-                    } catch (exception) {
-                      print('Cannot connect, exception occured');
-                    }
                   },
                 ),
               ],

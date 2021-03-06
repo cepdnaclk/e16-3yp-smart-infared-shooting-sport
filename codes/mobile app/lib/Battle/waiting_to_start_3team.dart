@@ -5,6 +5,8 @@ import 'package:xtag_demo/Battling/host_battle_3teams_normal.dart';
 import 'package:xtag_demo/Battling/host_battle_3teams_resc.dart';
 import 'package:xtag_demo/Battling/host_battle_3teams_surv.dart';
 import 'package:xtag_demo/Model/match.dart';
+import 'package:xtag_demo/Model/player1.dart';
+import 'package:xtag_demo/Services/blue.dart';
 import 'package:xtag_demo/Services/database.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -55,15 +57,30 @@ class WaitingToStart3teams extends StatelessWidget {
                 onPressed: () async {
                   //To do set the isStarted status to true
                   //set the temp id
-
+                  User user = _auth.currentUser;
                   try {
-                    User user = _auth.currentUser;
                     print('Setting the temp ids');
                     await DatabaseServices(uid: user.uid).settempid(Match.mid);
                   } catch (e) {
                     print(e.toString());
                   }
-
+                  try {
+                    await DatabaseServices(uid: user.uid)
+                        .gettempid(Match.mid, user.uid);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+                  String temp;
+                  if (Player1.tempid < 10) {
+                    temp = "I0${Player1.tempid}";
+                  } else {
+                    temp = "I${Player1.tempid}";
+                  }
+                  try {
+                    await BluetoothServices().write(temp);
+                  } catch (e) {
+                    print(e.toString());
+                  }
                   if (Match.mode == 's3') {
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       print('sdds');

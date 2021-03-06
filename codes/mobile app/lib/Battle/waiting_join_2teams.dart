@@ -5,6 +5,7 @@ import 'package:xtag_demo/Battling/join2teams_resc_until_start.dart';
 import 'package:xtag_demo/Battling/join3teams_normal_until_start.dart';
 import 'package:xtag_demo/Model/match.dart';
 import 'package:xtag_demo/Model/player1.dart';
+import 'package:xtag_demo/Services/blue.dart';
 import 'package:xtag_demo/Services/database.dart';
 
 import 'join_game.dart';
@@ -17,6 +18,7 @@ class Join2Teams extends StatefulWidget {
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class _Join2TeamsState extends State<Join2Teams> {
+  String gamedata;
   int _gunNumber = 0;
   int _teamNumber = 0;
   String _gameid = Match.mid;
@@ -281,6 +283,12 @@ class _Join2TeamsState extends State<Join2Teams> {
                           onPressed: () async {
                             //set player details
                             //set the gun
+                            gamedata = 'T$_teamNumber$_gunNumber';
+                            try {
+                              await BluetoothServices().write(gamedata);
+                            } catch (e) {
+                              print(e.toString());
+                            }
                             try {
                               Player1.gun = _gunNumber;
                               User user = _auth.currentUser;

@@ -5,6 +5,8 @@ import 'package:xtag_demo/Battling/host_battle_2teams_normal.dart';
 import 'package:xtag_demo/Battling/host_battle_2teams_resc.dart';
 import 'package:xtag_demo/Battling/host_battle_3teams_surv.dart';
 import 'package:xtag_demo/Model/match.dart';
+import 'package:xtag_demo/Model/player1.dart';
+import 'package:xtag_demo/Services/blue.dart';
 import 'package:xtag_demo/Services/database.dart';
 
 import 'joined_players_2team.dart';
@@ -57,6 +59,7 @@ class WaitingToStart2teams extends StatelessWidget {
                 onPressed: () async {
                   //set the temp id
 
+                  User user = _auth.currentUser;
                   try {
                     User user = _auth.currentUser;
                     print('Setting the temp ids');
@@ -64,7 +67,23 @@ class WaitingToStart2teams extends StatelessWidget {
                   } catch (e) {
                     print(e.toString());
                   }
-
+                  try {
+                    await DatabaseServices(uid: user.uid)
+                        .gettempid(Match.mid, user.uid);
+                  } catch (e) {
+                    print(e.toString());
+                  }
+                  String temp;
+                  if (Player1.tempid < 10) {
+                    temp = "I0${Player1.tempid}";
+                  } else {
+                    temp = "I${Player1.tempid}";
+                  }
+                  try {
+                    await BluetoothServices().write(temp);
+                  } catch (e) {
+                    print(e.toString());
+                  }
                   if (Match.mode == 's2') {
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       print('sdds');

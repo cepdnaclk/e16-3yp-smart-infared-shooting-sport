@@ -6,6 +6,7 @@ import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'creat_game.dart';
 import 'package:xtag_demo/Model/match.dart';
+import 'package:xtag_demo/Services/blue.dart';
 
 class Normal3Teams extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class _Normal3TeamsState extends State<Normal3Teams> {
   int _gunNumber = 0;
   int _teamNumber = 0;
   String _gameid = Match.mid;
+  String gamedata;
   @override
   Widget build(BuildContext context) {
     String matchid = null;
@@ -422,7 +424,12 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                             Player1.team = _teamNumber;
                             Player1.health = 5;
                             Player1.deaths = 0;
-
+                            gamedata = 'T$_teamNumber$_gunNumber';
+                            try {
+                              await BluetoothServices().write(gamedata);
+                            } catch (e) {
+                              print(e.toString());
+                            }
                             if (_fives) {
                               try {
                                 Match.duration = 90;
