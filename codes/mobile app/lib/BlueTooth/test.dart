@@ -16,6 +16,7 @@ class _BluetoothState extends State<Bluetooth> {
   BluetoothConnection connection;
   BluetoothDevice mydevice;
   String op = "00 Foot";
+  String d;
   bool isConnectButtonEnabled = true;
   bool isDisConnectButtonEnabled = false;
 
@@ -41,8 +42,14 @@ class _BluetoothState extends State<Bluetooth> {
     });
 
     connection.input.listen((Uint8List data) {
-      print('Arduino Data : ${ascii.decode(data)}');
-      //op = ascii.decode(data) + " Foot";
+      print('Arduino hData : ${ascii.decode(data)}');
+      op = ascii.decode(data) + " Foot";
+      d = ascii.decode(data);
+      print(data);
+      if (d == 'C') {
+        print("Take");
+      }
+      ;
       setState(() {
         op = ascii.decode(data) + " Foot";
       });
