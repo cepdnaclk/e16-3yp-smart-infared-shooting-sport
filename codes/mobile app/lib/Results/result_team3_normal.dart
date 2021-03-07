@@ -481,7 +481,8 @@ class _Result3teamNormalState extends State<Result3teamNormal> {
                   } catch (e) {
                     print(e.toString());
                   }*/
-
+                  Player1.conect.close();
+                  Player1.conect.dispose();
                   Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                     return Home();
                   }));

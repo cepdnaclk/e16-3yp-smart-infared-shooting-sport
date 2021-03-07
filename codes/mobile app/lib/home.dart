@@ -12,6 +12,7 @@ import 'Model/player1.dart';
 import 'Model/player_history.dart';
 import 'Model/user.dart';
 import 'PlayModes/gun_connect.dart';
+import 'Screens/game_select1.dart';
 import 'Services/database.dart';
 import 'package:provider/provider.dart';
 import 'Developers/about_us.dart';
@@ -274,10 +275,24 @@ class Home extends StatelessWidget {
                       //Player1.name = name;
                       //user = auth.currentUser;
                       //print(user.email);
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (_) {
-                        return BluetoothApp1();
-                      }));
+                      if (Player1.conect == null) {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) {
+                          return BluetoothApp1();
+                        }));
+                      } else {
+                        if (Player1.conect.isConnected) {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (_) {
+                            return GameSelect1();
+                          }));
+                        } else {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (_) {
+                            return BluetoothApp1();
+                          }));
+                        }
+                      }
                     },
                   )),
               /*Container(

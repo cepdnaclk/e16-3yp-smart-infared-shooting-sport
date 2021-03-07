@@ -14,4 +14,6 @@ class Player1 {
   static int tempid;
   static int inputresc;
   static BluetoothConnection conect;
+  static bool state;
+  static String data;
 }

@@ -465,6 +465,7 @@ class DatabaseServices {
         .get()
         .then((DocumentSnapshot documentSnapshot) {
       Player1.tempid = documentSnapshot['tempid'];
+      print("Temp id from database : ${Player1.tempid}");
       ;
     });
   }

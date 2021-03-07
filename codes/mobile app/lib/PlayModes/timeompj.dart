@@ -162,12 +162,21 @@ class _TimerImpJState extends State<TimerImpJ> {
                         });
 
                 print('battle Ended');
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-                  print('sdds');
-                  print(Match.pom);
-                  print(Match.poms);
-                  return Result3teamNormal();
-                }));
+                if (Match.mode == "n3") {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                    print('sdds');
+                    print(Match.pom);
+                    print(Match.poms);
+                    return Result3teamNormal();
+                  }));
+                } else {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                    print('sdds');
+                    print(Match.pom);
+                    print(Match.poms);
+                    return Result3teamNormal();
+                  }));
+                }
                 print('Countdown Ended');
               })),
       //RaisedButton(onPressed: () {  },),

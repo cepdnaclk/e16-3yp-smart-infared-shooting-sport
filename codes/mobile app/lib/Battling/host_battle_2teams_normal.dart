@@ -134,20 +134,8 @@ class _Host2teamNormalUntilStartState extends State<Host2teamNormalUntilStart> {
 
                   //respan the player
                   if (Player1.health <= 0) {
-                    String kill = "K1";
-                    try {
-                      await BluetoothServices().write(kill);
-                    } catch (e) {
-                      print(e.toString());
-                    }
-                    await Future.delayed(Duration(seconds: 10));
+                    await Future.delayed(Duration(seconds: 2));
                     Player1.health = 5;
-                    kill = "K0";
-                    try {
-                      await BluetoothServices().write(kill);
-                    } catch (e) {
-                      print(e.toString());
-                    }
                     try {
                       await DatabaseServices(uid: user.uid)
                           .upadtenestedplayersdata(
@@ -164,6 +152,70 @@ class _Host2teamNormalUntilStartState extends State<Host2teamNormalUntilStart> {
                     child: Text('      Get hit '),
                   ),
                 ]),
+              ),
+            ),
+            Container(
+              color: Colors.white,
+              height: 20.0,
+              width: 30.0,
+              child: Container(
+                child: TextFormField(
+                  keyboardType: TextInputType.number,
+                  //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+                  //validator: numberValidator,,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 10.0,
+                  ),
+                  onChanged: (val) {
+                    damage = int.parse(val);
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 2.0,
+            ),
+            Container(
+              color: Colors.white,
+              height: 20.0,
+              width: 30.0,
+              child: Container(
+                child: TextFormField(
+                  keyboardType: TextInputType.number,
+                  //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+                  //validator: numberValidator,,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 12.0,
+                  ),
+                  onChanged: (val) {
+                    teamid = int.parse(val);
+                    ;
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 2.0,
+            ),
+            Container(
+              color: Colors.white,
+              height: 20.0,
+              width: 30.0,
+              child: Container(
+                child: TextFormField(
+                  keyboardType: TextInputType.number,
+                  //inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+                  //validator: numberValidator,,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 12.0,
+                  ),
+                  onChanged: (val) {
+                    tempid = int.parse(val);
+                  },
+                ),
               ),
             ),
           ],

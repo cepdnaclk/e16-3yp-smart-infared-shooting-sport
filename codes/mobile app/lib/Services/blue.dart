@@ -14,7 +14,7 @@ class BluetoothServices {
 
   BluetoothConnection connection = Player1.conect;
   bool get isConnected => connection != null && connection.isConnected;
-
+  String op;
   write(String message) async {
     print(connection.isConnected);
     if (connection.isConnected) {
@@ -23,5 +23,19 @@ class BluetoothServices {
     } else {
       print("not connected");
     }
+  }
+
+  recieved() async {
+    connection.input.listen((Uint8List data) {
+      op = ascii.decode(data);
+      Player1.data = op;
+      print(op);
+      if (op == '1') {
+        print("Yes");
+        //await Future.delayed(Duration(seconds: 1));
+
+      }
+      print("No");
+    });
   }
 }

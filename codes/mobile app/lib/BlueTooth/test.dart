@@ -5,6 +5,8 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
+import 'package:xtag_demo/Model/player1.dart';
+import 'package:xtag_demo/Services/blue.dart';
 
 class Bluetooth extends StatefulWidget {
   @override
@@ -19,7 +21,9 @@ class _BluetoothState extends State<Bluetooth> {
   String d;
   bool isConnectButtonEnabled = true;
   bool isDisConnectButtonEnabled = false;
-
+  var damage;
+  var kiltemp;
+  var kilteam;
   void _connect() async {
     List<BluetoothDevice> devices = [];
     setState(() {
@@ -39,19 +43,24 @@ class _BluetoothState extends State<Bluetooth> {
       print('Connected to the device');
 
       connection = _connection;
+      Player1.conect = connection;
     });
 
     connection.input.listen((Uint8List data) {
       print('Arduino hData : ${ascii.decode(data)}');
       op = ascii.decode(data) + " Foot";
       d = ascii.decode(data);
-      print(data);
+      kilteam = int.parse(d[0]);
+      kiltemp = int.parse(d[1] + d[2]);
+      damage = int.parse(d[3]);
+      Player1.health = Player1.health - damage;
+      Player1.deaths = Player1.deaths + damage;
       if (d == 'C') {
         print("Take");
       }
       ;
       setState(() {
-        op = ascii.decode(data) + " Foot";
+        op = d + " Foot";
       });
     });
   }
@@ -114,6 +123,30 @@ class _BluetoothState extends State<Bluetooth> {
             ),
           ),
           SizedBox(height: 50),
+          Container(
+            margin: const EdgeInsets.only(top: 20.0, right: 100.0, left: 100.0),
+            child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                    side: BorderSide(
+                      color: Colors.deepPurple[900],
+                    ),
+                    borderRadius: BorderRadius.circular(20.0)),
+                child: Row(children: <Widget>[
+                  //width: 80.0,
+                  Container(
+                    child: Text('    Start the battle'),
+                  ),
+                ]),
+                color: Colors.green[700],
+                onPressed: () async {
+                  print("T10");
+                  try {
+                    await BluetoothServices().write("T2341");
+                  } catch (e) {
+                    print(e.toString());
+                  }
+                }),
+          ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

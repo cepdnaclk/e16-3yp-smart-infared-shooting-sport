@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:xtag_demo/Battle/creat_game.dart';
 import 'package:xtag_demo/Model/player1.dart';
+import 'package:xtag_demo/Screens/game_select1.dart';
+import 'package:xtag_demo/Services/blue.dart';
 
 /*class Blue1 extends StatelessWidget {
   @override
@@ -80,7 +82,7 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
     enableBluetooth();
 
     // Listen for further state changes
-    FlutterBluetoothSerial.instance
+    /* FlutterBluetoothSerial.instance
         .onStateChanged()
         .listen((BluetoothState state) {
       setState(() {
@@ -90,7 +92,8 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
         }
         getPairedDevices();
       });
-    });
+    }
+    );*/
   }
 
   void write(String message) async {
@@ -104,7 +107,7 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
     }
   }
 
-  void read() {
+  /*void read() {
     //Future.delayed(const Duration(milliseconds: 500));
     connection.input.listen((Uint8List data) {
       print('Arduino Data : ${ascii.decode(data)}');
@@ -113,7 +116,7 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
       show(rdata);
     });
     show(rdata);
-  }
+  }*/
 
   void _onDataReceived(Uint8List data) {
     // Allocate buffer for parsed data
@@ -368,39 +371,11 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
                       ],
                     ),
                     onPressed: () {
-                      write('T12');
-                      print("V");
+                      BluetoothServices().write("f");
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (_) {
-                        return CreateGame();
+                        return GameSelect1();
                       }));
-                    },
-                  )),
-              Container(
-                  margin:
-                      const EdgeInsets.only(top: 5.0, right: 80.0, left: 80.0),
-                  child: RaisedButton(
-                    elevation: 10.0,
-                    color: Colors.black54,
-                    shape: RoundedRectangleBorder(
-                        side: BorderSide(
-                          color: Colors.blue,
-                        ),
-                        borderRadius: BorderRadius.circular(30.0)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        const Icon(Icons.add, size: 20.0, color: Colors.white),
-                        const Text(
-                          'Connect Gun',
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        ),
-                      ],
-                    ),
-                    onPressed: () {
-                      read();
-                      print("V");
                     },
                   )),
               Expanded(
@@ -473,17 +448,6 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
           setState(() {
             _connected = true;
           });
-
-          connection.input.listen(null).onDone(() {
-            if (isDisconnecting) {
-              print('Disconnecting locally!');
-            } else {
-              print('Disconnected remotely!');
-            }
-            if (this.mounted) {
-              setState(() {});
-            }
-          });
         }).catchError((error) {
           print('Cannot connect, exception occurred');
           print(error);
@@ -537,28 +501,6 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
         _isButtonUnavailable = false;
       });
     }
-  }
-
-  // Method to send message,
-  // for turning the Bluetooth device on
-  void _sendOnMessageToBluetooth() async {
-    connection.output.add(utf8.encode("1" + "\r\n"));
-    await connection.output.allSent;
-    show('Device Turned On');
-    setState(() {
-      _deviceState = 1; // device on
-    });
-  }
-
-  // Method to send message,
-  // for turning the Bluetooth device off
-  void _sendOffMessageToBluetooth() async {
-    connection.output.add(utf8.encode("0" + "\r\n"));
-    await connection.output.allSent;
-    show('Device Turned Off');
-    setState(() {
-      _deviceState = -1; // device off
-    });
   }
 
   // Method to show a Snackbar,

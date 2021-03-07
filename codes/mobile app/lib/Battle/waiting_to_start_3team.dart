@@ -76,6 +76,7 @@ class WaitingToStart3teams extends StatelessWidget {
                   } else {
                     temp = "I${Player1.tempid}";
                   }
+                  print("Tempid :$temp");
                   try {
                     await BluetoothServices().write(temp);
                   } catch (e) {

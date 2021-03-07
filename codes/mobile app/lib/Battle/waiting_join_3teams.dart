@@ -310,6 +310,7 @@ class _Join3TeamsState extends State<Join3Teams> {
                           ),
                           onPressed: () async {
                             //set the gun
+                            //bool state;
                             Player1.gun = _gunNumber;
                             Player1.team = _teamNumber;
                             Player1.health = 5;
@@ -320,6 +321,17 @@ class _Join3TeamsState extends State<Join3Teams> {
                             } catch (e) {
                               print(e.toString());
                             }
+                            /* state = await BluetoothServices().recieved();
+                            print("grt$state");
+                            if (state == false) {
+                              try {
+                                await BluetoothServices().write(gamedata);
+                              } catch (e) {
+                                print(e.toString());
+                              }
+                              state = await BluetoothServices().recieved();
+                            }*/
+
                             try {
                               User user = _auth.currentUser;
                               await DatabaseServices(uid: user.uid)
