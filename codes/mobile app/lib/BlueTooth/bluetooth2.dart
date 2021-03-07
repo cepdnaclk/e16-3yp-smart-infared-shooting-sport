@@ -208,7 +208,7 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
         key: _scaffoldKey,
         appBar: AppBar(
           title: Text("Connect the gun"),
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: Colors.black,
           actions: <Widget>[
             FlatButton.icon(
               icon: Icon(
@@ -306,9 +306,9 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
                       Padding(
                         padding: const EdgeInsets.only(top: 10),
                         child: Text(
-                          "SELECT YOU GUN",
+                          "SELECT YOUr GUN",
                           style:
-                              TextStyle(fontSize: 24, color: Colors.blue[200]),
+                              TextStyle(fontSize: 21, color: Colors.blue[200]),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -363,9 +363,9 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        const Icon(Icons.add, size: 20.0, color: Colors.white),
+                        //const Icon(Icons.add, size: 20.0, color: Colors.white),
                         const Text(
-                          'Connect Gun',
+                          'Play Battle',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         ),
                       ],
