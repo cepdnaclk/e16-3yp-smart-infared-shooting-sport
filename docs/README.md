@@ -187,8 +187,7 @@ Develop using Futter 1.17
 
 
 ### Start and play
-![](images/start_n_ply.PNG)
-
+![](docs/images/start_n_ply.PNG)
 
 # Tests done
     1. Authentication test (Integrated  security test)
@@ -196,6 +195,8 @@ Develop using Futter 1.17
     3. Data Mapping testing
     4. Stored Procedures(Black box testing)
     5. Device compatibility testing
+The report of the results of these tests are uploaded in docs file.
+ [go to report](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/test/test.md)
 
 
 
