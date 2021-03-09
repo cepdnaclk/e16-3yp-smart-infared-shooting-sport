@@ -153,11 +153,11 @@ Fast performance, high availability, and security
 # Bluetooth Connection
 - Connect the gun and and mobile app using bluetooth.
 
-## Data sent form Gun to Mobile
+### Data sent form Gun to Mobile
 - Killer's team, tempId and the dammage
 - Gun is connected or not
 
-## Data Sent from the Mobile to Gun
+### Data Sent from the Mobile to Gun
 - Player team
 - Player Gun
 - Player health(When changed)
