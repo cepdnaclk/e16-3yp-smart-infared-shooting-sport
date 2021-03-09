@@ -214,6 +214,16 @@ The report of the results of these tests are uploaded in docs file.
  - Mobile phone mounter
  - Reload button to reset the gun
 
+# Features and functionalities
+
+- Trigger functionality
+- Mobile phone mountable bar
+- Reset button
+- Rechargeable power bank
+
+
+![](images/ptrigger.PNG)
+
 
 # Implantation
 
@@ -234,7 +244,9 @@ The report of the results of these tests are uploaded in docs file.
 
 
 - Connections are done according to the AtMega328P datasheet
+
 ![](images/hbmain.PNG)
+
 ![](images/gunmain.PNG)
 
  
