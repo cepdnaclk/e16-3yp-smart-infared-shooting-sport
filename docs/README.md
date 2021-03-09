@@ -182,7 +182,7 @@ Develop using Futter 1.17
 <img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/UI_HomePage1.png" width="180" height="340"/>
 
 ### User Profile
-![](docs/images/profile.PNG)
+![](images/profile.PNG)
 
 ### SignIn and SignUp pages
 <p float='left'>
@@ -192,15 +192,15 @@ Develop using Futter 1.17
 </p>
 
 ### Connect gun and go to battle
-![](docs/images/connct_gn_and_go_to_ply.PNG)
+![](images/connct_gn_and_go_to_ply.PNG)
 
 
 ### Create or join a battle
-![](docs/images/crt_or_join.PNG)
+![](crt_or_join.PNG)
 
 
 ### Start and play
-![](docs/images/start_n_ply.PNG)
+![](start_n_ply.PNG)
 
 # Tests done
     1. Authentication test (Integrated  security test)
