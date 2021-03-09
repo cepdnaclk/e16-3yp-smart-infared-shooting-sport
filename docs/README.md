@@ -151,7 +151,11 @@ Fast performance, high availability, and security
      - Ex: isready,rescue code
 
 # Bluetooth Connection
-- Connect the gun and and mobile app using bluetooth.
+- Connect the gun and and mobile app using bluetooth and tested using real hardware
+- No collision
+- No data Losses
+- Communicate within 0.2s
+
 
 ### Data sent form Gun to Mobile
 - Killer's team, tempId and the dammage
