@@ -113,7 +113,7 @@ SM0038 - TSOP1738 IR Receiver
 
 Using Email and a password players can register Xtag
 Players have to verify their  Email before signed in
-More detail will be on testing report
+More detail will be on testing report.
 
 
 # [](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/tree/main/docs#back-end-technologies) Back-end technologies
