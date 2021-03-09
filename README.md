@@ -205,6 +205,36 @@ The report of the results of these tests are uploaded in docs file.
  ![](images/g3.png)
  ![](images/rr5.png)
  ![](images/hb.png)
- ![](images/headband cct v4.png)
+ 
+ 
+ # User experience
+ 
+ - Comfortable size and shape 
+ - Real gaming experiece with sound effects, vibrations when shooting and LEDs
+ - Mobile phone mounter
+ - Reload button to reset the gun
+
+
+# Implantation
+
+- Design seperated into several parts for the ease of 3D printing
+![](images/scope.png)
+![](images/aim.png)
+![](images/mbm.png)
+![](images/handle.png)
+
+
+# Fabrication circuit
+- Used small circuits that are connected to the main circuit for
+	- Switch buttons
+	- LEDs
+	- Vibrator motor
+	- IR emitter
+	- Buzzer
+
+
+- Connections are done according to the AtMega328P datasheet
+
+
  
  
