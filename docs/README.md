@@ -181,6 +181,8 @@ Develop using Futter 1.17
 ### Connect gun and go to battle
 ![](images/connct_gn_and_go_to_ply.PNG)
 
+### Connect Gun to the bluetooth
+![](images/ui_bluetooth.jpeg)
 
 ### Create or join a battle
 ![](images/crt_or_join.PNG)
