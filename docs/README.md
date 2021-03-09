@@ -196,11 +196,11 @@ Develop using Futter 1.17
 
 
 ### Create or join a battle
-![](crt_or_join.PNG)
+![](images/crt_or_join.PNG)
 
 
 ### Start and play
-![](start_n_ply.PNG)
+![](images/start_n_ply.PNG)
 
 # Tests done
     1. Authentication test (Integrated  security test)
