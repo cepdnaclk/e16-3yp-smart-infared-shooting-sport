@@ -201,10 +201,10 @@ The report of the results of these tests are uploaded in docs file.
  
  # Hardware Design
  
- ![](images/g1.PNG)
- ![](images/g3.PNG)
- ![](images/rr5.PNG)
- ![](images/hb.PNG)
- ![](images/headband cct v4.PNG)
+ ![](images/g1.png)
+ ![](images/g3.png)
+ ![](images/rr5.png)
+ ![](images/hb.png)
+ ![](images/headband cct v4.png)
  
  
