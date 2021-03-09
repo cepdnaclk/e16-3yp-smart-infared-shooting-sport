@@ -234,8 +234,8 @@ The report of the results of these tests are uploaded in docs file.
 
 
 - Connections are done according to the AtMega328P datasheet
-![](images/hb main.png)
-![](images/gun main.png)
+![](images/hb main.PNG)
+![](images/gun main.PNG)
 
  
  
