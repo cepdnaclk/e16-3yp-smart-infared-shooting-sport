@@ -199,3 +199,55 @@ The report of the results of these tests are uploaded in docs file.
  [go to report](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/test/test.md)
  
  
+ # Hardware Design
+ 
+ ![](images/g1.png)
+ ![](images/g3.png)
+ ![](images/rr5.png)
+ ![](images/hb.png)
+ 
+ 
+ # User experience
+ 
+ - Comfortable size and shape 
+ - Real gaming experiece with sound effects, vibrations when shooting and LEDs
+ - Mobile phone mounter
+ - Reload button to reset the gun
+
+# Features and functionalities
+
+- Trigger functionality
+- Mobile phone mountable bar
+- Reset button
+- Rechargeable power bank
+
+
+![](images/ptrigger.PNG)
+
+
+# Implantation
+
+- Design seperated into several parts for the ease of 3D printing
+![](images/scope.png)
+![](images/aim.png)
+![](images/mbm.png)
+![](images/handle.png)
+
+
+# Fabrication circuit
+- Used small circuits that are connected to the main circuit for
+	- Switch buttons
+	- LEDs
+	- Vibrator motor
+	- IR emitter
+	- Buzzer
+
+
+- Connections are done according to the AtMega328P datasheet
+
+![](images/hbmain.PNG)
+
+![](images/gunmain.PNG)
+
+ 
+ 
