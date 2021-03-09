@@ -222,7 +222,7 @@ The report of the results of these tests are uploaded in docs file.
 - Rechargeable power bank
 
 
-![](images/ptrigger.PNG)
+![](images/tt.png)
 
 
 # Implantation
