@@ -150,7 +150,18 @@ Fast performance, high availability, and security
 - There Are Some data in the match,which are useless later
      - Ex: isready,rescue code
 
+# Bluetooth Connection
+- Connect the gun and and mobile app using bluetooth.
 
+## Data sent form Gun to Mobile
+- Killer's team, tempId and the dammage
+- Gun is connected or not
+
+## Data Sent from the Mobile to Gun
+- Player team
+- Player Gun
+- Player health(When changed)
+- Player status when Killed and rescued
 
 # Main Functionalities
  
