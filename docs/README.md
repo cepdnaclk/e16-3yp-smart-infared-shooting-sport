@@ -73,8 +73,6 @@ purpose.
 
 And also push button and RGB LED are used.
 
-## Circuit Block of the gun and headband
- ![](images/circuitblock.png)
 
 ### IR circuit
 
