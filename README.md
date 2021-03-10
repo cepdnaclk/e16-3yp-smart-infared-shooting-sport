@@ -250,4 +250,16 @@ The report of the results of these tests are uploaded in docs file.
 ![](images/gunmain.PNG)
 
  
+ # Embedded sytem 
+ ## progress 
+
+ 
+ currently we are  programming and Testing the Hardware.
+And we  Have complete two guns in the bread board with main functions.
+IR sending,Trigger button,IR reserving and buzzer are perfectly working right now.
+And also Mobile app is connected with the blutooth now.
+We have already ran some tests and there are more test in the shedule. 
+ ![](images/gunmain.PNG)
+
+
  
