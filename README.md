@@ -259,7 +259,162 @@ And we  Have complete two guns in the bread board with main functions.
 IR sending,Trigger button,IR reserving and buzzer are perfectly working right now.
 And also Mobile app is connected with the blutooth now.
 We have already ran some tests and there are more test in the shedule. 
- ![](images/gunmain.PNG)
+ ![](images/c1.PNG)
+
+
+ # Programme Architecture
+AtMega328p has 2 external interrupt pins.
+And it is a single core Microcontroller.
+Trigger (To shoot IR) interrupts (Pin 3)  is used.
+To Collect IR when we used Polling methods ,
+Cant get shot while shooting.
+When we used interrupt method it solves.But when 
+Face to face shooting happens some shots did not process.
+ 
+# Tests Shedule
+## Already done
+	-Design level testing -to find best IR collecting method
+	-Some Unit tests
+## Planned to do
+-Physical test - With the IR tube
+-Debug tests
+-System Integration Tests
+
+# Design Level testing
+ ![](images/c2.PNG)
+
+-Simulate face to face shooting of two players
+-Have shot 50 shots at a time ,and repeat the process 4 times
+-To pull the trigger 3rd microcontroller is used
+-And randomly press the  both trigger
+-5 shots per a second(Fire rate)
+
+## Design Level testing To find suitable IR collect method
+
+how its done,
+-Simulate face to face shooting of two players
+-Have shot 50 shots at a time ,and repeat the process 4 times
+-To pull the trigger 3rd microcontroller is used
+-And randomly press the  both trigger
+-5 shots per a second(Fire rate)
+
+## Results
+Polling method Out of 50 shots average only 26 shots are processed
+In interrupt method Out of 50 shots average only 35 shots are processed.
+ There fore we planned to continue wqith the Interrput method.
+ But it not works round 70% times .However,
+-Face to face shooting in a combat field is very rare.
+-Fair for everyone
+### To make it perfect duel core microcoltroller is needed
+We planned to test our cordes in the NodeMCU ESP32 dual core microcontroller
+-Programming architecture will be the same
+-Since we are using C language its very easy Continue from there	
+-IR library also available for the nodeMCU
+
+# units tests 
+### Done with real hardware
+### IR shooting
+→ Work perfectly
+### IR Capturing  
+-When multiple units are connected parallelly
+-If more units reserves a same code at the same time  → Works perfectly
+-If multiple units reserves different cords at the same time → Only    read one shot
+### Bluetooth communication
+Works perfectly
+
+# Physical testing of the IR tube
+Firing range testing
+
+-currently it can shoot up 
+### Planned to ,
+-fine tune the range with the focus lens
+-Give more power using the transistor
+-Goal is to Shoot more than 100 ft
+
+## Accuray testing
+### If the IR beam is not focused enough
+-It is too easy to get a kill
+-Not challenging enough
+
+### If the IR beam is focused too much
+-Even when u hit to head ,It did not count as a shot
+-Should tune with tube diameter and the lens power
+-Scope adjustments
+
+ ![](images/c3.PNG)
+  ![](images/c4.PNG)
+
+# Other planned tests
+### Debug tests
+-Watch window test
+-Register view window test
+### System integration testing
+
+	
+
+
+
+	
+
+ 
+
+ 
+
+
+
+
+	
+
+
+
+	
+
+ 
+
+ 
+
+	
+
+
+
+	
+
+ 
+
+ 
+
+
+
+
+
+
+
+	
+
+ 
+
+ 
+
+
 
 
  
+ 
+
+
+
+
+
+
+
+
+
+	
+
+ 
+
+ 
+
+
+ 
+
