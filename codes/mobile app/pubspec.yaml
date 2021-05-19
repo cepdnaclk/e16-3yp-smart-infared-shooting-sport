@@ -39,6 +39,7 @@ dependencies:
   circular_countdown_timer: ^0.0.9
   flutter_bluetooth_serial: ^0.2.2
   shared_preferences: ^0.5.8
+ 
 
 
 dev_dependencies:

@@ -283,12 +283,12 @@ class _Join2TeamsState extends State<Join2Teams> {
                           onPressed: () async {
                             //set player details
                             //set the gun
-                            gamedata = 'T$_teamNumber$_gunNumber';
+                            /*gamedata = 'T$_teamNumber$_gunNumber';
                             try {
                               await BluetoothServices().write(gamedata);
                             } catch (e) {
                               print(e.toString());
-                            }
+                            }*/
                             try {
                               Player1.gun = _gunNumber;
                               User user = _auth.currentUser;
@@ -317,11 +317,11 @@ class _Join2TeamsState extends State<Join2Teams> {
                                   return Join2teamRescUntilStart();
                                 }));
                               }
-                              if (Match.mode == 'n3') {
+                              if (Match.mode == 'n2') {
                                 Navigator.of(context)
                                     .push(MaterialPageRoute(builder: (_) {
                                   print('sdds');
-                                  return Join3teamNormalUntilStart();
+                                  return Join2teamNormalUntilStart();
                                 }));
                               }
                             }

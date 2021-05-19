@@ -45,7 +45,7 @@ class _TimernJState extends State<TimernJ> {
           } catch (e) {
             print(e.toString());
           }
-          String temp;
+          /*String temp;
           if (Player1.tempid < 10) {
             temp = "I0${Player1.tempid}";
           } else {
@@ -55,7 +55,7 @@ class _TimernJState extends State<TimernJ> {
             await BluetoothServices().write(temp);
           } catch (e) {
             print(e.toString());
-          }
+          }*/
         }
         return name;
       });
