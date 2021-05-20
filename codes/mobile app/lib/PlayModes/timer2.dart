@@ -4,7 +4,9 @@ import 'package:xtag_demo/Model/match.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
+import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/PlayModes/timerh.dart';
+import 'package:xtag_demo/Services/blue.dart';
 import 'package:xtag_demo/Services/database.dart';
 
 class TimerCounter2 extends StatefulWidget {
@@ -62,6 +64,15 @@ class _TimerCounter2State extends State<TimerCounter2> {
                 //Timern();
                 //startTimer();
                 started = true;
+                String kill = "K1";
+                await Future.delayed(Duration(seconds: 10));
+                Player1.health = 5;
+                kill = "K0";
+                try {
+                  await BluetoothServices().write(kill);
+                } catch (e) {
+                  print(e.toString());
+                }
                 try {
                   User user = _auth.currentUser;
                   await DatabaseServices(uid: user.uid)

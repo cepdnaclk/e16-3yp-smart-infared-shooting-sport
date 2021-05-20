@@ -17,6 +17,11 @@ class TimernJ extends StatefulWidget {
   _TimernJState createState() => _TimernJState();
 }
 
+final CollectionReference matchCollection =
+    FirebaseFirestore.instance.collection("match");
+int _gunNumber = Player1.gun;
+int _teamNumber = Player1.team;
+
 class _TimernJState extends State<TimernJ> {
   bool isStarted = false;
   // Future<bool> _onFat;
@@ -25,7 +30,7 @@ class _TimernJState extends State<TimernJ> {
   Stream<bool> onfat() async* {
     //bool name;
     while (Match.started != true) {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(Duration(seconds: 2));
       yield await FirebaseFirestore.instance
           .collection('match')
           .doc(Match.mid)
@@ -37,25 +42,37 @@ class _TimernJState extends State<TimernJ> {
         print('print isStart from database $name');
         //return Future<bool>.value(true);
         Match.started = name;
-        if (name) {
-          User user = _auth.currentUser;
-          try {
-            await DatabaseServices(uid: user.uid)
-                .gettempid(Match.mid, user.uid);
-          } catch (e) {
-            print(e.toString());
-          }
-          /*String temp;
-          if (Player1.tempid < 10) {
-            temp = "I0${Player1.tempid}";
-          } else {
-            temp = "I${Player1.tempid}";
-          }
-          try {
-            await BluetoothServices().write(temp);
-          } catch (e) {
-            print(e.toString());
-          }*/
+        if (Match.started == true) {
+          await matchCollection
+              .doc(Match.mid)
+              .collection('players')
+              .doc(Player1.uid)
+              .get()
+              .then((DocumentSnapshot documentSnapshot) async {
+            Player1.tempid = documentSnapshot['tempid'];
+            String temp;
+            String tempid;
+            if (Player1.tempid < 10) {
+              tempid = "0${Player1.tempid}";
+              temp = "T$_teamNumber$_gunNumber$tempid";
+            } else {
+              tempid = "${Player1.tempid}";
+              temp = "T$_teamNumber$_gunNumber$tempid";
+            }
+            print("Data :$temp");
+            try {
+              await BluetoothServices().write(temp);
+            } catch (e) {
+              print(e.toString());
+            }
+            String kill = "K0";
+            try {
+              await BluetoothServices().write(kill);
+            } catch (e) {
+              print(e.toString());
+            }
+            return name;
+          });
         }
         return name;
       });

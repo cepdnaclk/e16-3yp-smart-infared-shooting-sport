@@ -425,12 +425,12 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                             Player1.health = 5;
                             Player1.deaths = 0;
                             bool state = false;
-                            gamedata = 'T$_teamNumber$_gunNumber';
+                            /*gamedata = 'T$_teamNumber$_gunNumber';
                             try {
                               await BluetoothServices().write(gamedata);
                             } catch (e) {
                               print(e.toString());
-                            }
+                            }*/
 
                             if (_fives) {
                               try {

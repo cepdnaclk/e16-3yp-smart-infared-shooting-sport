@@ -98,11 +98,6 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
       //respan the player
       if (Player1.health <= 0) {
         String kill = "K1";
-        try {
-          await BluetoothServices().write(kill);
-        } catch (e) {
-          print(e.toString());
-        }
         await Future.delayed(Duration(seconds: 10));
         Player1.health = 5;
         kill = "K0";
@@ -261,7 +256,7 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                 ]),
               ),
             ),*/
-            Container(
+            /*Container(
               margin:
                   const EdgeInsets.only(top: 20.0, right: 100.0, left: 100.0),
               child: RaisedButton(
@@ -349,7 +344,7 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
                   },
                 ),
               ),
-            ),
+            ),*/
           ],
         ),
       ),

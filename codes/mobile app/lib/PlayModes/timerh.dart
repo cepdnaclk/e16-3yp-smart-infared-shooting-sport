@@ -3,8 +3,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:xtag_demo/Model/match.dart';
+import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/PlayModes/timeompj.dart';
 import 'package:xtag_demo/PlayModes/timerimp.dart';
+import 'package:xtag_demo/Services/blue.dart';
 
 class Timern extends StatefulWidget {
   @override
@@ -24,13 +26,14 @@ class _TimernState extends State<Timern> {
           .collection('match')
           .doc(Match.mid)
           .get()
-          .then((DocumentSnapshot documentSnapshot) {
+          .then((DocumentSnapshot documentSnapshot) async {
         //print("Vira0");
         //print(documentSnapshot['name']);
         bool name = documentSnapshot['isStart'];
         print('print isStart from database $name');
         //return Future<bool>.value(true);
         Match.started = name;
+
         return name;
       });
     }

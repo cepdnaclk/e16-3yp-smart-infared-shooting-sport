@@ -33,6 +33,7 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
   var kilteam;
   String hisuid;
   String d;
+  String kill;
   User user = _auth.currentUser;
 
   void con() {
@@ -95,12 +96,6 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
 
       //respan the player
       if (Player1.health <= 0) {
-        String kill = "K1";
-        try {
-          await BluetoothServices().write(kill);
-        } catch (e) {
-          print(e.toString());
-        }
         await Future.delayed(Duration(seconds: 10));
         Player1.health = 5;
         kill = "K0";
@@ -156,7 +151,7 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
             Flexible(
               child: JoinedPlayers3teamNormal(),
             ),
-            Container(
+            /*Container(
               margin:
                   const EdgeInsets.only(top: 20.0, right: 100.0, left: 100.0),
               child: RaisedButton(
@@ -180,7 +175,7 @@ class _Join3teamNormalUntilStartState extends State<Join3teamNormalUntilStart> {
                       print(e.toString());
                     }
                   }),
-            ),
+            ),*/
             /*Container(
               margin: const EdgeInsets.only(top: 10.0, right: 90.0, left: 90.0),
               child: RaisedButton(

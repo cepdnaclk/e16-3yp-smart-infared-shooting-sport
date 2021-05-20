@@ -10,6 +10,8 @@ import 'package:xtag_demo/Services/blue.dart';
 import 'package:xtag_demo/Services/database.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
+int _gunNumber = Player1.gun;
+int _teamNumber = Player1.team;
 
 class WaitingToStart3teams extends StatelessWidget {
   @override
@@ -71,12 +73,15 @@ class WaitingToStart3teams extends StatelessWidget {
                     print(e.toString());
                   }
                   String temp;
+                  String tempid;
                   if (Player1.tempid < 10) {
-                    temp = "I0${Player1.tempid}";
+                    tempid = "0${Player1.tempid}";
+                    temp = "T$_teamNumber$_gunNumber$tempid";
                   } else {
-                    temp = "I${Player1.tempid}";
+                    tempid = "${Player1.tempid}";
+                    temp = "T$_teamNumber$_gunNumber$tempid";
                   }
-                  print("Tempid :$temp");
+                  print("Data :$temp");
                   try {
                     await BluetoothServices().write(temp);
                   } catch (e) {

@@ -315,12 +315,12 @@ class _Join3TeamsState extends State<Join3Teams> {
                             Player1.team = _teamNumber;
                             Player1.health = 5;
                             Player1.rescode = null;
-                            gamedata = 'T$_teamNumber$_gunNumber';
+                            /*gamedata = 'T$_teamNumber$_gunNumber';
                             try {
                               await BluetoothServices().write(gamedata);
                             } catch (e) {
                               print(e.toString());
-                            }
+                            }*/
                             /* state = await BluetoothServices().recieved();
                             print("grt$state");
                             if (state == false) {
