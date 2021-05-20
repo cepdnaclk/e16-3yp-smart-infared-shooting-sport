@@ -51,23 +51,78 @@ class _TimernJState extends State<TimernJ> {
               .then((DocumentSnapshot documentSnapshot) async {
             Player1.tempid = documentSnapshot['tempid'];
             String temp;
-            String tempid;
-            if (Player1.tempid < 10) {
-              tempid = "0${Player1.tempid}";
-              temp = "T$_teamNumber$_gunNumber$tempid";
-            } else {
-              tempid = "${Player1.tempid}";
-              temp = "T$_teamNumber$_gunNumber$tempid";
+            String tempID;
+            String tempTeam;
+            String tempDam;
+            if (_teamNumber == 0) {
+              tempTeam = 'A';
+            } else if (_teamNumber == 1) {
+              tempTeam = 'B';
+            } else if (_teamNumber == 2) {
+              tempTeam = 'C';
+            } else if (_teamNumber == 3) {
+              tempTeam = 'D';
             }
-            print("Data :$temp");
             try {
-              await BluetoothServices().write(temp);
+              await BluetoothServices().write(tempTeam);
             } catch (e) {
               print(e.toString());
             }
-            String kill = "K0";
+            if (_gunNumber == 0) {
+              tempTeam = 'E';
+            } else if (_gunNumber == 1) {
+              tempTeam = 'F';
+            } else if (_gunNumber == 2) {
+              tempTeam = 'G';
+            } else if (_gunNumber == 3) {
+              tempTeam = 'H';
+            }
             try {
-              await BluetoothServices().write(kill);
+              await BluetoothServices().write(tempDam);
+            } catch (e) {
+              print(e.toString());
+            }
+
+            if (Player1.tempid == 0) {
+              tempID = 'I';
+            } else if (Player1.tempid == 1) {
+              tempID = 'J';
+            } else if (Player1.tempid == 3) {
+              tempID = 'K';
+            } else if (Player1.tempid == 3) {
+              tempID = 'L';
+            } else if (Player1.tempid == 4) {
+              tempID = 'M';
+            } else if (Player1.tempid == 5) {
+              tempID = 'N';
+            } else if (Player1.tempid == 6) {
+              tempID = 'O';
+            } else if (Player1.tempid == 7) {
+              tempID = 'P';
+            } else if (Player1.tempid == 8) {
+              tempID = 'Q';
+            } else if (Player1.tempid == 9) {
+              tempID = 'R';
+            } else if (Player1.tempid == 10) {
+              tempID = 'S';
+            } else if (Player1.tempid == 11) {
+              tempID = 'T';
+            } else if (Player1.tempid == 12) {
+              tempID = 'U';
+            } else if (Player1.tempid == 13) {
+              tempID = 'V';
+            } else if (Player1.tempid == 14) {
+              tempID = 'W';
+            } else if (Player1.tempid == 15) {
+              tempID = 'X';
+            }
+            try {
+              await BluetoothServices().write(tempID);
+            } catch (e) {
+              print(e.toString());
+            }
+            try {
+              await BluetoothServices().write("a");
             } catch (e) {
               print(e.toString());
             }
