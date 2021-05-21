@@ -5,6 +5,7 @@ import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:xtag_demo/Model/match.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Results/result_team3_normal.dart';
+import 'package:xtag_demo/Services/blue.dart';
 import 'package:xtag_demo/Services/database.dart';
 import 'package:xtag_demo/TeamSocres/team1.dart';
 import 'package:xtag_demo/TeamSocres/team2.dart';
@@ -94,6 +95,11 @@ class _TimerImpJState extends State<TimerImpJ> {
               // This Callback will execute when the Countdown Ends.
               onComplete: () async {
                 //after th match
+                try {
+                  await BluetoothServices().write("d");
+                } catch (e) {
+                  print(e.toString());
+                }
                 User user = _auth.currentUser;
                 try {
                   await DatabaseServices(uid: user.uid)

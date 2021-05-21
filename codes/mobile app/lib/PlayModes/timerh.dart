@@ -33,7 +33,13 @@ class _TimernState extends State<Timern> {
         print('print isStart from database $name');
         //return Future<bool>.value(true);
         Match.started = name;
-
+        if (name == true) {
+          try {
+            await BluetoothServices().write("a");
+          } catch (e) {
+            print(e.toString());
+          }
+        }
         return name;
       });
     }

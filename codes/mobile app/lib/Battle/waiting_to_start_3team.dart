@@ -91,13 +91,13 @@ class WaitingToStart3teams extends StatelessWidget {
                     print(e.toString());
                   }
                   if (_gunNumber == 0) {
-                    tempTeam = 'E';
+                    tempDam = 'E';
                   } else if (_gunNumber == 1) {
-                    tempTeam = 'F';
+                    tempDam = 'F';
                   } else if (_gunNumber == 2) {
-                    tempTeam = 'G';
+                    tempDam = 'G';
                   } else if (_gunNumber == 3) {
-                    tempTeam = 'H';
+                    tempDam = 'H';
                   }
                   try {
                     await BluetoothServices().write(tempDam);

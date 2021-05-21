@@ -64,9 +64,6 @@ class _TimerCounter2State extends State<TimerCounter2> {
                 //Timern();
                 //startTimer();
                 started = true;
-                String kill = "K1";
-                await Future.delayed(Duration(seconds: 10));
-                Player1.health = 5;
                 try {
                   await BluetoothServices().write("a");
                 } catch (e) {
