@@ -48,20 +48,6 @@ class _BluetoothState extends State<Bluetooth> {
 
     connection.input.listen((Uint8List data) {
       print('Arduino hData : ${ascii.decode(data)}');
-      op = ascii.decode(data) + " Foot";
-      d = ascii.decode(data);
-      kilteam = int.parse(d[0]);
-      kiltemp = int.parse(d[1] + d[2]);
-      damage = int.parse(d[3]);
-      Player1.health = Player1.health - damage;
-      Player1.deaths = Player1.deaths + damage;
-      if (d == 'C') {
-        print("Take");
-      }
-      ;
-      setState(() {
-        op = d + " Foot";
-      });
     });
   }
 

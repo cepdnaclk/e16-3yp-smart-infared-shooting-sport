@@ -16,4 +16,5 @@ class Player1 {
   static BluetoothConnection conect;
   static bool state;
   static String data;
+  static BluetoothDevice device;
 }

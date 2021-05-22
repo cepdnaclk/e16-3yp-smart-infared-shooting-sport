@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
+import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
 import 'package:xtag_demo/Battle/creat_game.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Screens/game_select1.dart';
@@ -39,6 +40,7 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
   // Track the Bluetooth connection with the remote device
   BluetoothConnection connection;
   BluetoothConnection connection2;
+  final FlutterReactiveBle _ble = FlutterReactiveBle();
 
   int _deviceState;
 
@@ -98,6 +100,7 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
 
   void write(String message) async {
     if (connection.isConnected) {
+      Player1.conect = connection;
       connection.output.add(utf8.encode(message + "\r\n"));
       //await connection.output.allSent;
       print("sent");
@@ -120,31 +123,6 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
 
   void _onDataReceived(Uint8List data) {
     // Allocate buffer for parsed data
-    int backspacesCounter = 0;
-    data.forEach((byte) {
-      if (byte == 8 || byte == 127) {
-        backspacesCounter++;
-      }
-    });
-    Uint8List buffer = Uint8List(data.length - backspacesCounter);
-    int bufferIndex = buffer.length;
-
-    // Apply backspace control character
-    backspacesCounter = 0;
-    for (int i = data.length - 1; i >= 0; i--) {
-      if (data[i] == 8 || data[i] == 127) {
-        backspacesCounter++;
-      } else {
-        if (backspacesCounter > 0) {
-          backspacesCounter--;
-        } else {
-          buffer[--bufferIndex] = data[i];
-        }
-      }
-    }
-    String dataString = String.fromCharCodes(buffer);
-    // Create message if there is new line character
-    show(dataString);
   }
 
   @override
@@ -370,8 +348,7 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
                         ),
                       ],
                     ),
-                    onPressed: () {
-                      BluetoothServices().write("f");
+                    onPressed: () async {
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (_) {
                         return GameSelect1();
@@ -440,11 +417,13 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
       show('No device selected');
     } else {
       if (!isConnected) {
+        print(_device.address);
         await BluetoothConnection.toAddress(_device.address)
             .then((_connection) {
           print('Connected to the device');
           connection = _connection;
           Player1.conect = connection;
+          Player1.device = _device;
           setState(() {
             _connected = true;
           });
@@ -453,6 +432,7 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
           print(error);
           return false;
         });
+
         show('Device connected');
 
         setState(() => _isButtonUnavailable = false);

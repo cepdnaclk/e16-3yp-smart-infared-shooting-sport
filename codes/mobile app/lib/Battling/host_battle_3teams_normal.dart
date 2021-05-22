@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:xtag_demo/Battling/player_parameter.dart';
 import 'package:xtag_demo/Battling/players_data_normal3.dart';
 import 'package:xtag_demo/Model/player1.dart';
@@ -25,6 +26,7 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
 class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
   //print(Match.mid);
   final bool isBattlefinished = true;
+  List<BluetoothDiscoveryResult> results = List<BluetoothDiscoveryResult>();
   int _shootid = 0;
   int damage;
   int teamid;
@@ -38,78 +40,27 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
   String d;
   User user = _auth.currentUser;
   void con() {
-    Player1.conect.input.listen((Uint8List data) async {
-      print('Arduino hData : ${ascii.decode(data)}');
-      op = ascii.decode(data) + " Foot";
+    print(Player1.conect);
+    Player1.conect.input.listen((data) async {
+      //print('Arduino hData : ${ascii.decode(data)}');
+      //print('Arduino hData : ${(data)}');
+      /*op = ascii.decode(data) + " Foot";
       d = ascii.decode(data);
       kilteam = int.parse(d[0]);
       kiltemp = int.parse(d[1] + d[2]);
       damage1 = int.parse(d[3]);
       Player1.health = Player1.health - damage1;
-      Player1.deaths = Player1.deaths + damage1;
-      try {
-        await DatabaseServices(uid: user.uid)
-            .upadtenestedplayersdata(Match.mid, 'health', Player1.health);
-        print(Player1.health);
-      } catch (e) {
-        print(e.toString());
-      }
-
-      //increase the deaths
-      try {
-        await DatabaseServices(uid: user.uid)
-            .upadtenestedplayersdata(Match.mid, 'deaths', Player1.deaths);
-        print(Player1.deaths);
-      } catch (e) {
-        print(e.toString());
-      }
-      print(Match.mid);
-
-      //get  his id
-      try {
-        hisuid = await DatabaseServices(uid: user.uid)
-            .getshootedplayerdata(Match.mid, kilteam, kiltemp);
-        print(hisuid);
-      } catch (e) {
-        print(e.toString());
-      }
-      //set his data
-      try {
-        await DatabaseServices(uid: user.uid)
-            .updatehisdata(Match.mid, hisuid, Player1.team);
-      } catch (e) {
-        print(e.toString());
-      }
-
-      //set my data
-      try {
-        await DatabaseServices(uid: user.uid).setmyshotdata(Match.mid, hisuid);
-      } catch (e) {
-        print(e.toString());
-      }
-      //increase the enemy player score
-      try {
-        await DatabaseServices(uid: user.uid)
-            .increasehisscorre(hisuid, Match.mid, damage1);
-      } catch (e) {
-        print(e.toString());
-      }
-
-      //respan the player
-      if (Player1.health <= 0) {
-        try {
-          await BluetoothServices().write("d");
-        } catch (e) {
-          print(e.toString());
-        }
-        await Future.delayed(Duration(seconds: 10));
-        Player1.health = 5;
-
-        try {
-          await BluetoothServices().write("a");
-        } catch (e) {
-          print(e.toString());
-        }
+      Player1.deaths = Player1.deaths + damage1;*/
+      String op = ascii.decode(data);
+      print('Arduino op Data: $op');
+      if (op == "!") {
+        print("The sent dellivered infor : $d");
+        kilteam = int.parse(d[0]);
+        kiltemp = int.parse(d[1] + d[2]);
+        damage1 = int.parse(d[3]);
+        print("Kill Team : $kilteam Kiltem : $kiltemp sdsdds: $damage1 ");
+        Player1.health = Player1.health - damage1;
+        Player1.deaths = Player1.deaths + damage1;
         try {
           await DatabaseServices(uid: user.uid)
               .upadtenestedplayersdata(Match.mid, 'health', Player1.health);
@@ -117,11 +68,80 @@ class _Host3teamNormalUntilStartState extends State<Host3teamNormalUntilStart> {
         } catch (e) {
           print(e.toString());
         }
+
+        //increase the deaths
+        try {
+          await DatabaseServices(uid: user.uid)
+              .upadtenestedplayersdata(Match.mid, 'deaths', Player1.deaths);
+          print(Player1.deaths);
+        } catch (e) {
+          print(e.toString());
+        }
+        print(Match.mid);
+
+        //get  his id
+        try {
+          hisuid = await DatabaseServices(uid: user.uid)
+              .getshootedplayerdata(Match.mid, kilteam, kiltemp);
+          print(hisuid);
+        } catch (e) {
+          print(e.toString());
+        }
+        //set his data
+        try {
+          await DatabaseServices(uid: user.uid)
+              .updatehisdata(Match.mid, hisuid, Player1.team);
+        } catch (e) {
+          print(e.toString());
+        }
+
+        //set my data
+        try {
+          await DatabaseServices(uid: user.uid)
+              .setmyshotdata(Match.mid, hisuid);
+        } catch (e) {
+          print(e.toString());
+        }
+        //increase the enemy player score
+        try {
+          await DatabaseServices(uid: user.uid)
+              .increasehisscorre(hisuid, Match.mid, damage1);
+        } catch (e) {
+          print(e.toString());
+        }
+
+        //respan the player
+        if (Player1.health <= 0) {
+          try {
+            await BluetoothServices().write("d");
+          } catch (e) {
+            print(e.toString());
+          }
+          await Future.delayed(Duration(seconds: 10));
+          Player1.health = 5;
+
+          try {
+            await BluetoothServices().write("a");
+          } catch (e) {
+            print(e.toString());
+          }
+          try {
+            await DatabaseServices(uid: user.uid)
+                .upadtenestedplayersdata(Match.mid, 'health', Player1.health);
+            print(Player1.health);
+          } catch (e) {
+            print(e.toString());
+          }
+        }
+        d = null;
+      } else {
+        d = d + op;
+        print("The input is creating : $d");
       }
 
-      setState(() {
+      /*setState(() {
         op = d + " Foot";
-      });
+      });*/
     });
   }
 
