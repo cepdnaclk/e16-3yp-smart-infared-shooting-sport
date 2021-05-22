@@ -6,11 +6,10 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
-import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
+
 import 'package:xtag_demo/Battle/creat_game.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Screens/game_select1.dart';
-import 'package:xtag_demo/Services/blue.dart';
 
 /*class Blue1 extends StatelessWidget {
   @override
@@ -40,7 +39,6 @@ class _BluetoothApp1State extends State<BluetoothApp1> {
   // Track the Bluetooth connection with the remote device
   BluetoothConnection connection;
   BluetoothConnection connection2;
-  final FlutterReactiveBle _ble = FlutterReactiveBle();
 
   int _deviceState;
 
