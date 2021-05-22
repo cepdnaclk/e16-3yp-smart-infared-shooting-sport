@@ -28,22 +28,10 @@
 @import firebase_dynamic_links;
 #endif
 
-#if __has_include(<flutter_blue/FlutterBluePlugin.h>)
-#import <flutter_blue/FlutterBluePlugin.h>
-#else
-@import flutter_blue;
-#endif
-
 #if __has_include(<flutter_bluetooth_serial/FlutterBluetoothSerialPlugin.h>)
 #import <flutter_bluetooth_serial/FlutterBluetoothSerialPlugin.h>
 #else
 @import flutter_bluetooth_serial;
-#endif
-
-#if __has_include(<flutter_reactive_ble/ReactiveBlePlugin.h>)
-#import <flutter_reactive_ble/ReactiveBlePlugin.h>
-#else
-@import flutter_reactive_ble;
 #endif
 
 #if __has_include(<shared_preferences/FLTSharedPreferencesPlugin.h>)
@@ -59,9 +47,7 @@
   [FLTFirebaseAuthPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseAuthPlugin"]];
   [FLTFirebaseCorePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseCorePlugin"]];
   [FLTFirebaseDynamicLinksPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseDynamicLinksPlugin"]];
-  [FlutterBluePlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterBluePlugin"]];
   [FlutterBluetoothSerialPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterBluetoothSerialPlugin"]];
-  [ReactiveBlePlugin registerWithRegistrar:[registry registrarForPlugin:@"ReactiveBlePlugin"]];
   [FLTSharedPreferencesPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTSharedPreferencesPlugin"]];
 }
 

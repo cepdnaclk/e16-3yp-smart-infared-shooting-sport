@@ -364,36 +364,6 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                                     _teamNumber = 2;
                                   });
                                 })),
-                        /* Container(
-                            margin: const EdgeInsets.only(
-                                top: 5.0, right: 5.0, left: 10.0),
-                            child: RaisedButton(
-                                elevation: 50.0,
-                                color: _teamNumber == 3
-                                    ? Colors.yellow[900]
-                                    : Colors.black54,
-                                shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                    color: Colors.black,
-                                  ),
-                                  //borderRadius: BorderRadius.circular(30.0)
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                                    const Text(
-                                      'Team 3',
-                                      style: TextStyle(
-                                          fontSize: 15, color: Colors.white),
-                                    ),
-                                  ],
-                                ),
-                                onPressed: () {
-                                  setState(() {
-                                    _teamNumber = 3;
-                                  });
-                                })),*/
                       ],
                     ),
                   ),
@@ -422,13 +392,13 @@ class _Normal2TeamsState extends State<Normal2Teams> {
                             ],
                           ),
                           onPressed: () async {
+                            Player1.gun = _gunNumber;
+                            Player1.team = _teamNumber;
+                            Player1.health = 5;
+                            Player1.deaths = 0;
+                            bool state = false;
                             //print(_gunNumber);
-                            gamedata = 'T$_teamNumber$_gunNumber';
-                            try {
-                              await BluetoothServices().write(gamedata);
-                            } catch (e) {
-                              print(e.toString());
-                            }
+
                             if (_fives) {
                               try {
                                 Match.duration = 90;

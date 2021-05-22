@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:xtag_demo/Battle/creat_game.dart';
 import 'package:xtag_demo/Battle/waiting_to_start_3team.dart';
 import 'package:xtag_demo/Model/player1.dart';
@@ -23,6 +24,7 @@ class _Normal3TeamsState extends State<Normal3Teams> {
   int _teamNumber = 0;
   String _gameid = Match.mid;
   String gamedata;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     String matchid = null;
@@ -76,7 +78,36 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  
+                  Container(
+                      margin: const EdgeInsets.only(
+                          top: 5.0, right: 5.0, left: 10.0),
+                      child: RaisedButton(
+                          elevation: 50.0,
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              color: Colors.black,
+                            ),
+                            //borderRadius: BorderRadius.circular(30.0)
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              const Text(
+                                'Copy',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.black),
+                              ),
+                            ],
+                          ),
+                          onPressed: () async {
+                            await Clipboard.setData(
+                                ClipboardData(text: _gameid));
+                            print("coppied");
+                          })),
+                          SizedBox(
                     height: 20.0,
                   ),
                   Text(
@@ -425,12 +456,6 @@ class _Normal3TeamsState extends State<Normal3Teams> {
                             Player1.health = 5;
                             Player1.deaths = 0;
                             bool state = false;
-                            /*gamedata = 'T$_teamNumber$_gunNumber';
-                            try {
-                              await BluetoothServices().write(gamedata);
-                            } catch (e) {
-                              print(e.toString());
-                            }*/
 
                             if (_fives) {
                               try {

@@ -111,6 +111,8 @@ class _JoinGameState extends State<JoinGame> {
                 } catch (e) {
                   print(e.toString());
                 }
+                Match.duration = 90;
+                Match.mid = _matchid;
                 Match2.mid2 = _matchid;
                 try {
                   print(_matchid);

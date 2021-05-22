@@ -37,9 +37,6 @@ class WaitingToStart3teams extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            /*SizedBox(
-              height: 20.0,
-            ),*/
             Container(
               margin:
                   const EdgeInsets.only(top: 20.0, right: 100.0, left: 100.0),
@@ -72,6 +69,8 @@ class WaitingToStart3teams extends StatelessWidget {
                   } catch (e) {
                     print(e.toString());
                   }
+                  _teamNumber = Player1.team;
+                  _gunNumber = Player1.gun;
                   String temp;
                   String tempID;
                   String tempTeam;
@@ -150,12 +149,8 @@ class WaitingToStart3teams extends StatelessWidget {
                     tempid = "${Player1.tempid}";
                     temp = "T$_teamNumber$_gunNumber$tempid";
                   }*/
-                  print("Data :$temp");
-                  try {
-                    await BluetoothServices().write(temp);
-                  } catch (e) {
-                    print(e.toString());
-                  }
+                  //print("Data :$temp");
+
                   if (Match.mode == 's3') {
                     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       print('sdds');

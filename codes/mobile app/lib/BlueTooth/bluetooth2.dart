@@ -6,8 +6,6 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
-
-import 'package:xtag_demo/Battle/creat_game.dart';
 import 'package:xtag_demo/Model/player1.dart';
 import 'package:xtag_demo/Screens/game_select1.dart';
 

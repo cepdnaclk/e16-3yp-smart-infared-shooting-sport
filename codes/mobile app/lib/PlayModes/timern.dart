@@ -54,6 +54,8 @@ class _TimernJState extends State<TimernJ> {
             String tempID;
             String tempTeam;
             String tempDam;
+            _teamNumber = Player1.team;
+            _gunNumber = Player1.gun;
             if (_teamNumber == 0) {
               tempTeam = 'A';
             } else if (_teamNumber == 1) {
