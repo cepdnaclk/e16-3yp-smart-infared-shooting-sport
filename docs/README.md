@@ -41,7 +41,7 @@ purpose.
 **To shoot further we Planned used high power IR**       
 	IR emitter - TSUS5202
 		power=   170mW , 150mA
-**Since Atmega IC cant give 100 mA for the transistor is used**
+**Since ESP32 IC cant give 100 mA for the transistor is used**
 	BD139
 **and a lens is used to focus**
 	-   Diameter about      38mm (1.5″)
