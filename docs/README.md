@@ -359,7 +359,7 @@ If the IR beam is focused too much
 
 ![](images/hbmain.PNG)
 
-![](images/gunmain.PNG)
+![](images/n.PNG)
 
  
  ### Embedded sytem 
