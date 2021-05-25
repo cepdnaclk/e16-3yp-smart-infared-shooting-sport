@@ -96,7 +96,7 @@ SM0038 - TSOP1738 IR Receiver
  ![](images/TSOP1738-Block-Diagram.png)
 
 ## **Bill of materials**
-![](docs/images/bom.PNG)
+
 
 
 ## CONTROLLER PLATFORMS
