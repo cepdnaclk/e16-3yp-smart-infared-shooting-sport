@@ -10,7 +10,7 @@ Group Members :
 * E/16/126 e16126@eng.pdn.ac.lk
 
    ![](images/gun2.jpg)
-   ![](images/player1.jpg)
+  
    
     ## TABLE OF CONTENT
    
