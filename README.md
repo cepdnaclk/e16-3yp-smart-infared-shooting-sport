@@ -9,13 +9,27 @@ Group Members :
 * E/16/319 e16319@eng.pdn.ac.lk 
 * E/16/126 e16126@eng.pdn.ac.lk
 
-### X-TAG  Smart infrared shooting sport:
+   ![](images/gun2.jpg
+   
+    ## TABLE OF CONTENT
+   
+1. OVERVIEW
+2. GOALS
+3. SOLUATION ARTECHTURE
+4. HARDWARE LIST
+5. SYSTEM OVERVIEW
+6. HARDWARE DESIGN
+7. IMPLEMENTATION
+8. Tests
+9. BILL OF MATERIALS
+
+## OVERVIEW
 
 Infrared games are originated in the united states as a replicate of star wars laser wars 
 which is a popular movie hit.Now laser/IR shooting sports are popular in all over the world.
 There are many Commercial laser tag and Toy class guns are available in the market now.
  
- ![](images/blog.png)
+
 ### But why we need X-TAG which is our new smart infrared shooting sport system:
 
 * current related product are,
@@ -25,14 +39,29 @@ There are many Commercial laser tag and Toy class guns are available in the mark
 * Not smart enough.
 * Not updatable
 
-
-### So we planned develop a new system which is:
+## GOALS
 
 * Shoot father up to 100ft
 * And make cheaper to produce 
 * And most importantly we want to make our system smart.
+## SOLUTION ARTCHTECTURE
 
-# Hardware list 
+![](images/blog.png)
+
+
+Every player has a head to reserve IR shots and IR gun to shoot IR.
+	when platyer shoot he shoot with some data.They are,
+	![](images/shotdata.png)
+Every players gun is connected to the mobile application through blutooth.
+Every phonr is connected to the our server.
+Using mobile application,
+	* gun is initilized.
+	* game mode is selected
+Server is used to,
+	*comunicate with the gamne.
+		As a example Find who is the shooter and ,giving scores are done with the help of
+		the backend.
+## Hardware list 
 
 ### IR emitter
 
@@ -93,8 +122,6 @@ SM0038 - TSOP1738 IR Receiver
  5.   binary (data) 
  ![](images/TSOP1738-Block-Diagram.png)
 
-## **Bill of materials**
-![](docs/images/bom.PNG)
 
 
 ## CONTROLLER PLATFORMS
@@ -105,8 +132,10 @@ SM0038 - TSOP1738 IR Receiver
 -   38 KHz
 - 8  bit is used
  ![](images/irshot.png)
-
-
+ 
+## SYSTEM OVERVIEW
+![](images/sys.png)
+###BACKEND
 ### Access and authentication
 
 Using Email and a password players can register Xtag
@@ -130,7 +159,7 @@ Storage
 
 Fast performance, high availability, and security
 
-# Database
+### Database
  ![](images/db1.PNG)
  ![](images/db2.PNG)
 
@@ -141,7 +170,7 @@ Fast performance, high availability, and security
 - Players' details of each match will be stored as a sub collection inside the relevent match document.
 
 
-## Reasons behind the database
+### Reasons behind the database
 - When do a query search in a match, It will be efficient
 - When player want see his paset, it will be efficient
 - We can increase the efficiency of the system by deleting  old match data.
@@ -150,7 +179,7 @@ Fast performance, high availability, and security
 
 
 
-# Main Functionalities
+### Main Functionalities
  
 - How to refresh the screen when players are connected
     - Streams are used
@@ -160,7 +189,7 @@ Fast performance, high availability, and security
     - Query searching is done by the killed player
  
 
-# User Interface - Mobile Application
+### User Interface - Mobile Application
 Develop using Futter 1.17 
 
 ### Home page
@@ -187,7 +216,7 @@ Develop using Futter 1.17
 ### Start and play
 ![](docs/images/start_n_ply.PNG)
 
-# Tests done
+## Tests
     1. Authentication test (Integrated  security test)
     2. Network compatibility testing
     3. Data Mapping testing
@@ -197,7 +226,7 @@ The report of the results of these tests are uploaded in docs file.
  [go to report](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/test/test.md)
  
  
- # Hardware Design
+ ## Hardware Design
  
  ![](images/g1.png)
  ![](images/g3.png)
@@ -205,14 +234,14 @@ The report of the results of these tests are uploaded in docs file.
  ![](images/hb.png)
  
  
- # User experience
+ ### User experience
  
  - Comfortable size and shape 
  - Real gaming experiece with sound effects, vibrations when shooting and LEDs
  - Mobile phone mounter
  - Reload button to reset the gun
 
-# Features and functionalities
+### Features and functionalities
 
 - Trigger functionality
 - Mobile phone mountable bar
@@ -223,7 +252,7 @@ The report of the results of these tests are uploaded in docs file.
 ![](images/tt.PNG)
 
 
-# Implantation
+## Implantation
 
 - Design seperated into several parts for the ease of 3D printing
 ![](images/scope.png)
@@ -231,8 +260,15 @@ The report of the results of these tests are uploaded in docs file.
 ![](images/mbm.png)
 ![](images/handle.png)
 
+![](docs/images/gun1.jpg)
+![](docs/images/gun3.jpg)
+![](docs/images/gun4.jpg)
+![](docs/images/im1.png)
+![](docs/images/im2.png)
+![](docs/images/p1.png)
+![](docs/images/player3.jpg)
 
-# Fabrication circuit
+### Fabrication circuit
 - Used small circuits that are connected to the main circuit for
 	- Switch buttons
 	- LEDs
@@ -248,8 +284,8 @@ The report of the results of these tests are uploaded in docs file.
 ![](images/gunmain.PNG)
 
  
- # Embedded sytem 
- ## progress 
+ ### Embedded sytem 
+ ### progress 
 
  
  currently we are  programming and Testing the Hardware.
@@ -260,7 +296,7 @@ We have already ran some tests and there are more test in the shedule.
  ![](images/c1.PNG)
 
 
- # Programme Architecture
+ ### Programme Architecture
 AtMega328p has 2 external interrupt pins.
 And it is a single core Microcontroller.
 Trigger (To shoot IR) interrupts (Pin 3)  is used.
@@ -269,16 +305,16 @@ Cant get shot while shooting.
 When we used interrupt method it solves.But when 
 Face to face shooting happens some shots did not process.
  
-# Tests Shedule
-## Already done
-	-Design level testing -to find best IR collecting method
-	-Some Unit tests
-## Planned to do
+### Tests
+
+-Design level testing -to find best IR collecting method
+-Some Unit tests
+
 -Physical test - With the IR tube
 -Debug tests
 -System Integration Tests
 
-# Design Level testing
+### Design Level testing
  ![](images/c2.PNG)
 
 -Simulate face to face shooting of two players
@@ -287,7 +323,7 @@ Face to face shooting happens some shots did not process.
 -And randomly press the  both trigger
 -5 shots per a second(Fire rate)
 
-## Design Level testing To find suitable IR collect method
+### Design Level testing To find suitable IR collect method
 
 how its done,
 -Simulate face to face shooting of two players
@@ -296,7 +332,7 @@ how its done,
 -And randomly press the  both trigger
 -5 shots per a second(Fire rate)
 
-## Results
+### Results
 Polling method Out of 50 shots average only 26 shots are processed
 In interrupt method Out of 50 shots average only 35 shots are processed.
  There fore we planned to continue wqith the Interrput method.
@@ -309,7 +345,7 @@ We planned to test our cordes in the NodeMCU ESP32 dual core microcontroller
 -Since we are using C language its very easy Continue from there	
 -IR library also available for the nodeMCU
 
-# units tests 
+### units tests 
 ### Done with real hardware
 ### IR shooting
 → Work perfectly
@@ -320,7 +356,7 @@ We planned to test our cordes in the NodeMCU ESP32 dual core microcontroller
 ### Bluetooth communication
 Works perfectly
 
-# Physical testing of the IR tube
+### Physical testing of the IR tube
 Firing range testing
 
 -currently it can shoot up 
@@ -329,7 +365,7 @@ Firing range testing
 -Give more power using the transistor
 -Goal is to Shoot more than 100 ft
 
-## Accuray testing
+### Accuray testing
 ### If the IR beam is not focused enough
 -It is too easy to get a kill
 -Not challenging enough
@@ -342,7 +378,7 @@ Firing range testing
  ![](images/c3.PNG)
   ![](images/c4.PNG)
 
-# Other planned tests
+### Other planned tests
 ### Debug tests
 -Watch window test
 -Register view window test
@@ -350,7 +386,8 @@ Firing range testing
 
 	
 
-
+## BILL OF MATERIALS
+![](images/bom.PNG)
 
 	
 
