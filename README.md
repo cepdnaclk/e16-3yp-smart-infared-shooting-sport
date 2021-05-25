@@ -9,7 +9,7 @@ Group Members :
 * E/16/319 e16319@eng.pdn.ac.lk 
 * E/16/126 e16126@eng.pdn.ac.lk
 
-   ![](images/gun2.jpg
+   ![](images/gun2.jpg)
    
     ## TABLE OF CONTENT
    
