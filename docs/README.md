@@ -15,17 +15,25 @@ Group Members :
    * [Web Application Home Page](http://3.93.215.173/)
    * [Swarm Dash Board](http://3.93.215.173/swarm/)
    
-## IMAGE
+
    ![](images/gun2.jpg
    
-1. >OVERVIEW
-### X-TAG  Smart infrared shooting sport:
+   ## TABLE OF CONTENT
+   
+1. OVERVIEW
+2. GOALS
+3. SOLUATION ARTECHTURE
+4. HARDWARE LIST
+5. SYSTEM OVERVIEW
+
+
+## OVERVIEW
 
 Infrared games are originated in the united states as a replicate of star wars laser wars 
 which is a popular movie hit.Now laser/IR shooting sports are popular in all over the world.
 There are many Commercial laser tag and Toy class guns are available in the market now.
  
- ![](images/blog.png)
+ 
 ### But why we need X-TAG which is our new smart infrared shooting sport system:
 
 * current related product are,
@@ -36,11 +44,14 @@ There are many Commercial laser tag and Toy class guns are available in the mark
 * Not updatable
 
 
-### So we planned develop a new system which is:
+## GOALS
 
 * Shoot father up to 100ft
 * And make cheaper to produce 
 * And most importantly we want to make our system smart.
+## SOLUTION ARTCHTECTURE
+
+![](images/blog.png)
 
 # Hardware list 
 
@@ -105,11 +116,10 @@ SM0038 - TSOP1738 IR Receiver
  5.   binary (data) 
  ![](images/TSOP1738-Block-Diagram.png)
 
-## **Bill of materials**
-![](images/bom.PNG)
 
 
-## CONTROLLER PLATFORMS
+
+### CONTROLLER PLATFORMS
 -  ESP32 microcontroller is used
 -  It provides integrated dual-mode bluetooth functionality which improves accuracy and speed
  
@@ -119,7 +129,8 @@ SM0038 - TSOP1738 IR Receiver
 - 8  bit is used
  ![](images/irshot.png)
 
-
+## SYSTEM OVERVIEW
+###BACKEND
 ### Access and authentication
 
 Using Email and a password players can register Xtag
@@ -226,5 +237,6 @@ The report of the results of these tests are uploaded in docs file.
  [go to report](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/test/test.md)
 
 
-
+## **Bill of materials**
+![](images/bom.PNG)
 
