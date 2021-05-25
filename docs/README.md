@@ -16,28 +16,30 @@ Group Members :
    * [Swarm Dash Board](http://3.93.215.173/swarm/)
    *
 
-### IMAGE
+## IMAGE
 ![](images/gun.jpg)
 
-### TABLE OF CONTENT
+## TABLE OF CONTENT
 
-1. >[OVERVIEW](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#overview)
-2. >[GOALS](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#goals)
-3. >[SPECIFICATIONS](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#specifications)
-4. >[SOLUTION ARCHITECTURE](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#solution-architecture)
-5. >[HARDWARE](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#hardware)
-6. >[WEB INTERFACE](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#software)
-7. >[ALGORITHM](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#algorithm)
-8. >[TESTING](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#testing)
-9. >[BUDGET](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#budget)
+1. >[BACKGROUND](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#BACKGROUND)
+2. >[OUR SYSTEM](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#XTAG SYSTEM)
+3. >[GOALS](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#goals)
+4. >[SPECIFICATIONS](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#specifications)
+5. >[SOLUTION ARCHITECTURE](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#solution-architecture)
+6. >[HARDWARE](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#hardware)
+7. >[WEB INTERFACE](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#software)
+8. >[ALGORITHM](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#algorithm)
+9. >[TESTING](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#testing)
+10. >[BUDGET](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#budget)
 
-### OVERVIEW
+## BACKGROUND
 Infrared games are originated in the united states as a replicate of star wars laser wars 
 which is a popular movie hit.Now laser/IR shooting sports are popular in all over the world.
 There are many Commercial laser tag and Toy class guns are available in the market now.
  
  ![](images/blog.png)
-## But why we need X-TAG which is our new smart infrared shooting sport system:
+ 
+## XTAG SYSTEM
 
 * current related product are,
 * very expensive
@@ -47,15 +49,15 @@ There are many Commercial laser tag and Toy class guns are available in the mark
 * Not updatable
 
 
-### GOALS
+## GOALS
 
 * Shoot father up to 100ft
 * And make cheaper to produce 
 * And most importantly we want to make our system smart.
 
-### HARDWARE
+## HARDWARE
 
-# IR emitter
+### IR emitter
 
 This is the heart of the this project and it is very challenging when we use IR communication for this kind of
 purpose.
@@ -114,7 +116,7 @@ SM0038 - TSOP1738 IR Receiver
  5.   binary (data) 
  ![](images/TSOP1738-Block-Diagram.png)
 
-## **Bill of materials**
+## Bill of materials
 ![](docs/images/bom.PNG)
 
 
