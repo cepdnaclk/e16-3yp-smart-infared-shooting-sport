@@ -100,8 +100,9 @@ SM0038 - TSOP1738 IR Receiver
 
 
 ## CONTROLLER PLATFORMS
-
--   AtMega328 is programming using C language
+-  ESP32 microcontroller is used
+-  It provides integrated dual-mode bluetooth functionality which improves accuracy and speed
+ 
 ### IR Library
 -   Currently it is NEC IR protocol
 -   38 KHz
