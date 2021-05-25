@@ -9,14 +9,35 @@ Group Members :
 * E/16/319 e16319@eng.pdn.ac.lk 
 * E/16/126 e16126@eng.pdn.ac.lk
 
-### X-TAG  Smart infrared shooting sport:
+* Related links
+   * [Faculty website](http://eng.pdn.ac.lk/)
+   * [Department website](http://www.ce.pdn.ac.lk/)
+   * [Web Application Home Page](http://3.93.215.173/)
+   * [Swarm Dash Board](http://3.93.215.173/swarm/)
+   *
 
+### IMAGE
+![](images/gun.jpg)
+
+### TABLE OF CONTENT
+
+1. >[OVERVIEW](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#overview)
+2. >[GOALS](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#goals)
+3. >[SPECIFICATIONS](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#specifications)
+4. >[SOLUTION ARCHITECTURE](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#solution-architecture)
+5. >[HARDWARE](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#hardware)
+6. >[WEB INTERFACE](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#software)
+7. >[ALGORITHM](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#algorithm)
+8. >[TESTING](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#testing)
+9. >[BUDGET](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#budget)
+
+### OVERVIEW
 Infrared games are originated in the united states as a replicate of star wars laser wars 
 which is a popular movie hit.Now laser/IR shooting sports are popular in all over the world.
 There are many Commercial laser tag and Toy class guns are available in the market now.
  
  ![](images/blog.png)
-### But why we need X-TAG which is our new smart infrared shooting sport system:
+## But why we need X-TAG which is our new smart infrared shooting sport system:
 
 * current related product are,
 * very expensive
@@ -26,15 +47,15 @@ There are many Commercial laser tag and Toy class guns are available in the mark
 * Not updatable
 
 
-### So we planned develop a new system which is:
+### GOALS
 
 * Shoot father up to 100ft
 * And make cheaper to produce 
 * And most importantly we want to make our system smart.
 
-# Hardware list 
+### HARDWARE
 
-### IR emitter
+# IR emitter
 
 This is the heart of the this project and it is very challenging when we use IR communication for this kind of
 purpose.
