@@ -346,3 +346,21 @@ Nexus 5X	26	1s 304ms
 Few devices found out that there was a labeling error when registering.
 	-fixed that
 -Evey devices was passed the test
+
+## 6.  Bluetooth Connection test
+
+### Importance :
+	Gun and the moblie aplication commuinicate via the bluetooth. Therefor we done few test to make sure the comuinicate happen perfectly.
+
+### What was tested: 
+
+	Data recieving to Gun
+	Data recieving to App
+
+### How the test was done:
+
+	Test done using arduno serial port and flutter debug console. Send sample of datas and whether they are perfectly recieved.
+
+### Results and findings:
+
+	All the data recieved and no data lost happen. 
