@@ -306,7 +306,7 @@ Cant get shot while shooting.
 When we used interrupt method it solves.But when 
 Face to face shooting happens some shots did not process.
  
-### Tests
+## Tests
 
 -Design level testing -to find best IR collecting method
 -Some Unit tests
