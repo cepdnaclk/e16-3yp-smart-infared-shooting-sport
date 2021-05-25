@@ -9,6 +9,16 @@ Group Members :
 * E/16/319 e16319@eng.pdn.ac.lk 
 * E/16/126 e16126@eng.pdn.ac.lk
 
+* Related links
+   * [Faculty website](http://eng.pdn.ac.lk/)
+   * [Department website](http://www.ce.pdn.ac.lk/)
+   * [Web Application Home Page](http://3.93.215.173/)
+   * [Swarm Dash Board](http://3.93.215.173/swarm/)
+   
+## IMAGE
+   ![](images/gun2.jpg
+   
+1. >OVERVIEW
 ### X-TAG  Smart infrared shooting sport:
 
 Infrared games are originated in the united states as a replicate of star wars laser wars 
