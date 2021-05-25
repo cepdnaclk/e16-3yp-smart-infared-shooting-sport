@@ -204,9 +204,6 @@ Develop using Futter 1.17
 ![](docs/images/crt_or_join.PNG)
 
 
-### Start and play
-![](docs/images/start_n_ply.PNG)
-
 # Tests done
     1. Authentication test (Integrated  security test)
     2. Network compatibility testing
