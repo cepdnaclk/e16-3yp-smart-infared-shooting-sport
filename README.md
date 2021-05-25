@@ -260,14 +260,14 @@ The report of the results of these tests are uploaded in docs file.
 ![](images/aim.png)
 ![](images/mbm.png)
 ![](images/handle.png)
+ ![](images/gun1.jpg)
+ ![](images/gun3.jpg)
+ ![](images/gun4.jpg)
+ ![](images/im1.png)
+ ![](images/im2.png)
+ ![](images/p1.png)
+ ![](images/player3.jpg)
 
-![](docs/images/gun1.jpg)
-![](docs/images/gun3.jpg)
-![](docs/images/gun4.jpg)
-![](docs/images/im1.png)
-![](docs/images/im2.png)
-![](docs/images/p1.png)
-![](docs/images/player3.jpg)
 
 ### Fabrication circuit
 - Used small circuits that are connected to the main circuit for
