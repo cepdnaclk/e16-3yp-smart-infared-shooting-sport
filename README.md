@@ -263,7 +263,7 @@ The report of the results of these tests are uploaded in docs file.
 
 ![](images/hbmain.PNG)
 
-![](images/gunmain.PNG)
+![](images/n.PNG)
 
  
  
