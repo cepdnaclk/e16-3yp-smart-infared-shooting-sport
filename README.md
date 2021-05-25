@@ -71,7 +71,7 @@ purpose.
 **To shoot further we Planned used high power IR**       
 	IR emitter - TSUS5202
 		power=   170mW , 150mA
-**Since Atmega IC cant give 100 mA for the transistor is used**
+**Since esp32 cant give 100 mA for the transistor is used**
 	BD139
 **and a lens is used to focus**
 	-   Diameter about      38mm (1.5″)
@@ -127,7 +127,7 @@ SM0038 - TSOP1738 IR Receiver
 
 ## CONTROLLER PLATFORMS
 
--   AtMega328 is programming using C language
+-   NodeMCU esp32 duel core microtroller
 ### IR Library
 -   Currently it is NEC IR protocol
 -   38 KHz
