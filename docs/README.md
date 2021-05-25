@@ -25,6 +25,10 @@ Group Members :
 3. SOLUATION ARTECHTURE
 4. HARDWARE LIST
 5. SYSTEM OVERVIEW
+6. IMPLEMENTATION
+7. Tests
+8. BILL OF MATERIALS
+
 
 
 ## OVERVIEW
@@ -52,6 +56,18 @@ There are many Commercial laser tag and Toy class guns are available in the mark
 ## SOLUTION ARTCHTECTURE
 
 ![](images/blog.png)
+Every player has a head to reserve IR shots and IR gun to shoot IR.
+	when platyer shoot he shoot with some data.They are,
+	![](images/shotdata.png)
+Every players gun is connected to the mobile application through blutooth.
+Every phonr is connected to the our server.
+Using mobile application,
+	* gun is initilized.
+	* game mode is selected
+Server is used to,
+	*comunicate with the gamne.
+		As a example Find who is the shooter and ,giving scores are done with the help of
+		the backend.
 
 # Hardware list 
 
@@ -130,8 +146,9 @@ SM0038 - TSOP1738 IR Receiver
  ![](images/irshot.png)
 
 ## SYSTEM OVERVIEW
+![](images/sys.png)
 ###BACKEND
-### Access and authentication
+#### Access and authentication
 
 Using Email and a password players can register Xtag
 Players have to verify their  Email before signed in
@@ -154,7 +171,7 @@ Storage
 
 Fast performance, high availability, and security
 
-# Database
+#### Database
  ![](images/db1.PNG)
  ![](images/db2.PNG)
 
@@ -165,21 +182,23 @@ Fast performance, high availability, and security
 - Players' details of each match will be stored as a sub collection inside the relevent match document.
 
 
-## Reasons behind the database
+#### Reasons behind the database
 - When do a query search in a match, It will be efficient
 - When player want see his paset, it will be efficient
 - We can increase the efficiency of the system by deleting  old match data.
 - There Are Some data in the match,which are useless later
      - Ex: isready,rescue code
 
-# Bluetooth Connection
+
+
+#### Bluetooth Connection
 - Connect the gun and and mobile app using bluetooth and tested using real hardware
 - No collision
 - No data Losses
 - Communicate within 0.2s
 
-
-### Data sent form Gun to Mobile
+### Xtag mobile app
+#### Data sent form Gun to Mobile
 - Killer's team, tempId and the dammage
 - Gun is connected or not
 
@@ -190,7 +209,7 @@ Fast performance, high availability, and security
 - Player status when Killed and rescued
 
 
-# Main Functionalities
+### Main Functionalities
  
 - How to refresh the screen when players are connected
     - Streams are used
@@ -200,7 +219,7 @@ Fast performance, high availability, and security
     - Query searching is done by the killed player
  
 
-# User Interface - Mobile Application
+### User Interface - Mobile Application
 Develop using Futter 1.17 
 
 ### Home page
@@ -227,7 +246,15 @@ Develop using Futter 1.17
 ### Start and play
 ![](docs/images/start_n_ply.PNG)
 
-# Tests done
+## IMPLEMENTATION
+![](docs/images/gun1.jpg)
+![](docs/images/gun3.jpg)
+![](docs/images/gun4.jpg)
+![](docs/images/im1.png)
+![](docs/images/im2.png)
+![](docs/images/p1.png)
+![](docs/images/player3.jpg)
+## TESTS
     1. Authentication test (Integrated  security test)
     2. Network compatibility testing
     3. Data Mapping testing
@@ -237,6 +264,6 @@ The report of the results of these tests are uploaded in docs file.
  [go to report](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/test/test.md)
 
 
-## **Bill of materials**
+## BILL OF MATERIALS
 ![](images/bom.PNG)
 
