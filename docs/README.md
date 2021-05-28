@@ -3,16 +3,14 @@
 ### Team
 
 * Group Members 
-* E/16/320 e16329@eng.pdn.ac.lk 
-* E/16/319 e16319@eng.pdn.ac.lk 
-* E/16/126 e16126@eng.pdn.ac.lk
-
-   
- * Supervisor
-   * Dr. Isuru Navinna
-   * Mr. Ziyan Marikkar 
-   * Prof. Roshan Ragel
-   * Dr. Upul Jayasinghe
+	* E/16/320 e16329@eng.pdn.ac.lk 
+	* E/16/319 e16319@eng.pdn.ac.lk 
+	* E/16/126 e16126@eng.pdn.ac.lk
+* Supervisor
+   	* Dr. Isuru Navinna
+   	* Mr. Ziyan Marikkar 
+  	* Prof. Roshan Ragel
+   	* Dr. Upul Jayasinghe
    
   * Related links
    * [Faculty website](http://eng.pdn.ac.lk/)
