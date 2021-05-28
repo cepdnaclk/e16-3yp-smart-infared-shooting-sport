@@ -23,7 +23,7 @@
    
     ## TABLE OF CONTENT
    
-1. >[OVERVIEW](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#overview)
+1. >[OVERVIEW](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#overview)
 2. >[GOALS](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#goals)
 3. >[SPECIFICATIONS](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#specifications)
 4. >[SOLUTION ARCHITECTURE](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#solution-architecture)
