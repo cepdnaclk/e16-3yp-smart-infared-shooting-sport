@@ -11,10 +11,9 @@
    	* Mr. Ziyan Marikkar 
   	* Prof. Roshan Ragel
    	* Dr. Upul Jayasinghe
-   
-  * Related links
-   * [Faculty website](http://eng.pdn.ac.lk/)
-   * [Department website](http://www.ce.pdn.ac.lk/)
+* Related links
+   	* [Faculty website](http://eng.pdn.ac.lk/)
+   	* [Department website](http://www.ce.pdn.ac.lk/)
    
    ### IMAGE
    ![](images/gun2.jpg)
@@ -22,40 +21,48 @@
     ## TABLE OF CONTENT
    
 1. >[OVERVIEW](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#overview)
-2. >[GOALS](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#goals)
-3. >[SPECIFICATIONS](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#specifications)
-4. >[SOLUTION ARCHITECTURE](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#solution-architecture)
-5. >[HARDWARE](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#hardware)
-6. >[WEB INTERFACE](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#software)
-7. >[ALGORITHM](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#algorithm)
-8. >[TESTING](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#testing)
-9. >[BUDGET](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#budget)
+2. >[GOALS](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#goals)
+3. >[SPECIFICATIONS](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#specifications)
+4. >[SOLUTION ARCHITECTURE](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#solution-architecture)
+5. >[HARDWARE](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#hardware)
+6. >[WEB INTERFACE](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#software)
+7. >[ALGORITHM](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#algorithm)
+8. >[TESTING](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#testing)
+9. >[BUDGET](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#budget)
 
 ## OVERVIEW
 
-Infrared games are originated in the united states as a replicate of star wars laser wars 
-which is a popular movie hit.Now laser/IR shooting sports are popular in all over the world.
-There are many Commercial laser tag and Toy class guns are available in the market now.
+X-tag is a Smart IR shooting sport.In currrent related product are, 
  
-
-### But why we need X-TAG which is our new smart infrared shooting sport system:
-
-* current related product are,
 * very expensive
 * Companies with large indoor environments charge up to $10 for a single game.
 * Not enough game modes/options.
 * Not smart enough.
 * Not updatable
 
+	Therefore In this Project we build a tag system with a central server and a mobile application.In that manner we were able to
+	Create a updatable ,smart IR tag system.Also the cost of our system will be very lower compare to current products in the market.
+
 ## GOALS
 
 * Shoot father up to 100ft
 * And make cheaper to produce 
 * And most importantly we want to make our system smart.
+
+## SPECIFICATIONS
+* There are mainly 3 parts in this project .Xtag gun and the headband to shoot and receive IR,Xtag mobile application to
+  Choose game modes,initialize the game and a firebase server for communicate with in the game .
+*  Every gun has a cababilty of shooting more than 30m and many features like LCD screen,LED lights,vibration motors.
+*  The headband is connected to gun with a wired connection and it receive the IR signals shoots by other players.
+*  Also Headband has 3 LEDs to indiacate the Team colour and Another LED to blink when get shotted.Those IR receivers and LEDs are locate in every 
+   4 sides in the gun.
+*  Inizialize the gun before the match,selecting the team,battle mode are done with the help of the Xtag mobile application.Gun is connecting to the mobile using Bluetooth.
+*  Finding the shooter,giving scores,join to a battle are done with the help of the firebase server by connecting to it through the Xtag mobile application.
+*  Thanks to our system artchtecture this system is updatable(Can be added more modes more option with out changing the hardware) and smart one.
+*  
 ## SOLUTION ARTCHTECTURE
 
 ![](images/blog.png)
-
 
 Every player has a head to reserve IR shots and IR gun to shoot IR.
 	when platyer shoot he shoot with some data.They are,
