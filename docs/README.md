@@ -207,15 +207,20 @@ Develop using Futter 1.17
 </p>
 
 ### Connect gun and go to battle
-![](docs/images/connct_gn_and_go_to_ply.PNG)
-
+<p float='left'>
+	<img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/connct_gn_and_go_to_ply.PNG" width="180" height="340"/>
+</p>
 
 ### Create or join a battle
-![](docs/images/crt_or_join.PNG)
+<p float='left'>
+	<img src="github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/crt_or_join.PNG" width="180" height="340"/>
+</p>
 
 
 ### Start and play
-![](docs/images/start_n_ply.PNG)
+<p float='left'>
+	<img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/start_n_ply.PNG" width="180" height="340"/>
+</p>
 
 ## Tests
 ### Xtag application testing
