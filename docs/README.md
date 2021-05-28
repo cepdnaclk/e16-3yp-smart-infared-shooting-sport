@@ -1,28 +1,37 @@
-
-
 # e16-3yp-smart-infared-shooting-sport
 
-This is the 3rd year embedded system project 
+### Team
 
-Group Members :
+* Group Members 
 * E/16/320 e16329@eng.pdn.ac.lk 
 * E/16/319 e16319@eng.pdn.ac.lk 
 * E/16/126 e16126@eng.pdn.ac.lk
 
+   
+ * Supervisor
+   * Dr. Isuru Navinna
+   * Mr. Ziyan Marikkar 
+   * Prof. Roshan Ragel
+   * Dr. Upul Jayasinghe
+   
+  * Related links
+   * [Faculty website](http://eng.pdn.ac.lk/)
+   * [Department website](http://www.ce.pdn.ac.lk/)
+   
+   ### IMAGE
    ![](images/gun2.jpg)
-  
    
     ## TABLE OF CONTENT
    
-1. OVERVIEW
-2. GOALS
-3. SOLUATION ARTECHTURE
-4. HARDWARE LIST
-5. SYSTEM OVERVIEW
-6. HARDWARE DESIGN
-7. IMPLEMENTATION
-8. Tests
-9. BILL OF MATERIALS
+1. >[OVERVIEW](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#overview)
+2. >[GOALS](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport#goals)
+3. >[SPECIFICATIONS](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#specifications)
+4. >[SOLUTION ARCHITECTURE](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#solution-architecture)
+5. >[HARDWARE](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#hardware)
+6. >[WEB INTERFACE](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#software)
+7. >[ALGORITHM](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#algorithm)
+8. >[TESTING](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#testing)
+9. >[BUDGET](https://github.com/cepdnaclk/e16-3yp-obstacle-bots-for-swarm-robots#budget)
 
 ## OVERVIEW
 
