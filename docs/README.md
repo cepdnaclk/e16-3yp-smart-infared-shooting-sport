@@ -26,7 +26,7 @@
 4. >[SOLUTION ARCHITECTURE](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#solution-architecture)
 5. >[HARDWARE](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#hardware)
 6. >[MOBILE APP.](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#backend)
-7. >[BACKEND](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#Mobile app.)
+7. >[BACKEND](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#Mobile-app.)
 8. >[TESTING](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#testing)
 9. >[BUDGET](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#budget)
 
@@ -183,7 +183,7 @@ SM0038 - TSOP1738 IR Receiver
 ![](images/n.PNG)
 
 
-##BACKEND
+## BACKEND
 * ### Access and authentication
 
 Using Email and a password players can register Xtag
@@ -260,7 +260,7 @@ Develop using Futter 1.17
 ### Start and play
 ![](docs/images/start_n_ply.PNG)
 
-## Tests
+## TESTING
 * ### Xtag application testing
     1. Authentication test (Integrated  security test)
     2. Network compatibility testing
@@ -284,7 +284,7 @@ Develop using Futter 1.17
  
 
 
-## BILL OF MATERIALS
+## BUDGET
 ![](images/bom.PNG)
 
 	
