@@ -25,8 +25,8 @@
 3. >[SPECIFICATIONS](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#specifications)
 4. >[SOLUTION ARCHITECTURE](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#solution-architecture)
 5. >[HARDWARE](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#hardware)
-6. >[WEB INTERFACE](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#software)
-7. >[ALGORITHM](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#algorithm)
+6. >[MOBILE APP.](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#backend)
+7. >[BACKEND](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#Mobile app.)
 8. >[TESTING](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#testing)
 9. >[BUDGET](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/docs#budget)
 
@@ -58,79 +58,80 @@ X-tag is a Smart IR shooting sport.In currrent related product are,
    4 sides in the gun.
 *  Inizialize the gun before the match,selecting the team,battle mode are done with the help of the Xtag mobile application.Gun is connecting to the mobile using Bluetooth.
 *  Finding the shooter,giving scores,join to a battle are done with the help of the firebase server by connecting to it through the Xtag mobile application.
-*  Thanks to our system artchtecture this system is updatable(Can be added more modes more option with out changing the hardware) and smart one.
-*  
+*  Thanks to our system artchtecture this system is updatable(Can be added more modes more option without changing the hardware) and a smart one.
+
 ## SOLUTION ARTCHTECTURE
 
 ![](images/blog.png)
 
-Every player has a head to reserve IR shots and IR gun to shoot IR.
-	when platyer shoot he shoot with some data.They are,
+* Every player has a head to reserve IR shots and IR gun to shoot IR.
+	* when the platyer shoots he shoot with some data.They are,
 	![](images/shotdata.png)
-Every players gun is connected to the mobile application through blutooth.
-Every phonr is connected to the our server.
-Using mobile application,
+* Every players gun is connected to the mobile application through blutooth.
+* Every phonr is connected to the our server.
+* Using mobile application,
 	* gun is initilized.
 	* game mode is selected
-Server is used to,
-	*comunicate with the gamne.
-		As a example Find who is the shooter and ,giving scores are done with the help of
-		the backend.
-## Hardware list 
+* Server is used to,
+	* comunicate with the gamne.
+		* As a example Find who is the shooter and ,giving scores are done with the help of
+		  the backend.
+		  
+## HARDWARE
 
-### IR emitter
+* ### IR emitter
 
 This is the heart of the this project and it is very challenging when we use IR communication for this kind of
-purpose.
-**To shoot further we Planned used high power IR**       
-	IR emitter - TSUS5202
-		power=   170mW , 150mA
-**Since esp32 cant give 100 mA for the transistor is used**
-	BD139
-**and a lens is used to focus**
-	-   Diameter about      38mm (1.5″)
+purpose
+* To shoot further we Planned used high power IR      
+	* IR emitter - TSUS5202
+	* power=   170mW , 150mA
+* Since esp32 cant give 100 mA for the transistor is used 
+	* BD139
+* and a lens is used to focus 
+	* Diameter about   -   38mm (1.5″)
 
 
 
-### IR reviser
+* ### IR receiver
 
- - SM0038 - TSOP1738 - 38KHz IR receiver 	
- - This Moduile has built in   
- -  signal amplifier
- -    2.5 V to 5.5 V
+ 	* SM0038 - TSOP1738 - 38KHz IR receiver 	
+ 	* This Moduile has built in   
+	*  signal amplifier
+	*   2.5 V to 5.5 V
   
-### LCD screen 16x2 with I2C module
+* ### LCD screen 16x2 with I2C module
 
- - standard HD44780  	
- - 5V
+ 	* standard HD44780  	
+ 	* 5V
 
-### sunder
+* ### sunder
 
- - Buzzer Piezo Bleeper Sounder  	
- - Frequency 4kHz 	
- - power - 10mA
+ 	* Buzzer Piezo Bleeper Sounder  	
+ 	* Frequency 4kHz 	
+ 	* power - 10mA
  - 
-### vibration motor
+* ### vibration motor
 	
- - 10000RPM Metal Brush
- - 	DC 3.7V 5V  135mA-180mA
+ 	* 10000RPM Metal Brush
+ 	* DC 3.7V 5V  135mA-180mA
 
 And also push button and RGB LED are used.
 
 
-### IR circuit
+* ### IR circuit
 
 ![](images/iremitter.png)
-### IR lens
+* ### IR lens
 ![](images/irlens.png)
 
-### **IR Receiver**
+* ### IR Receiver
 
 ![](images/TSOP1738-Pin-Configuration.png)
 SM0038 - TSOP1738 IR Receiver
 
 
-3 pin
+ 1. 3 pin
  2.   38KHz
  3.   -40 to +80C
  4.   2.5 V to 5.5 V
@@ -139,78 +140,106 @@ SM0038 - TSOP1738 IR Receiver
 
 
 
-## CONTROLLER PLATFORMS
+* ## CONTROLLER PLATFORMS
 
--   NodeMCU esp32 duel core microtroller
-### IR Library
--   Currently it is NEC IR protocol
--   38 KHz
-- 8  bit is used
+	* NodeMCU esp32 duel core microtroller
+* ### IR Library
+  	* Currently it is NEC IR protocol
+   	* 38 KHz
+ 	* 8  bit is used
  ![](images/irshot.png)
- 
-## SYSTEM OVERVIEW
+
 ![](images/sys.png)
-###BACKEND
-### Access and authentication
+
+* ### implementation
+
+- Design seperated into several parts for the ease of 3D printing
+![](images/scope.png)
+![](images/aim.png)
+![](images/mbm.png)
+![](images/handle.png)
+ ![](images/gun1.jpg)
+ ![](images/gun3.jpg)
+ ![](images/gun4.jpg)
+ ![](images/im1.png)
+ ![](images/im2.png)
+ ![](images/p1.png)
+ ![](images/player3.jpg)
+
+
+* ### Fabrication circuit
+* Used small circuits that are connected to the main circuit for
+	* Switch buttons
+	* LEDs
+	* Vibrator motor
+	* IR emitter
+	* Buzzer
+
+
+* Connections are done according to the AtMega328P datasheet
+
+![](images/hbmain.PNG)
+
+![](images/n.PNG)
+
+
+##BACKEND
+* ### Access and authentication
 
 Using Email and a password players can register Xtag
 Players have to verify their  Email before signed in
 More detail will be on testing report
 
-
-# [](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/tree/main/docs#back-end-technologies) Back-end technologies
-Firebase
-
-- It is ideal for our Xtag mobile app.
-- Cloud deployment -Firestore 
-    - database helps to store real-time and synchronize game data.
-- Firebase authentication library is used for authentication
+	* It is ideal for our Xtag mobile app.
+	* Cloud deployment -Firestore 
+		* database helps to store real-time and synchronize game data.
+	* Firebase authentication library is used for authentication
     
 
-Storage
+* ### Storage
 
--   Cloud Firestore
-    
-
-Fast performance, high availability, and security
-
-### Database
- ![](images/db1.PNG)
- ![](images/db2.PNG)
+	* Cloud Firestore
 
 
-- Two main collections are used to store Player data and Match data.
-- Player collection will store records as documents according to the Used ID.
-- Match collection will store records as documents according to the Match ID.
-- Players' details of each match will be stored as a sub collection inside the relevent match document.
+	Fast performance, high availability, and security
+
+* ### Database
+	 ![](images/db1.PNG)
+	 ![](images/db2.PNG)
 
 
-### Reasons behind the database
-- When do a query search in a match, It will be efficient
-- When player want see his paset, it will be efficient
-- We can increase the efficiency of the system by deleting  old match data.
-- There Are Some data in the match,which are useless later
-     - Ex: isready,rescue code
+	* Two main collections are used to store Player data and Match data.
+	* Player collection will store records as documents according to the Used ID.
+	* Match collection will store records as documents according to the Match ID.
+	* Players' details of each match will be stored as a sub collection inside the relevent match document.
 
 
+* ### Reasons behind the database
+	* When do a query search in a match, It will be efficient
+	* When player want see his paset, it will be efficient
+	* We can increase the efficiency of the system by deleting  old match data.
+	* There Are Some data in the match,which are useless later
+		* 	Ex: isready,rescue code
 
-### Main Functionalities
+## MOBILE APP.
+
+* ### Main Functionalities
  
-- How to refresh the screen when players are connected
-    - Streams are used
-- Syncing the game time counter
-- How to set a tempid
-- How to give a score to the shooter
-    - Query searching is done by the killed player
- 
+	* How to refresh the screen when players are connected
+	 	 * Streams are used
+	* Syncing the game time counter
+	* How to set a tempid
+	* How to give a score to the shooter
+	  	  * Query searching is done by the killed player
 
-### User Interface - Mobile Application
+
+* ### User Interface - Mobile Application
 Develop using Futter 1.17 
 
-### Home page
+* ### Home page
 <img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/UI_HomePage1.png" width="180" height="340"/>
 
-### User Profile
+* ### User Profile
 ![](docs/images/profile.PNG)
 
 ### SignIn and SignUp pages
@@ -232,173 +261,28 @@ Develop using Futter 1.17
 ![](docs/images/start_n_ply.PNG)
 
 ## Tests
-### Xtag application testing
+* ### Xtag application testing
     1. Authentication test (Integrated  security test)
     2. Network compatibility testing
     3. Data Mapping testing
     4. Stored Procedures(Black box testing)
     5. Device compatibility testing
-The report of the results of these tests are uploaded in docs file.
- [go to report](https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/master/test/test.md)
+* software testing sumarry : https://docs.google.com/document/d/15QQ1ZPAIXyWhq7m--7BOh9n0jbu_8oZKydKhLDy0Gqo/edit?usp=sharing
+* software testing report : https://docs.google.com/document/d/1bhaTQPnoYpXo6yQ9MJRpFDIS963kJpqcUUipNbIv-IE/edit?usp=sharing
  
-### Embedded system testing
+* ### Embedded system testing
 
--Design level testing -to find best IR collecting method
--Some Unit tests
-
--Physical test - With the IR tube
--Debug tests
--System Integration Tests
-
-#### Design Level testing
- ![](images/c2.PNG)
-
--Simulate face to face shooting of two players
--Have shot 50 shots at a time ,and repeat the process 4 times
--To pull the trigger 3rd microcontroller is used
--And randomly press the  both trigger
--5 shots per a second(Fire rate)
-
-#### Design Level testing To find suitable IR collect method
-
-how its done,
--Simulate face to face shooting of two players
--Have shot 50 shots at a time ,and repeat the process 4 times
--To pull the trigger 3rd microcontroller is used
--And randomly press the  both trigger
--5 shots per a second(Fire rate)
-
-Results
-Polling method Out of 50 shots average only 26 shots are processed
-In interrupt method Out of 50 shots average only 35 shots are processed.
- There fore we planned to continue wqith the Interrput method.
- But it not works round 70% times .However,
--Face to face shooting in a combat field is very rare.
--Fair for everyone
-##### To make it perfect duel core microcoltroller is needed
-We planned to test our cordes in the NodeMCU ESP32 dual core microcontroller
--Programming architecture will be the same
--Since we are using C language its very easy Continue from there	
--IR library also available for the nodeMCU
-
-#### units tests 
- Done with real hardware IR shooting
-→ Work perfectly
- IR Capturing  
--When multiple units are connected parallelly
--If more units reserves a same code at the same time  → Works perfectly
--If multiple units reserves different cords at the same time → Only    read one shot
- Bluetooth communication
-Works perfectly
-
-#### Physical testing of the IR tube
-Firing range testing
-
--currently it can shoot up 
--fine tune the range with the focus lens
--Give more power using the transistor
--Goal is to Shoot more than 100 ft
-
-#### Accuray testing
-If the IR beam is not focused enough
--It is too easy to get a kill
--Not challenging enough
-
-If the IR beam is focused too much
--Even when u hit to head ,It did not count as a shot
--Should tune with tube diameter and the lens power
--Scope adjustments
-
- ![](images/c3.PNG)
-  ![](images/c4.PNG)
-
-#### Debug tests
--Watch window test
--Register view window test
-#### System integration testing
-
-
- ## Hardware Design
+1. Design level testing -to find best IR collecting method
+2. Unit tests
+	* Blutooth communication
+	* IR communication	
+4. Physical test
+	* Fire range
+	* fire accuracy
+* HArdware testing sumarry : https://docs.google.com/document/d/1yRsRNFsx3cfH2Z9USqZvHvry2KBjpZQ3aWNl-_fgJvw/edit?usp=sharing
+* HArdware testing report : https://docs.google.com/document/d/1XJSeqUBuJQFIUvLsx5cCLyxi5nqX5FbRWItxmr5zCmQ/edit?usp=sharing
  
- ![](images/g1.png)
- ![](images/g3.png)
- ![](images/rr5.png)
- ![](images/hb.png)
- 
- 
- ### User experience
- 
- - Comfortable size and shape 
- - Real gaming experiece with sound effects, vibrations when shooting and LEDs
- - Mobile phone mounter
- - Reload button to reset the gun
 
-### Features and functionalities
-
-- Trigger functionality
-- Mobile phone mountable bar
-- Reset button
-- Rechargeable power bank
-
-
-![](images/tt.PNG)
-
-
-## implementation
-
-- Design seperated into several parts for the ease of 3D printing
-![](images/scope.png)
-![](images/aim.png)
-![](images/mbm.png)
-![](images/handle.png)
- ![](images/gun1.jpg)
- ![](images/gun3.jpg)
- ![](images/gun4.jpg)
- ![](images/im1.png)
- ![](images/im2.png)
- ![](images/p1.png)
- ![](images/player3.jpg)
-
-
-### Fabrication circuit
-- Used small circuits that are connected to the main circuit for
-	- Switch buttons
-	- LEDs
-	- Vibrator motor
-	- IR emitter
-	- Buzzer
-
-
-- Connections are done according to the AtMega328P datasheet
-
-![](images/hbmain.PNG)
-
-![](images/n.PNG)
-
- 
- ### Embedded sytem 
- ### progress 
-
- 
- currently we are  programming and Testing the Hardware.
-And we  Have complete two guns in the bread board with main functions.
-IR sending,Trigger button,IR reserving and buzzer are perfectly working right now.
-And also Mobile app is connected with the blutooth now.
-We have already ran some tests and there are more test in the shedule. 
- ![](images/c1.PNG)
-
-
- ### Programme Architecture
-AtMega328p has 2 external interrupt pins.
-And it is a single core Microcontroller.
-Trigger (To shoot IR) interrupts (Pin 3)  is used.
-To Collect IR when we used Polling methods ,
-Cant get shot while shooting.
-When we used interrupt method it solves.But when 
-Face to face shooting happens some shots did not process.
-
-
-	
 
 ## BILL OF MATERIALS
 ![](images/bom.PNG)
