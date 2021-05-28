@@ -272,13 +272,14 @@ Develop using Futter 1.17
  
 * ### Embedded system testing
 
-1. Design level testing -to find best IR collecting method
-2. Unit tests
-	* Blutooth communication
-	* IR communication	
-4. Physical test
-	* Fire range
-	* fire accuracy
+	1. Design level testing -
+		* to find best IR collecting method
+	3. Unit tests
+		* Blutooth communication
+		* IR communication	
+	4. Physical test
+		* Fire range
+		* fire accuracy
 * HArdware testing sumarry : https://docs.google.com/document/d/1yRsRNFsx3cfH2Z9USqZvHvry2KBjpZQ3aWNl-_fgJvw/edit?usp=sharing
 * HArdware testing report : https://docs.google.com/document/d/1XJSeqUBuJQFIUvLsx5cCLyxi5nqX5FbRWItxmr5zCmQ/edit?usp=sharing
  
