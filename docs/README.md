@@ -176,7 +176,7 @@ SM0038 - TSOP1738 IR Receiver
 	* Buzzer
 
 
-* Connections are done according to the AtMega328P datasheet
+* Connections are done according to the NODE MCU esp32 datasheet
 
 ![](images/hbmain.PNG)
 
