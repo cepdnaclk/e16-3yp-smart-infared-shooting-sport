@@ -2,7 +2,7 @@
 
 # e16-3yp-smart-infared-shooting-sport
 
-This is the 3rd year embedded system project 
+This is the 3rd year project 
 
 Group Members :
 * E/16/320 e16329@eng.pdn.ac.lk 
