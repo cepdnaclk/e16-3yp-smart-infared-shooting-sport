@@ -2,7 +2,7 @@
 
 # e16-3yp-smart-infared-shooting-sport
 
-This is the 3rd year project 
+This is the 3rd year embedded system project 
 
 Group Members :
 * E/16/320 e16329@eng.pdn.ac.lk 
@@ -207,16 +207,15 @@ Develop using Futter 1.17
 </p>
 
 ### Connect gun and go to battle
-<p float='left'>
-	<img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/connct_gn_and_go_to_ply.PNG" width="540" height="340"/>
-</p>
+![](docs/images/connct_gn_and_go_to_ply.PNG)
+
 
 ### Create or join a battle
-<p float='left'>
-	<img src="https://github.com/cepdnaclk/e16-3yp-smart-infared-shooting-sport/blob/main/docs/images/crt_or_join.PNG" width="540" height="340"/>
-</p>
+![](docs/images/crt_or_join.PNG)
 
 
+### Start and play
+![](docs/images/start_n_ply.PNG)
 
 ## Tests
 ### Xtag application testing
@@ -391,10 +390,7 @@ Face to face shooting happens some shots did not process.
 ![](images/bom.PNG)
 
 	
-## Demonstration
 
-The demonstration vedio :
- [go to vedio](https://drive.google.com/file/d/1a6kVjcnCTQCvDKRnqzcPr8oCJybpMAp6/view?usp=sharing)
  
 
  
