@@ -294,7 +294,7 @@ Develop using Futter 1.17
 ## Demonstration
 
 The demonstration video :
- [go to vedio](https://drive.google.com/file/d/1a6kVjcnCTQCvDKRnqzcPr8oCJybpMAp6/view?usp=sharing)
+ [go to video](https://drive.google.com/file/d/1a6kVjcnCTQCvDKRnqzcPr8oCJybpMAp6/view?usp=sharing)
  
  
 
