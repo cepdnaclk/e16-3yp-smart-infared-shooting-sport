@@ -68,6 +68,10 @@ X-tag is a Smart IR shooting sport.In currrent related product are,
 
 * Every player has a head to reserve IR shots and IR gun to shoot IR.
 	* when the platyer shoots he shoot with some data.They are,
+		* Team ID
+		* Damage
+		* Player ID
+		
 	![](images/shotdata.png)
 * Every players gun is connected to the mobile application through blutooth.
 * Every phonr is connected to the our server.
